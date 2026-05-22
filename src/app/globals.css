@@ -1,26 +1,412 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eef1f6;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-muted: #f4f6f9;
+  --surface-soft: #e8ecf2;
+  --border-subtle: #d8dee8;
+  --brand-blue: #0b3c91;
+  --brand-blue-muted: #355a9c;
+  --brand-blue-soft: #b9d7ff;
+  --brand-yellow: #e8c31a;
+  --brand-yellow-hover: #d4b010;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-muted: var(--brand-blue-muted);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --breakpoint-3xl: 120rem;
+  --breakpoint-4xl: 160rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: clamp(3.75rem, 11vw, 5.75rem);
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  overflow-x: clip;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 900px 420px at 12% -8%, rgb(11 60 145 / 0.09), transparent 55%),
+    radial-gradient(ellipse 720px 380px at 92% 12%, rgb(232 195 26 / 0.07), transparent 50%),
+    linear-gradient(180deg, #f9fafb 0%, #eef1f6 38%, #e8ecf2 100%);
+  font-family: var(--font-sans), Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.section-vision {
+  background:
+    radial-gradient(ellipse 100% 120% at 50% -20%, rgb(232 195 26 / 0.1), transparent 52%),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+  border-color: var(--border-subtle);
+}
+
+.section-commitment-card {
+  background: linear-gradient(155deg, #ffffff 0%, #fafbfc 45%, #f3f6f9 100%);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset,
+    0 12px 40px -28px rgb(11 60 145 / 0.18),
+    0 4px 16px -8px rgb(15 23 42 / 0.06);
+}
+
+.section-trust {
+  background: linear-gradient(105deg, #082d6e 0%, #0b3c91 42%, #0c4a9e 72%, #0a3478 100%);
+}
+
+.section-about {
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 55%, #f4f6f9 100%);
+}
+
+.section-finder {
+  background: linear-gradient(180deg, #f6f8fb 0%, #eef2f6 100%);
+}
+
+.section-news {
+  background: linear-gradient(180deg, #fbfcfd 0%, #ffffff 70%);
+}
+
+.section-solutions {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgb(11 60 145 / 0.05), transparent 55%),
+    linear-gradient(180deg, #e9edf3 0%, #f1f4f8 45%, #f7f9fc 100%);
+}
+
+.inner-cta-primary {
+  @apply inline-flex min-h-[44px] items-center justify-center rounded-lg bg-[var(--brand-yellow)] px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0f172a] shadow-md shadow-[#0b3c91]/10 transition-[transform,box-shadow,background-color] duration-200 hover:bg-[var(--brand-yellow-hover)] hover:shadow-lg hover:shadow-[#0b3c91]/15 active:translate-y-px;
+}
+
+.inner-cta-ghost {
+  @apply inline-flex min-h-[44px] items-center justify-center rounded-lg border border-white/40 bg-white/10 px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-sm backdrop-blur-sm transition-[transform,background-color,border-color] duration-200 hover:border-white/55 hover:bg-white/[0.18] active:translate-y-px;
+}
+
+.inner-cta-solid {
+  @apply inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-[var(--brand-blue)] bg-[var(--brand-blue)] px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-md shadow-[#0b3c91]/20 transition-[transform,background-color,box-shadow] duration-200 hover:bg-[#0a3376] hover:shadow-lg active:translate-y-px;
+}
+
+.inner-cta-outline {
+  @apply inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-[var(--border-subtle)] bg-white px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue)] transition-[transform,border-color,box-shadow] duration-200 hover:border-[var(--brand-blue)]/35 hover:shadow-sm active:translate-y-px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary {
+  user-select: none;
+}
+
+@keyframes mobile-nav-drawer-panel {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes mobile-nav-drawer-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mobile-nav-drawer-panel {
+  will-change: transform;
+  transform: translateZ(0);
+  animation: mobile-nav-drawer-panel 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.mobile-nav-drawer-backdrop {
+  will-change: opacity;
+  animation: mobile-nav-drawer-backdrop 0.2s ease-out forwards;
+}
+
+/* Footer departments: explicit grid prevents overlapping columns (Tailwind flex/grid edge cases). */
+#contact .footer-departments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  column-gap: clamp(0.625rem, 3vw, 5rem);
+  row-gap: 0;
+  width: 100%;
+}
+
+#contact .footer-departments > .footer-department-item {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Gentle fade when opening a page (route change). */
+@keyframes smooth-page-in {
+  from {
+    opacity: 0.94;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.smooth-page {
+  animation: smooth-page-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0.92;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-enter {
+  animation: hero-fade-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Cards & tiles: smooth hover / press — not scroll-triggered. */
+.interactive-card {
+  transition:
+    transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .interactive-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 44px -18px rgb(11 60 145 / 0.22);
+  }
+}
+
+.interactive-card:active {
+  transform: translateY(-1px) scale(0.993);
+  transition-duration: 0.12s;
+}
+
+/* Equipment catalog: tabs, filters, model cards (home explorer + /products listing). */
+.catalog-tab {
+  transition:
+    color 0.32s ease,
+    border-color 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.catalog-filter {
+  transition:
+    color 0.3s ease,
+    background-color 0.32s ease,
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+}
+
+.catalog-model-card {
+  transition:
+    transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.32s ease;
+}
+
+.catalog-model-card .catalog-model-media {
+  transition: border-color 0.32s ease;
+}
+
+.catalog-model-card .catalog-model-img {
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.catalog-model-card .catalog-model-title {
+  transition: color 0.3s ease;
+}
+
+.catalog-model-card .catalog-model-cta {
+  transition: color 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .catalog-model-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px -16px rgb(11 60 145 / 0.2);
+    border-color: var(--border-subtle);
+  }
+
+  .catalog-model-card:hover .catalog-model-img {
+    transform: scale(1.06);
+  }
+
+  .catalog-model-card:hover .catalog-model-title {
+    color: #0a3376;
+  }
+
+  .catalog-model-card:hover .catalog-model-cta {
+    color: var(--brand-blue);
+  }
+}
+
+.catalog-model-card:active {
+  transform: translateY(-1px) scale(0.992);
+  transition-duration: 0.14s;
+}
+
+@keyframes catalog-grid-in {
+  from {
+    opacity: 0.92;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.catalog-grid-enter {
+  animation: catalog-grid-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Home: image + text split blocks (Corporate overview, UHEEM, commitment banner). */
+.split-section-image-wrap {
+  overflow: hidden;
+}
+
+.split-section-img {
+  transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.split-section-accent {
+  transition:
+    border-color 0.4s ease,
+    padding-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.split-section-heading {
+  transition: opacity 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .split-section:hover .split-section-img {
+    transform: scale(1.045);
+  }
+
+  .split-section:hover .split-section-accent {
+    border-color: var(--brand-yellow);
+  }
+}
+
+.home-cta {
+  transition:
+    transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.32s ease,
+    border-color 0.32s ease,
+    color 0.32s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -12px rgb(11 60 145 / 0.28);
+  }
+
+  .home-cta-outline:hover {
+    border-color: rgb(11 60 145 / 0.55);
+    background-color: #fff;
+  }
+}
+
+.home-cta:active {
+  transform: translateY(0) scale(0.99);
+  transition-duration: 0.14s;
+}
+
+.commitment-banner {
+  transition: box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.commitment-banner .commitment-bg {
+  transition: transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .commitment-banner:hover {
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.9) inset,
+      0 20px 52px -24px rgb(11 60 145 / 0.35),
+      0 8px 24px -8px rgb(15 23 42 / 0.12);
+  }
+
+  .commitment-banner:hover .commitment-bg {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mobile-nav-drawer-panel {
+    animation: none;
+    transform: translateX(0);
+  }
+
+  .mobile-nav-drawer-backdrop {
+    animation: none;
+    opacity: 1;
+  }
+
+  .smooth-page,
+  .hero-enter {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .interactive-card,
+  .interactive-card:hover,
+  .interactive-card:active,
+  .catalog-model-card,
+  .catalog-model-card:hover,
+  .catalog-model-card:active,
+  .catalog-model-card:hover .catalog-model-img {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .catalog-grid-enter {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .split-section:hover .split-section-img,
+  .commitment-banner:hover .commitment-bg {
+    transform: none !important;
+  }
+
+  .split-section-img,
+  .commitment-banner .commitment-bg,
+  .split-section-accent,
+  .home-cta,
+  .home-cta:hover,
+  .home-cta:active,
+  .commitment-banner {
+    transition: none !important;
+  }
+
+  .home-cta:hover,
+  .commitment-banner:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
