@@ -119,7 +119,7 @@ export default function BrochuresPage() {
           <h1 className={`mt-3 ${pageHeroTitleBrandClass}`}>Find your model brochure</h1>
           <p className={pageHeroLeadBrandClass}>
             Only models with a brochure PDF on file are listed below—the full Nepal lineup remains on Products. Labels match the
-            catalog; PDF filenames may differ from the model code (e.g. XP168 listed with file XP163.pdf).
+            catalog; PDF filenames may differ from the model code (e.g. XP163 listed with file XP163.pdf).
           </p>
           <div className={pageHeroActionsClass}>
             <a href="mailto:info@uheem.com.np?subject=Brochure%20request" className="inner-cta-primary">

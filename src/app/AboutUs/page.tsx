@@ -83,7 +83,8 @@ export default function AboutPage() {
             United Heavy Equipment &amp; Earth Movers Pvt. Ltd.
           </h1>
           <p className={pageHeroLeadBrandClass}>
-            <span className="font-semibold text-white">UHEEM</span> is a proud member of the Vaidya Group and serves as the
+            <span className="font-semibold text-white">UHEEM</span> is a proud member of Vaidya&apos;s Organization of Industries
+            &amp; Trading Houses and serves as the
             authorized distributor of XCMG in Nepal. UHEEM delivers a wide range of world-class construction and heavy
             equipment, genuine spare parts, and after-sales services across the country.
           </p>
@@ -104,7 +105,8 @@ export default function AboutPage() {
                   introducing advanced heavy machinery and engineering solutions to the market.
                 </p>
                 <p>
-                  Backed by the legacy and trust of the Vaidya Group, UHEEM has consistently expanded its footprint by
+                  Backed by the legacy and trust of Vaidya&apos;s Organization of Industries &amp; Trading Houses, UHEEM has
+                  consistently expanded its footprint by
                   providing reliable equipment and technical expertise to meet the nation&apos;s development needs. From roads
                   and hydropower projects to urban construction, UHEEM continues to contribute to Nepal&apos;s
                   modernization.
