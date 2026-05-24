@@ -24,7 +24,6 @@ Marketing and product catalog site for **XCMG Nepal**, operated by **United Heav
 Requirements: **Node.js 20+** and npm.
 
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
@@ -43,7 +42,6 @@ Other scripts:
 ## Project layout
 
 ```
-frontend/
 ├── public/          Static assets (images, brochure PDFs, video)
 ├── src/app/         Routes and pages (App Router)
 │   ├── _components/ Shared UI (header, footer, hero, catalog)
@@ -63,7 +61,6 @@ frontend/
 
 Build output is a standard Next.js app. Deploy on [Vercel](https://vercel.com), Netlify, or any Node host:
 
-- **Root directory:** `frontend` (if the repo root is the parent folder)
 - **Build command:** `npm run build`
 - **Output:** Next.js default
 
