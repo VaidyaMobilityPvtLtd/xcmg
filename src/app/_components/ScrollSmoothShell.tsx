@@ -64,9 +64,24 @@ export default function ScrollSmoothShell({ children }: { children: React.ReactN
     try {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     } catch {
-  
+      /* ignore */
     }
+
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    const target = hash ? document.querySelector(hash) : null;
     const L = lenisRef.current;
+
+    if (target instanceof HTMLElement) {
+      if (L) {
+        requestAnimationFrame(() => {
+          L.scrollTo(target, { offset: -72, immediate: false });
+        });
+      } else {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+      }
+      return;
+    }
+
     if (L) L.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
   }, [pathname, prefersReducedMotion]);

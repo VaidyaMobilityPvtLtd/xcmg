@@ -166,7 +166,11 @@ export default function SiteHeader() {
           <Link href="/services" className="rounded px-1.5 py-1 transition-colors hover:text-[var(--brand-yellow)]">
             SERVICES
           </Link>
-          
+
+          <Link href="/contact#contact-form" className="rounded px-1.5 py-1 transition-colors hover:text-[var(--brand-yellow)]">
+            CONTACT
+          </Link>
+
           <Link href="/news" className="rounded px-1.5 py-1 transition-colors hover:text-[var(--brand-yellow)]">
             NEWS
           </Link>

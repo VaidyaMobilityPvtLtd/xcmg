@@ -239,7 +239,7 @@ export default function ServiceOutletsPage() {
                 Email service team
               </a>
               <Link
-                href="/#contact"
+                href="/contact#contact-form"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-white/35 bg-white/10 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-[transform,background-color] duration-200 hover:bg-white/20 active:translate-y-px"
               >
                 Contact form

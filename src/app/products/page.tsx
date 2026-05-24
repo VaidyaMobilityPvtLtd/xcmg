@@ -18,7 +18,13 @@ import {
   productsSegmentHref,
   productsSubtypeHref,
 } from "../_data/displayEquipment";
-import { formatEquipmentTypeLabel, portfolioImageForCategory } from "../_lib/productsListing";
+import {
+  equipmentModelCardVisual,
+  equipmentModelDetailImageClass,
+  formatEquipmentTypeLabel,
+  portfolioImageForCategory,
+} from "../_lib/productsListing";
+import { displayProductDescription } from "../_lib/productDescription";
 import { evProductDescriptionsByModel } from "../_data/evSpecifications";
 import { concreteDescriptionForModel, concreteSpecificationsForModel } from "../_data/concreteSpecifications";
 import { productSpecificationsForModel } from "../_data/productSpecifications";
@@ -216,6 +222,19 @@ export default async function ProductsPage({ searchParams }: Props) {
   const heroImageSrc =
     selectedMeta?.caseImage ?? selectedModelImage ?? (selectedModel ? portfolioImageForCategory(selectedModel.segmentKey) : null);
   const heroImageBypassOpt = heroImageSrc ? equipmentImageShouldBypassOptimization(heroImageSrc) : false;
+  const detailImageClass = selectedModel
+    ? equipmentModelDetailImageClass(selectedModel.subtypeSlug, selectedModel.model)
+    : "";
+  const detailImagePadding = selectedModel
+    ? equipmentModelCardVisual(selectedModel.subtypeSlug, selectedModel.model).framePaddingClass
+    : "p-3 sm:p-4";
+  const detailDescriptionText = selectedModel
+    ? displayProductDescription(
+        selectedMeta?.description,
+        selectedMeta?.caseTitle ??
+          `${selectedModel.model} — catalog equipment configured for Nepal sites with local support from UHEEM.`,
+      )
+    : "";
   const categoryForSegment = segment
     ? displayEquipmentCatalog.find((c) => c.key === segment) ?? null
     : null;
@@ -337,7 +356,7 @@ export default async function ProductsPage({ searchParams }: Props) {
         {selectedModel && selectedModelSpecs.length > 0 ? (
           <section className="border-b border-[var(--border-subtle)] bg-white">
             <div className="relative mx-auto w-[92vw] max-w-[1600px] px-4 pb-10 pt-8 text-left sm:pb-12 sm:pt-10 md:px-6 md:pb-14 md:pt-12">
-              <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0 xl:gap-x-12">
+              <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-0 xl:gap-x-12">
                 <div className="order-1 min-w-0 max-w-none lg:order-1 lg:col-span-3 lg:max-w-xl">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">
                     {selectedMeta?.family ?? selectedModel.subtypeName}
@@ -379,13 +398,13 @@ export default async function ProductsPage({ searchParams }: Props) {
 
                 <div className="order-2 flex min-w-0 w-full items-start justify-center self-start lg:order-2 lg:col-span-6 lg:px-0">
                   {heroImageSrc ? (
-                    <div className={`${catalogModelDetailImageShell} p-3 sm:p-4`}>
+                    <div className={`${catalogModelDetailImageShell} ${detailImagePadding}`}>
                       <Image
                         src={heroImageSrc}
                         alt={`XCMG ${selectedModel.model}`}
                         fill
                         sizes="(max-width: 1024px) 100vw, 58vw"
-                        className="object-contain object-center"
+                        className={`object-contain object-center ${detailImageClass}`}
                         priority
                         unoptimized={heroImageBypassOpt}
                       />
@@ -400,9 +419,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                     Product description
                   </p>
                   <p className="mt-4 whitespace-pre-line border-t border-[#e8ecf2] pt-4 text-sm leading-relaxed text-[#475569] sm:mt-8 sm:pt-6 md:text-base">
-                    {selectedMeta?.description ??
-                      selectedMeta?.caseTitle ??
-                      `${selectedModel.model} — catalog equipment configured for Nepal sites with local support from UHEEM.`}
+                    {detailDescriptionText}
                   </p>
                 </div>
               </div>

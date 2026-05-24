@@ -154,6 +154,11 @@ function MobileNavDrawerInner() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact#contact-form" onClick={close} className={`${subLink} min-h-12 font-semibold text-[var(--brand-blue)]`}>
+                  Contact
+                </Link>
+              </li>
+              <li>
                 <Link
                   href="/DownloadBrochure"
                   onClick={close}

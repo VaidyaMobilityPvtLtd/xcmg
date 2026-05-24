@@ -105,21 +105,22 @@ export default function Home() {
                 <div className="split-section-accent mt-3 border-l-[3px] border-[var(--brand-yellow)] pl-5 sm:pl-6 md:mt-4">
                   <h2
                     id="about-xcmg-intro"
-                    className="split-section-heading max-w-xl text-balance text-lg font-bold leading-[1.2] tracking-[-0.025em] sm:text-xl sm:leading-[1.15] md:text-[1.7rem] md:leading-[1.12] lg:text-[1.85rem]"
+                    className="split-section-heading max-w-none font-bold tracking-[-0.025em]"
                   >
-                    <span className="bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-transparent">
+                    <span className="block whitespace-nowrap bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-base leading-snug text-transparent sm:text-lg sm:leading-snug md:text-xl md:leading-tight lg:text-[1.35rem]">
                       XCMG equipment for infrastructure and industry
                     </span>
                   </h2>
                   <div className="mt-4 h-px max-w-xl bg-gradient-to-r from-[var(--border-subtle)] via-[var(--border-subtle)] to-transparent md:mt-5" aria-hidden />
-                  <div className="mt-5 max-w-xl text-left text-base leading-[1.75] text-[#475569] md:mt-6">
+                  <div className="split-section-copy mt-5 md:mt-6">
                     <p>
-                      <span className="font-semibold text-[var(--brand-blue)]">XCMG</span>{" "}is a leading global construction
+                      <span className="font-semibold text-[var(--brand-blue)]">XCMG</span>{" "}
+                      is a leading global construction
                       machinery manufacturer, consistently ranked among the world&apos;s top producers. With decades of innovation
                       and engineering excellence, it delivers high-performance equipment for infrastructure and industrial
                       development. In Nepal, XCMG combines proven global technology with local expertise to support infrastructure
                       growth, productivity, and sustainable development, guided by responsibility, integrity, and excellence.{" "}
-                      <span className="text-[#64748b]">
+                      <span className="text-muted">
                         This site provides clear access to product information and service support for customers.
                       </span>
                     </p>
@@ -203,21 +204,26 @@ export default function Home() {
                 <div className="split-section-accent mt-3 border-l-[3px] border-[var(--brand-yellow)] pl-5 sm:pl-6 md:mt-4">
                   <h2
                     id="about-xcmg-intro-2"
-                    className="split-section-heading max-w-xl text-balance text-lg font-bold leading-[1.2] tracking-[-0.025em] sm:text-xl sm:leading-[1.15] md:text-[1.7rem] md:leading-[1.12] lg:text-[1.85rem]"
+                    className="split-section-heading max-w-xl font-bold tracking-[-0.025em]"
                   >
-                    <span className="bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-transparent">
-                      United Heavy Equipment &amp; Earth Movers Pvt. Ltd. (XCMG Nepal) — Powering Progress, Building the
-                      Nation.
+                    <span className="block text-left bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-base leading-snug text-transparent sm:text-lg sm:leading-snug md:text-xl md:leading-tight lg:text-[1.35rem]">
+                      United Heavy Equipment &amp; Earth Movers Pvt. Ltd.
+                    </span>
+                    <span className="mt-1 block text-left bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-base leading-snug text-transparent sm:text-lg sm:leading-snug md:text-xl md:leading-tight lg:text-[1.35rem]">
+                      (XCMG Nepal)
+                    </span>
+                    <span className="mt-3 block max-w-none whitespace-nowrap bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-sm leading-snug text-transparent sm:mt-3.5 sm:text-base sm:leading-snug md:text-lg md:leading-tight lg:text-xl">
+                      Powering Progress, Building the Nation.
                     </span>
                   </h2>
                   <div className="mt-4 h-px max-w-xl bg-gradient-to-r from-[var(--border-subtle)] via-[var(--border-subtle)] to-transparent md:mt-5" aria-hidden />
-                  <div className="mt-5 max-w-xl space-y-5 text-left text-base leading-[1.75] text-[#475569] md:mt-6 md:space-y-6">
+                  <div className="split-section-copy mt-5 md:mt-6">
                     <p>
                       United Heavy Equipment &amp; Earth Movers Pvt. Ltd. (UHEEM), established in 2017, is the sole authorized
                       distributor of XCMG in Nepal. Guided by XCMG&apos;s values of responsibility, integrity, and achievement,
                       UHEEM provides advanced, reliable construction and earthmoving machinery tailored to customer needs.
                     </p>
-                    <p className="text-[#64748b]">
+                    <p className="text-muted">
                       Backed by XCMG&apos;s technology and engineering strength, the company supports Nepal&apos;s growth in
                       infrastructure, transportation, energy, and urban development through sustainable practices, dependable
                       service, and customer-focused solutions that help drive national progress.

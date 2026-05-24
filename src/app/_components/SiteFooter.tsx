@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SocialLinks from "./SocialLinks";
 import { displayEquipmentCatalog } from "../_data/displayEquipment";
 import { siteContacts } from "../_data/siteContacts";
 import { siteShellClass } from "../_data/siteShell";
@@ -37,6 +38,10 @@ export default function SiteFooter() {
               XCMG in Nepal. We provide nationwide support for products, customized solutions, and reliable after-sales
               service to ensure maximum performance and customer satisfaction.
             </p>
+            <div className="mt-6">
+              <p className={subLabelClass}>Follow UHEEM</p>
+              <SocialLinks className="mt-3" />
+            </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/products"
@@ -110,6 +115,14 @@ export default function SiteFooter() {
                   </a>
                 </p>
               </div>
+              <p className="pt-1">
+                <Link
+                  href="/contact#contact-form"
+                  className="inline-flex min-h-[40px] items-center justify-center border border-[var(--brand-blue)] bg-[var(--brand-blue)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#0a3376]"
+                >
+                  Contact form
+                </Link>
+              </p>
             </div>
           </div>
 

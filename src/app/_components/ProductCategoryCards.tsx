@@ -4,7 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import type { DisplayCategory } from "../_data/displayEquipment";
 import { productsSegmentHref } from "../_data/displayEquipment";
-import { portfolioImageForCategory } from "../_lib/productsListing";
+
+/** Homepage category cards — distinct previews from `public/land-page/`. */
+const homeCategoryImageByKey: Record<string, string> = {
+  "earth-moving": "/land-page/earth-moving.png",
+  "road-building": "/land-page/road-building.png",
+  hoisting: "/land-page/hoisting.png",
+  "underground-mining": "/land-page/underground-mining.png",
+  piling: "/land-page/piling.png",
+  concrete: "/land-page/concrete.png",
+  "electric-vehicle": "/land-page/electric-vehicle.png",
+};
 
 type Props = {
   catalog: DisplayCategory[];
@@ -20,7 +30,7 @@ export function ProductCategoryCards({ catalog }: Props) {
         >
           <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-[#eef2f6] to-[#f8fafc] sm:h-44">
             <Image
-              src={portfolioImageForCategory(card.key)}
+              src={homeCategoryImageByKey[card.key] ?? "/hero2.png"}
               alt={card.label}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

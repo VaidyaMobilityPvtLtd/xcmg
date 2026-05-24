@@ -30,7 +30,7 @@ export default function FinancialServicesPage() {
             Structured support for equipment acquisition and lifecycle planning aligned to project requirements.
           </p>
           <div className={pageHeroActionsClass}>
-            <Link href="/#contact" className="inner-cta-primary">
+            <Link href="/contact#contact-form" className="inner-cta-primary">
               Request consultation
             </Link>
             <Link href="/products" className="inner-cta-ghost">

@@ -64,7 +64,14 @@ Build output is a standard Next.js app. Deploy on [Vercel](https://vercel.com), 
 - **Build command:** `npm run build`
 - **Output:** Next.js default
 
-Set environment variables only if you add analytics or API keys later.
+### Contact form
+
+The contact form lives at **`/contact`** and posts to `/api/contact`. Configure **one** of these in `.env.local` (see `.env.example`):
+
+- **Resend** — `RESEND_API_KEY` (recommended; emails go to Sales / Service / Parts by selection)
+- **Web3Forms** — `WEB3FORMS_ACCESS_KEY` (free alternative)
+
+If neither is set, submit opens the visitor’s email app with a pre-filled draft to the correct department.
 
 ## License
 

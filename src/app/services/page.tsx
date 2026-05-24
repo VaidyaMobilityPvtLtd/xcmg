@@ -40,7 +40,7 @@ export default function ServicesPage() {
             <Link href="#service-options" className="inner-cta-ghost">
               Service pages
             </Link>
-            <Link href="#contact" className="inner-cta-ghost scroll-smooth">
+            <Link href="/contact#contact-form" className="inner-cta-ghost">
               Contact UHEEM
             </Link>
           </div>

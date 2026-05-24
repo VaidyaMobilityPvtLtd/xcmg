@@ -295,6 +295,29 @@ details > summary {
   transition: opacity 0.35s ease;
 }
 
+/* Homepage / About body copy — flush left, even lines (no balance/pretty zigzag wraps). */
+.split-section-copy {
+  max-width: 36rem;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+  text-wrap: wrap;
+  hyphens: manual;
+}
+
+.split-section-copy p {
+  margin: 0;
+}
+
+.split-section-copy p + p {
+  margin-top: 1.25rem;
+}
+
+.split-section-copy .text-muted {
+  color: #64748b;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .split-section:hover .split-section-img {
     transform: scale(1.045);
