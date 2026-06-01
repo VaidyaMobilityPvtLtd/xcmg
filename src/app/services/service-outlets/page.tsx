@@ -223,16 +223,23 @@ export default function ServiceOutletsPage() {
                 Reach the service desk for dispatch, technical support, or parts availability. Include your model, location,
                 and jobsite context for faster routing.
               </p>
-              <p className="mt-4 text-sm text-white/70">
-                <span className="font-medium text-white">Phone:</span>{" "}
-                <a href={`tel:${siteContacts.phones.primary.tel}`} className="underline-offset-2 hover:underline">
-                  {siteContacts.phones.primary.display}
-                </a>
-                {" · "}
-                <a href={`tel:${siteContacts.phones.mobile.tel}`} className="underline-offset-2 hover:underline">
-                  {siteContacts.phones.mobile.display}
-                </a>
-              </p>
+              <div className="mt-4">
+                <p className="text-sm font-medium text-white">Phone</p>
+                <ul className="mt-2 space-y-2 text-sm text-white/85">
+                  {siteContacts.phones.lines.map((line) => (
+                    <li key={line.tel}>
+                      {line.label ? (
+                        <span className="block text-[10px] font-semibold uppercase tracking-[0.1em] text-white/55">
+                          {line.label}
+                        </span>
+                      ) : null}
+                      <a href={`tel:${line.tel}`} className="underline-offset-2 hover:text-white hover:underline">
+                        {line.display}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
               <a href={`mailto:${serviceEmail}`} className="inner-cta-primary shadow-lg shadow-black/20 hover:shadow-xl">

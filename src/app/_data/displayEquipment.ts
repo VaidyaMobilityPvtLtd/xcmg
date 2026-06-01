@@ -16,8 +16,8 @@ export type DisplayCategory = {
 export const displayEquipmentCatalog: DisplayCategory[] = [
   {
     key: "earth-moving",
-    tab: "Earth moving",
-    label: "Earth moving",
+    tab: "Earth Moving",
+    label: "Earth Moving",
     blurb:
       "Wheel loaders and Excavators built for productivity, fuel efficiency, and reliability on Nepal jobsites.",
     subtypes: [
@@ -35,8 +35,8 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
   },
   {
     key: "road-building",
-    tab: "Road building",
-    label: "Road building machinery",
+    tab: "Road Building",
+    label: "Road Building Machinery",
     blurb: "Graders and pneumatic rollers for road building, finishing, and compaction.",
     subtypes: [
       { name: "Grader", slug: "grader", models: ["GR150", "GR165"] },
@@ -46,7 +46,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
   {
     key: "hoisting",
     tab: "Hoisting",
-    label: "Hoisting machinery",
+    label: "Hoisting Machinery",
     blurb: "Truck-mounted and truck cranes for lifting, placement, and demanding pick-and-carry work.",
     subtypes: [
       {
@@ -64,7 +64,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
   {
     key: "underground-mining",
     tab: "Underground",
-    label: "Underground mining machinery",
+    label: "Underground Mining Machinery",
     blurb: "Road headers and drill jumbos for underground excavation and support operations.",
     subtypes: [
       {
@@ -82,7 +82,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
   {
     key: "piling",
     tab: "Drilling",
-    label: "Drilling machinery",
+    label: "Drilling Machinery",
     blurb: "Drilling rigs for foundations and geotechnical applications.",
     subtypes: [
       {
@@ -95,7 +95,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
   {
     key: "concrete",
     tab: "Concrete",
-    label: "Concrete machinery",
+    label: "Concrete Machinery",
     blurb: "Self-loading mixers and shotcrete equipment for concrete placement and sprayed applications.",
     subtypes: [
       { name: "Self loading mixer", slug: "self-loading-mixer", models: ["SLM4"] },
@@ -105,7 +105,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
   {
     key: "electric-vehicle",
     tab: "EV",
-    label: "Electric vehicle",
+    label: "Electric Vehicle",
     blurb:
       "Battery electric loaders, excavators, pavers, rough terrain cranes, and rollers for lower-emission jobsite operations.",
     subtypes: [

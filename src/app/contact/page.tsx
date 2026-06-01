@@ -2,6 +2,7 @@ import Link from "next/link";
 import SiteHeader from "../_components/SiteHeader";
 import SiteFooter from "../_components/SiteFooter";
 import ContactForm from "../_components/ContactForm";
+import ContactPhoneList from "../_components/ContactPhoneList";
 import SocialLinks from "../_components/SocialLinks";
 import {
   PageHero,
@@ -60,21 +61,9 @@ export default function ContactPage() {
               <div className="mt-4 space-y-6 text-sm leading-relaxed text-[#64748b]">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#94a3b8]">Phone</p>
-                  <p className="mt-1">
-                    <a
-                      href={`tel:${siteContacts.phones.primary.tel}`}
-                      className="font-medium text-[var(--brand-blue)] hover:underline"
-                    >
-                      {siteContacts.phones.primary.display}
-                    </a>
-                    <span className="mx-1.5 text-[#cbd5e1]">|</span>
-                    <a
-                      href={`tel:${siteContacts.phones.mobile.tel}`}
-                      className="font-medium text-[var(--brand-blue)] hover:underline"
-                    >
-                      {siteContacts.phones.mobile.display}
-                    </a>
-                  </p>
+                  <ContactPhoneList
+                    linkClass="text-sm font-medium text-[var(--brand-blue)] hover:underline"
+                  />
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#94a3b8]">General email</p>

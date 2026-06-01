@@ -50,7 +50,7 @@ const managementTeam: ManagementLeader[] = [
   },
   {
     role: "Managing Director",
-    name: "Ms. Ritu Singh Vaidya",
+    name: "Mrs. Ritu Singh Vaidya",
     initials: "RSV",
     photoSrc: "/about/ritu-s-vaidya.webp",
     photoAlt: "Ritu Singh Vaidya, Managing Director — UHEEM / XCMG Nepal",

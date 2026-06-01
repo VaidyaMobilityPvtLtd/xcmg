@@ -6,13 +6,30 @@ export type DepartmentContact = {
   email: string;
 };
 
+export type SitePhoneLine = {
+  /** Omitted for the main office line */
+  label?: string;
+  tel: string;
+  display: string;
+};
+
+export const sitePhoneLines: SitePhoneLine[] = [
+  { tel: "+97714542901", display: "+977-01-4542901" },
+  { label: "Equipment inquiries", tel: "+9779851403028", display: "9851403028" },
+  { label: "Spare parts & service", tel: "+9779851217690", display: "9851217690" },
+];
+
 export const siteContacts = {
   legalName: "United Heavy Equipment and Earth Movers Pvt. Ltd.",
   localityLine: "Ananda Nagar, Kathmandu",
   postalCountryLine: "44600, Nepal",
   phones: {
-    primary: { tel: "+97714542901", display: "+977- 01-4542901" },
-    mobile: { tel: "+9779851217690", display: "9851217690" },
+    lines: sitePhoneLines,
+    primary: sitePhoneLines[0],
+    equipmentInquiries: sitePhoneLines[1],
+    sparePartsService: sitePhoneLines[2],
+    /** @deprecated Use equipmentInquiries or sparePartsService */
+    mobile: sitePhoneLines[2],
   },
   generalEmail: "info@uheem.com.np",
   departments: [

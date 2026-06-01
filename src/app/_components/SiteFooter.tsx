@@ -23,6 +23,7 @@ export default function SiteFooter() {
   const bodyClass = "text-sm leading-relaxed text-[#64748b]";
   const listLinkClass =
     "block py-1 text-sm leading-relaxed text-[#64748b] transition-colors hover:text-[var(--brand-yellow)]";
+  const phoneLinkClass = `${bodyClass} hover:text-[var(--brand-blue)] hover:underline`;
 
   return (
     <footer
@@ -76,23 +77,29 @@ export default function SiteFooter() {
             <div className={`mt-3 space-y-5 ${bodyClass}`}>
               <div>
                 <p className={subLabelClass}>Phone</p>
-                <p className="mt-1">
-                  <a
-                    href={`tel:${siteContacts.phones.primary.tel}`}
-                    className={`${bodyClass} hover:text-[var(--brand-blue)] hover:underline`}
-                  >
+                <div className="mt-1 space-y-2">
+                  <a href={`tel:${siteContacts.phones.primary.tel}`} className={phoneLinkClass}>
                     {siteContacts.phones.primary.display}
                   </a>
-                  <span className="mx-1.5 text-[#cbd5e1]" aria-hidden>
-                    |
-                  </span>
-                  <a
-                    href={`tel:${siteContacts.phones.mobile.tel}`}
-                    className={`${bodyClass} hover:text-[var(--brand-blue)] hover:underline`}
-                  >
-                    {siteContacts.phones.mobile.display}
-                  </a>
-                </p>
+                  <p>
+                    <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#94a3b8]">
+                      Equipment inquiries
+                    </span>
+                    <br />
+                    <a href={`tel:${siteContacts.phones.equipmentInquiries.tel}`} className={phoneLinkClass}>
+                      {siteContacts.phones.equipmentInquiries.display}
+                    </a>
+                  </p>
+                  <p>
+                    <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#94a3b8]">
+                      Spare parts &amp; service
+                    </span>
+                    <br />
+                    <a href={`tel:${siteContacts.phones.sparePartsService.tel}`} className={phoneLinkClass}>
+                      {siteContacts.phones.sparePartsService.display}
+                    </a>
+                  </p>
+                </div>
               </div>
               <div>
                 <p className={subLabelClass}>Office location</p>
