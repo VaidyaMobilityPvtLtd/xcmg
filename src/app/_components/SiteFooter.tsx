@@ -10,9 +10,9 @@ export default function SiteFooter() {
     href: `/products?segment=${encodeURIComponent(c.key)}`,
   }));
   const services = [
-    { label: "Services overview", href: "/services#services-overview" },
+    { label: "Services Overview", href: "/services#services-overview" },
     { label: "Service Outlets", href: "/services/service-outlets" },
-    { label: "Download brochure", href: "/DownloadBrochure" },
+    { label: "Download Brochure", href: "/DownloadBrochure" },
     { label: "Satisfaction Survey", href: "/services/satisfaction-survey" },
     { label: "Financial Services", href: "/services/financial-services" },
   ];
