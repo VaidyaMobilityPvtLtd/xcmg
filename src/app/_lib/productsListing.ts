@@ -104,12 +104,12 @@ function normalizeModelKey(model: string): string {
   return model.replace(/\s+/g, "").toUpperCase();
 }
 
-/** Product detail hero — listing-style zoom for most wheel loaders; EV PNGs stay smaller to avoid clipping. */
+/** Product detail hero — full scale for most models; EV wheel loaders omit scale to avoid bucket clipping. */
 export function equipmentModelDetailImageClass(subtypeSlug: string, model: string): string {
   if (subtypeSlug === "wheelloader") {
     const k = normalizeModelKey(model);
     const isEv = k === "XC918EV" || k === "XC938EV" || k === "XC968EV" || k === "XC975EV";
-    if (isEv) return "origin-center scale-[1.14]";
+    if (isEv) return "origin-center";
     if (k === "LW200KV") return "origin-center scale-[1.5] translate-y-1";
     return "origin-center scale-[1.42]";
   }

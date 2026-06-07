@@ -43,6 +43,11 @@ const catalogModelDetailImageShell =
   "min-h-[240px] h-[min(48vh,420px)] max-h-[min(56vh,480px)] sm:min-h-[300px] sm:h-[min(52vh,500px)] sm:max-h-[min(60vh,540px)] " +
   "md:min-h-[420px] md:h-[min(64vh,640px)] md:max-h-[min(72vh,680px)]";
 
+function isEvWheelLoaderModel(model: string): boolean {
+  const k = model.replace(/\s+/g, "").toUpperCase();
+  return k === "XC918EV" || k === "XC938EV" || k === "XC968EV" || k === "XC975EV";
+}
+
 /** Listing image strip: plain white, fixed height, same contain rules as detail. */
 const catalogListingThumbShell =
   "relative block w-full min-w-0 overflow-hidden bg-white [color-scheme:light] p-2 sm:p-3 h-[200px] sm:h-[260px] md:h-[300px]";
@@ -225,7 +230,9 @@ export default async function ProductsPage({ searchParams }: Props) {
     ? equipmentModelDetailImageClass(selectedModel.subtypeSlug, selectedModel.model)
     : "";
   const detailImagePadding = selectedModel
-    ? equipmentModelCardVisual(selectedModel.subtypeSlug, selectedModel.model).framePaddingClass
+    ? selectedModel.subtypeSlug === "wheelloader" && isEvWheelLoaderModel(selectedModel.model)
+      ? "p-5 sm:p-6 md:p-7"
+      : equipmentModelCardVisual(selectedModel.subtypeSlug, selectedModel.model).framePaddingClass
     : "p-3 sm:p-4";
   const detailDescriptionText = selectedModel
     ? selectedMeta?.description ??
