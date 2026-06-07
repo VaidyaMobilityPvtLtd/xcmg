@@ -59,7 +59,7 @@ export default function ServicesPage() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Equipment</p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">Need a specific model?</h2>
               <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
-                Browse the Nepal catalog for models, specifications, and distributor contact paths.
+                Browse the Nepal catalogue for models, specifications, and distributor contact paths.
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">

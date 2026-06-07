@@ -43,9 +43,8 @@ const managementTeam: ManagementLeader[] = [
     photoAlt: "Suraj Vaidya, President — UHEEM / XCMG Nepal",
     photoPositionClass: "object-[42%_34%]",
     paragraphs: [
-      "The history of Vaidya's growth reflects continuous determination and a strong commitment to achieving ambitious goals. This success has been driven by consistent investment in research, marketing, and development, along with maintaining high performance across all areas.",
-      "These achievements are the result of the dedicated efforts of the entire Vaidya family, delivering products and services tailored to customer needs in Nepal and beyond. Vaidya remains focused on growth by embracing new challenges, improving management efficiency, and prioritizing customers. By fulfilling its social responsibilities, the company aims to grow in harmony with society and continue building trust both nationally and globally.",
-      "Vaidya will secure steady growth by seizing every opportunity.",
+      "The history of VOITH's growth reflects continuous determination and a strong commitment to achieving ambitious goals. This success has been driven by consistent investment in research, marketing, and development, along with maintaining high performance across all areas.",
+      "These achievements are the result of the dedicated efforts of the entire VOITH family, delivering products and services tailored to customer needs in Nepal and beyond. Vaidya remains focused on growth by embracing new challenges, improving management efficiency, and prioritizing customers. By fulfilling its social responsibilities, the company aims to grow in harmony with society and continue building trust both nationally and globally.",
     ],
   },
   {
@@ -57,9 +56,9 @@ const managementTeam: ManagementLeader[] = [
     photoPositionClass: "object-[50%_28%]",
     photoZoomClass: "origin-center scale-[1.22]",
     paragraphs: [
-      "Vaidya is guided by the principles of serving, caring, and growing together, forming the foundation of its organizational culture. The company strongly believes that sustainable success is achieved through ensuring customer satisfaction, adapting to continuous change, and consistently improving its processes, services, and overall performance.",
-      "Its core objective is to enhance the quality of life within communities by engaging in meaningful business activities that generate positive social impact. By emphasizing operational efficiency, innovation, and organizational excellence, Vaidya strives to strengthen its position as a reliable and forward-thinking enterprise.",
-      "With a clear focus on long-term growth and responsibility, Vaidya aspires to be recognized as one of Nepal's most trusted, respected, dependable, customer-focused, and progressive business groups.",
+      "VOITH is guided by the principles of serving, caring, and growing together, forming the foundation of its organizational culture. The company strongly believes that sustainable success is achieved through ensuring customer satisfaction, adapting to continuous change, and consistently improving its processes, services, and overall performance.",
+      "Its core objective is to enhance the quality of life within communities by engaging in meaningful business activities that generate positive social impact. By emphasizing operational efficiency, innovation, and organizational excellence, VOITH strives to strengthen its position as a reliable and forward-thinking enterprise.",
+      "With a clear focus on long-term growth and responsibility, VOITH aspires to be recognized as one of Nepal's most trusted, respected, dependable, customer-focused, and progressive business groups.",
     ],
   },
 ];

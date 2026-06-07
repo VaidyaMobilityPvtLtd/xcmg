@@ -24,7 +24,6 @@ import {
   formatEquipmentTypeLabel,
   portfolioImageForCategory,
 } from "../_lib/productsListing";
-import { displayProductDescription } from "../_lib/productDescription";
 import { evProductDescriptionsByModel } from "../_data/evSpecifications";
 import { concreteDescriptionForModel, concreteSpecificationsForModel } from "../_data/concreteSpecifications";
 import { productSpecificationsForModel } from "../_data/productSpecifications";
@@ -83,7 +82,7 @@ function resolveProductDetailMeta(entry: ModelMatchEntry, equipmentImage: string
       caseImage,
       description:
         concreteDesc ??
-        `${entry.model} — concrete machinery from the Nepal catalog with local support from UHEEM.`,
+        `${entry.model} — concrete machinery from the Nepal catalogue with local support from UHEEM.`,
     };
   }
 
@@ -98,7 +97,7 @@ function resolveProductDetailMeta(entry: ModelMatchEntry, equipmentImage: string
     caseImage,
     description:
       roadDesc ??
-      `${entry.model} — diesel earth-moving and road-building equipment from the Nepal catalog with local support from UHEEM.`,
+      `${entry.model} — diesel earth-moving and road-building equipment from the Nepal catalogue with local support from UHEEM.`,
   };
 }
 
@@ -229,11 +228,9 @@ export default async function ProductsPage({ searchParams }: Props) {
     ? equipmentModelCardVisual(selectedModel.subtypeSlug, selectedModel.model).framePaddingClass
     : "p-3 sm:p-4";
   const detailDescriptionText = selectedModel
-    ? displayProductDescription(
-        selectedMeta?.description,
-        selectedMeta?.caseTitle ??
-          `${selectedModel.model} — catalog equipment configured for Nepal sites with local support from UHEEM.`,
-      )
+    ? selectedMeta?.description ??
+      selectedMeta?.caseTitle ??
+      `${selectedModel.model} — catalogue equipment configured for Nepal sites with local support from UHEEM.`
     : "";
   const categoryForSegment = segment
     ? displayEquipmentCatalog.find((c) => c.key === segment) ?? null
@@ -324,7 +321,7 @@ export default async function ProductsPage({ searchParams }: Props) {
             </h1>
             <p className={pageHeroLeadBrandClass}>
               {categoryForSegment
-                ? "Filter by product type and open a model for specs — Nepal catalog only."
+                ? "Filter by product type and open a model for specs — Nepal catalogue only."
                 : "Browse equipment categories available for Nepal projects, with local support and service readiness."}
             </p>
           </PageHero>

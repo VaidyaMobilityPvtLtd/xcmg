@@ -23,7 +23,7 @@ export const serviceHubCards = [
   },
   {
     title: "Download brochure",
-    description: "Product and technical literature for the Nepal catalog.",
+    description: "Product and technical literature for the Nepal catalogue.",
     href: "/DownloadBrochure",
     icon: "brochure" as const,
   },

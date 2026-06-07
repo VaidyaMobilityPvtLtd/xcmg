@@ -24,12 +24,46 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
       {
         name: "Wheel loader",
         slug: "wheelloader",
-        models: ["Lw200kv", "ZL30E", "ZL50GN", "XC936", "XC938", "XC958", "XC938EV", "XC968EV"],
+        models: ["Lw200kv", "ZL30E", "XC936", "XC938", "XC958", "XC938EV", "XC968EV"],
       },
       {
         name: "Excavator",
         slug: "excavator",
         models: ["XE140I-K", "XE215I-K", "XE230CLC", "XE380C"],
+      },
+    ],
+  },
+  {
+    key: "electric-vehicle",
+    tab: "EV",
+    label: "Electric Vehicle",
+    blurb:
+      "Battery electric loaders, excavators, pavers, rough terrain cranes, and rollers for lower-emission jobsite operations.",
+    subtypes: [
+      {
+        name: "Wheel loader",
+        slug: "wheelloader",
+        models: ["XC938EV", "XC968EV", "XC975EV", "XC918EV"],
+      },
+      {
+        name: "Excavator",
+        slug: "excavator",
+        models: ["XE215EV"],
+      },
+      {
+        name: "Paver",
+        slug: "paver",
+        models: ["RP905HEV"],
+      },
+      {
+        name: "Rough terrain crane",
+        slug: "rough-terrain-crane",
+        models: ["XCR40_EV"],
+      },
+      {
+        name: "Roller",
+        slug: "roller",
+        models: ["XS265HEV"],
       },
     ],
   },
@@ -99,41 +133,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
     blurb: "Self-loading mixers and shotcrete equipment for concrete placement and sprayed applications.",
     subtypes: [
       { name: "Self loading mixer", slug: "self-loading-mixer", models: ["SLM4"] },
-      { name: "Shotcrete", slug: "shotcrete", models: ["XS30175"] },
-    ],
-  },
-  {
-    key: "electric-vehicle",
-    tab: "EV",
-    label: "Electric Vehicle",
-    blurb:
-      "Battery electric loaders, excavators, pavers, rough terrain cranes, and rollers for lower-emission jobsite operations.",
-    subtypes: [
-      {
-        name: "Wheel loader",
-        slug: "wheelloader",
-        models: ["XC938EV", "XC968EV", "XC975EV", "XC918EV"],
-      },
-      {
-        name: "Excavator",
-        slug: "excavator",
-        models: ["XE215EV"],
-      },
-      {
-        name: "Paver",
-        slug: "paver",
-        models: ["RP905HEV"],
-      },
-      {
-        name: "Rough terrain crane",
-        slug: "rough-terrain-crane",
-        models: ["XCR40_EV"],
-      },
-      {
-        name: "Roller",
-        slug: "roller",
-        models: ["XS265HEV"],
-      },
+      { name: "Shotcrete", slug: "shotcrete", models: ["XS3017S"] },
     ],
   },
 ];
@@ -162,8 +162,6 @@ function modelKey(model: string) {
 const wheelLoaderImages: Record<string, string> = {
   LW200KV: "/equipment/wheelloaders/LW200KV.png",
   ZL30E: "/equipment/wheelloaders/ZL30E.png",
-  /** No dedicated render on disk yet; silhouette matches same series until ZL50GN asset is added. */
-  ZL50GN: "/equipment/wheelloaders/XC958.png",
   XC936: "/equipment/wheelloaders/XC936.png",
   /** Diesel XC938; provisional hero until a dedicated XC938 render is added. */
   XC938: "/equipment/wheelloaders/XC936.png",
@@ -193,7 +191,7 @@ const drillJumboImages: Record<string, string> = {
 };
 
 const shotcreteImages: Record<string, string> = {
-  XS30175: "/equipment/shotcrete/XS3017S.png",
+  XS3017S: "/equipment/shotcrete/XS3017S.png",
 };
 
 const selfLoadingMixerImages: Record<string, string> = {

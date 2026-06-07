@@ -115,14 +115,13 @@ export default function Home() {
                   <div className="split-section-copy mt-5 md:mt-6">
                     <p>
                       <span className="font-semibold text-[var(--brand-blue)]">XCMG</span>{" "}
-                      is a leading global construction
-                      machinery manufacturer, consistently ranked among the world&apos;s top producers. With decades of innovation
-                      and engineering excellence, it delivers high-performance equipment for infrastructure and industrial
-                      development. In Nepal, XCMG combines proven global technology with local expertise to support infrastructure
-                      growth, productivity, and sustainable development, guided by responsibility, integrity, and excellence.{" "}
-                      <span className="text-muted">
-                        This site provides clear access to product information and service support for customers.
-                      </span>
+                      is a leading global construction machinery manufacturer, consistently ranked among the
+                      world&apos;s top manufacturers. XCMG has retained its No. 1 position in China&apos;s construction
+                      machinery industry and is ranked No. 3 in the global construction machinery industry. With decades
+                      of innovation and engineering excellence, it delivers high-performance equipment for
+                      infrastructure and industrial development. In Nepal, XCMG combines proven global technology with
+                      local expertise to support infrastructure growth, productivity, and sustainable development, guided
+                      by responsibility, integrity, and excellence.
                     </p>
                   </div>
                 </div>
@@ -346,7 +345,7 @@ export default function Home() {
                   Product categories
                 </p>
                 <h2 className="mt-2 text-lg font-semibold tracking-tight text-[var(--brand-blue)] md:text-xl">
-                  Nepal catalog preview
+                  Nepal catalogue preview
                 </h2>
                 <p className="mt-2 max-w-xl text-sm text-[#64748b]">
                   Same segments as the{" "}
@@ -360,7 +359,7 @@ export default function Home() {
                 href="/products"
                 className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0b3c91] hover:text-[#0a3376] sm:self-end"
               >
-                Full catalog →
+                Full catalogue →
               </Link>
             </div>
 
