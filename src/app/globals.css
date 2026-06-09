@@ -179,6 +179,24 @@ details > summary {
   animation: hero-fade-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.hero-slide-layer {
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter {
+    animation: none;
+  }
+
+  .hero-slide-layer {
+    transition: none;
+    will-change: auto;
+  }
+}
+
 /* Cards & tiles: smooth hover / press — not scroll-triggered. */
 .interactive-card {
   transition:
