@@ -15,7 +15,7 @@ export default function SatisfactionSurveyPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
+      <main className="justify-copy min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
         <PageHero variant="brand" imageSrc={pageHeroSrc.services} imageAlt="XCMG Nepal customer feedback">
           <PageHeroBreadcrumbs
             items={[

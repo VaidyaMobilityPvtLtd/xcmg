@@ -21,8 +21,8 @@ const brochureCategories: BrochureCategory[] = [
   {
     title: "Earth moving · Excavator",
     files: [
-      { label: "XE140I-K", href: "/brochures/catalog/Xcmg%20pdf/Excavator/XE%20140I-K.pdf" },
-      { label: "XE215I-K", href: "/brochures/catalog/Xcmg%20pdf/Excavator/XE%20215%20I-K.pdf" },
+      { label: "XE140I_K", href: "/brochures/catalog/Xcmg%20pdf/Excavator/XE%20140I-K.pdf" },
+      { label: "XE215I_K", href: "/brochures/catalog/Xcmg%20pdf/Excavator/XE%20215%20I-K.pdf" },
       { label: "XE230CLC", href: "/brochures/catalog/Xcmg%20pdf/Excavator/XE%20230CLC.pdf" },
       { label: "XE380C", href: "/brochures/catalog/Xcmg%20pdf/Excavator/XE%20380C%20.pdf" },
     ],
@@ -52,15 +52,15 @@ const brochureCategories: BrochureCategory[] = [
     title: "Hoisting · Truck crane",
     files: [
       { label: "XCT25L4_Y", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT25L4_Y1.pdf" },
-      { label: "XCT25-Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT25L4_Y1.pdf" },
-      { label: "XCT50-Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT50_Y1.pdf" },
-      { label: "XCT80-Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT80_Y1.pdf" },
-      { label: "XCT110-Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/1_XCT110_Y.pdf" },
+      { label: "XCT25_Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT25L4_Y1.pdf" },
+      { label: "XCT50_Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT50_Y1.pdf" },
+      { label: "XCT80_Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/XCT80_Y1.pdf" },
+      { label: "XCT110_Y1", href: "/brochures/catalog/Xcmg%20pdf/truck%20crane/1_XCT110_Y.pdf" },
     ],
   },
   {
     title: "Hoisting · Truck mounted crane",
-    files: [{ label: "SQS68TL-5", href: "/brochures/catalog/Xcmg%20pdf/truck%20mounted%20crane/SQS68TL-4%20.pdf" }],
+    files: [{ label: "SQS68TL_5", href: "/brochures/catalog/Xcmg%20pdf/truck%20mounted%20crane/SQS68TL-4%20.pdf" }],
   },
   {
     title: "Underground mining · Road header",
@@ -77,7 +77,7 @@ const brochureCategories: BrochureCategory[] = [
       { label: "XUD135", href: "/brochures/catalog/Xcmg%20pdf/piling%20machinery/Jumbo%20Drilling%20XTD%20135.pdf" },
       { label: "XUD295", href: "/brochures/catalog/Xcmg%20pdf/piling%20machinery/Jumbo%20Drilling%20XTD%20295.pdf" },
       {
-        label: "XUD275 (regional drilling catalog)",
+        label: "XUD275 (regional drilling catalogue)",
         href: "/brochures/catalog/Xcmg%20pdf/piling%20machinery/South%20Asia%20piling%20rig%20catalog.pdf",
       },
     ],
@@ -86,7 +86,7 @@ const brochureCategories: BrochureCategory[] = [
     title: "Drilling machinery · Drilling rig",
     files: [
       {
-        label: "XR138E · XR158E · XR178E · XR210C · XR240E (South Asia catalog)",
+        label: "XR138E · XR158E · XR178E · XR210C · XR240E (South Asia catalogue)",
         href: "/brochures/catalog/Xcmg%20pdf/piling%20machinery/South%20Asia%20piling%20rig%20catalog.pdf",
       },
     ],
@@ -107,19 +107,19 @@ export default function BrochuresPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-[radial-gradient(ellipse_at_top,_#eef4ff_0%,_#f4f6f9_46%,_#f7f9fc_100%)] text-[#0f172a] [color-scheme:light]">
-        <PageHero variant="brand" imageSrc={pageHeroSrc.downloadBrochures} imageAlt="Model brochures and documentation">
+      <main className="justify-copy min-h-screen bg-[radial-gradient(ellipse_at_top,_#eef4ff_0%,_#f4f6f9_46%,_#f7f9fc_100%)] text-[#0f172a] [color-scheme:light]">
+        <PageHero variant="brand" imageSrc={pageHeroSrc.downloadBrochures} imageAlt="Product brochures and documentation">
           <PageHeroBreadcrumbs
             items={[
               { label: "Home", href: "/" },
               { label: "Download brochure", current: true },
             ]}
           />
-          <p className={`mt-4 ${pageHeroEyebrowBrandClass}`}>Model brochures</p>
-          <h1 className={`mt-3 ${pageHeroTitleBrandClass}`}>Find your model brochure</h1>
+          <p className={`mt-4 ${pageHeroEyebrowBrandClass}`}>Product brochures</p>
+          <h1 className={`mt-3 ${pageHeroTitleBrandClass}`}>Find your product brochure</h1>
           <p className={pageHeroLeadBrandClass}>
-            Only models with a brochure PDF on file are listed below—the full Nepal lineup remains on Products. Labels match the
-            catalogue; PDF filenames may differ from the model code (e.g. XP163 listed with file XP163.pdf).
+            Only products with a brochure PDF on file are listed below—the full Nepal lineup remains on Products. Labels match the
+            catalogue; PDF filenames may differ from the product code (e.g. XP163 listed with file XP163.pdf).
           </p>
           <div className={pageHeroActionsClass}>
             <a href="mailto:info@uheem.com.np?subject=Brochure%20request" className="inner-cta-primary">
@@ -213,7 +213,7 @@ export default function BrochuresPage() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Next step</p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">Need a printed pack or a model list?</h2>
               <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
-                Call or email UHEEM—we can align brochures with your project and the models stocked for Nepal.
+                Call or email UHEEM—we can align brochures with your project and the products stocked for Nepal.
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">

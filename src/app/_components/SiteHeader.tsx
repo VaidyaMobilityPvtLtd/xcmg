@@ -33,7 +33,7 @@ function Caret({ className }: { className?: string }) {
 }
 
 export default function SiteHeader() {
-  const totalModels = displayEquipmentCatalog.reduce(
+  const totalProducts = displayEquipmentCatalog.reduce(
     (sum, c) => sum + c.subtypes.reduce((s, sub) => s + sub.models.length, 0),
     0,
   );
@@ -80,7 +80,7 @@ export default function SiteHeader() {
                     Nepal catalogue
                   </p>
                   <p className="mt-1 text-[11px] leading-snug text-[#64748b]">
-                    <span className="font-medium text-[#475569]">{totalModels}</span> models · pick a category or model code
+                    <span className="font-medium text-[#475569]">{totalProducts}</span> products · pick a category or product code
                   </p>
                 </div>
                 <Link
@@ -96,7 +96,7 @@ export default function SiteHeader() {
               >
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
                   {displayEquipmentCatalog.map((category) => {
-                    const categoryModelCount = category.subtypes.reduce((n, s) => n + s.models.length, 0);
+                    const categoryProductCount = category.subtypes.reduce((n, s) => n + s.models.length, 0);
                     const previewModels = category.subtypes.flatMap((s) =>
                       s.models.slice(0, 2).map((model) => ({ model, subtypeSlug: s.slug })),
                     ).slice(0, 4);
@@ -116,7 +116,7 @@ export default function SiteHeader() {
                           {category.label}
                         </Link>
                         <p className="mt-0.5 text-[11px] text-[#64748b]">
-                          {categoryModelCount} model{categoryModelCount === 1 ? "" : "s"}
+                          {categoryProductCount} product{categoryProductCount === 1 ? "" : "s"}
                         </p>
                         <p className="mt-2.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[#94a3b8]">
                           Product type
@@ -182,7 +182,7 @@ export default function SiteHeader() {
         <div className="flex shrink-0 items-center gap-1 md:gap-1.5 lg:gap-2">
           <details name="site-header-mega" className="relative">
             <summary
-              aria-label="Search models"
+              aria-label="Search products"
               className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-none border border-[#e5e7eb] bg-white text-[#0b3c91] transition-colors hover:text-[var(--brand-yellow)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b3c91]/30"
             >
               <svg
@@ -212,14 +212,14 @@ export default function SiteHeader() {
               </p>
               <form action="/products" method="get" className="mt-3">
                 <label htmlFor="header-model-search" className="sr-only">
-                  Search model
+                  Search product
                 </label>
                 <div className="flex items-stretch gap-2">
                   <input
                     id="header-model-search"
                     name="model"
                     type="text"
-                    placeholder="Search model e.g. XC936"
+                    placeholder="Search product e.g. XC936"
                     className="h-10 min-w-0 flex-1 border border-[var(--border-subtle)] px-3 text-sm text-[#0f172a] outline-none focus:border-[var(--brand-blue)]"
                   />
                   <button
@@ -229,7 +229,7 @@ export default function SiteHeader() {
                     Search
                   </button>
                 </div>
-                <p className="mt-2 text-[11px] text-[#64748b]">Try: Lw200kv, XC936, XE215I-K</p>
+                <p className="mt-2 text-[11px] text-[#64748b]">Try: Lw200kv, XC936, XE215I_K</p>
               </form>
             </div>
           </details>

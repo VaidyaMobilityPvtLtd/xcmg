@@ -8,8 +8,8 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
   "XC936": [{ item: "Bucket capacity", unit: "m³", parameter: "2.1" }, { item: "Operating weight", unit: "kg", parameter: "10300" }, { item: "Rated power", unit: "kW", parameter: "92" }, { item: "Rated load", unit: "kg", parameter: "3500" }, { item: "Wheelbase", unit: "mm", parameter: "2900" }, { item: "Overall Dimensions（L*W*H）", unit: "mm", parameter: "7250*2482*3100" }],
   "XC938": [{ item: "Bucket capacity", unit: "m³", parameter: "1.8" }, { item: "Operating weight", unit: "kg", parameter: "10400" }, { item: "Rated power", unit: "kW", parameter: "92" }, { item: "Rated load", unit: "kg", parameter: "3500" }, { item: "Wheelbase", unit: "mm", parameter: "2900" }, { item: "Overall Dimensions（L*W*H）", unit: "mm", parameter: "7350*2482*3220" }],
   "XC958": [{ item: "Bucket capacity", unit: "m³", parameter: "3.2" }, { item: "Operating weight", unit: "kg", parameter: "17080" }, { item: "Rated power", unit: "kW", parameter: "162" }, { item: "Rated load", unit: "kg", parameter: "5500" }, { item: "Wheelbase", unit: "mm", parameter: "3350" }, { item: "Overall Dimensions（L*W*H）", unit: "mm", parameter: "8410*2996*3455" }],
-  "XE140I-K": [{ item: "Operating weight", unit: "Kg", parameter: "13600" }, { item: "Rated power", unit: "kW/rpm", parameter: "75/2200" }, { item: "Engine model", unit: "-", parameter: "B3.9" }, { item: "Bucket capacity", unit: "m³", parameter: "0.65" }, { item: "Emission standard", unit: "", parameter: "National Stage Ⅱ" }, { item: "Maximum torque/speed", unit: "N.m", parameter: "637.9/1800" }, { item: "Displacement", unit: "L", parameter: "6.494" }, { item: "Travel speed", unit: "km/h", parameter: "5.16/3.03" }, { item: "Swing speed", unit: "r/min", parameter: "12.3" }, { item: "Bucket digging force", unit: "kN", parameter: "99" }, { item: "Arm digging force", unit: "kN", parameter: "74" }],
-  "XE215I-K": [{ item: "Operating weight", unit: "Kg", parameter: "21500" }, { item: "Rated power", unit: "kW/rpm", parameter: "104/2000" }, { item: "Engine model", unit: "-", parameter: "6BT5.9" }, { item: "Bucket capacity", unit: "m³", parameter: "1" }, { item: "Emission standard", unit: "", parameter: "National Stage Ⅱ" }, { item: "Maximum torque/speed", unit: "N.m", parameter: "564/1600" }, { item: "Displacement", unit: "L", parameter: "5.9" }, { item: "Travel speed", unit: "km/h", parameter: "5.2/2.8" }, { item: "Swing speed", unit: "r/min", parameter: "13" }, { item: "Bucket digging force", unit: "kN", parameter: "150" }, { item: "Arm digging force", unit: "kN", parameter: "131" }],
+  XE140I_K: [{ item: "Operating weight", unit: "Kg", parameter: "13600" }, { item: "Rated power", unit: "kW/rpm", parameter: "75/2200" }, { item: "Engine model", unit: "-", parameter: "B3.9" }, { item: "Bucket capacity", unit: "m³", parameter: "0.65" }, { item: "Emission standard", unit: "", parameter: "National Stage Ⅱ" }, { item: "Maximum torque/speed", unit: "N.m", parameter: "637.9/1800" }, { item: "Displacement", unit: "L", parameter: "6.494" }, { item: "Travel speed", unit: "km/h", parameter: "5.16/3.03" }, { item: "Swing speed", unit: "r/min", parameter: "12.3" }, { item: "Bucket digging force", unit: "kN", parameter: "99" }, { item: "Arm digging force", unit: "kN", parameter: "74" }],
+  XE215I_K: [{ item: "Operating weight", unit: "Kg", parameter: "21500" }, { item: "Rated power", unit: "kW/rpm", parameter: "104/2000" }, { item: "Engine model", unit: "-", parameter: "6BT5.9" }, { item: "Bucket capacity", unit: "m³", parameter: "1" }, { item: "Emission standard", unit: "", parameter: "National Stage Ⅱ" }, { item: "Maximum torque/speed", unit: "N.m", parameter: "564/1600" }, { item: "Displacement", unit: "L", parameter: "5.9" }, { item: "Travel speed", unit: "km/h", parameter: "5.2/2.8" }, { item: "Swing speed", unit: "r/min", parameter: "13" }, { item: "Bucket digging force", unit: "kN", parameter: "150" }, { item: "Arm digging force", unit: "kN", parameter: "131" }],
   "XE230CLC": [{ item: "Operating weight", unit: "Kg", parameter: "23000" }, { item: "Rated power", unit: "kW/rpm", parameter: "128.5" }, { item: "Engine model", unit: "-", parameter: "ISUZU CC-6BG1TRP" }, { item: "Bucket capacity", unit: "m³", parameter: "1" }, { item: "Emission standard", unit: "", parameter: "National Stage Ⅱ" }, { item: "Maximum torque/speed", unit: "N.m", parameter: "637.9/1800" }, { item: "Displacement", unit: "L", parameter: "6.494" }, { item: "Travel speed", unit: "km/h", parameter: "5.5/3.3" }, { item: "Swing speed", unit: "r/min", parameter: "13.2" }, { item: "Bucket digging force", unit: "kN", parameter: "149" }, { item: "Arm digging force", unit: "kN", parameter: "111" }],
   "XE380C": [{ item: "Operating weight", unit: "Kg", parameter: "36600" }, { item: "Rated power", unit: "hp/rpm", parameter: "259/2200" }, { item: "Engine model", unit: "-", parameter: "6BT5.9" }, { item: "Bucket capacity", unit: "m³", parameter: "1" }, { item: "Emission standard", unit: "", parameter: "National Stage Ⅱ" }, { item: "Maximum torque/speed", unit: "rpm", parameter: "873/1700" }, { item: "Displacement", unit: "L", parameter: "7.79" }, { item: "Travel speed", unit: "km/h", parameter: "5.4" }, { item: "Swing speed", unit: "rpm", parameter: "9.7" }, { item: "Bucket digging force", unit: "kN", parameter: "" }, { item: "Arm digging force", unit: "kN", parameter: "" }],
   "XP163": [{ item: "Engine", unit: "-", parameter: "Shangchai" }, { item: "Emission", unit: "-", parameter: "Stage Ⅱ" }, { item: "Operating Weight", unit: "kg", parameter: "16000" }, { item: "Dimensions", unit: "mm", parameter: "4,780 x 2,232 x 3,340" }, { item: "Working speed", unit: "km/h", parameter: "0～4.5;0～8.7;0～18.4 / 0~4.5;0~8.7" }, { item: "Gradeability", unit: "%", parameter: "30" }, { item: "Wheelbase", unit: "mm", parameter: "3700" }, { item: "Drum width", unit: "mm", parameter: "2055" }],
@@ -196,8 +196,8 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Chassis Traveling speed", unit: "km/h", parameter: "15" },
     { item: "Total weight", unit: "t", parameter: "35.4" },
   ],
-  "SQS68TL-4": [
-    { item: "Model", unit: "-", parameter: "SQS68TL-4" },
+  SQS68TL_4: [
+    { item: "Model", unit: "-", parameter: "SQS68TL_4" },
     { item: "Chassis", unit: "-", parameter: "ZZ1148E4515C1R (right hand drive)" },
     { item: "Overall dimension", unit: "mm", parameter: "8000×2300×3510mm" },
     { item: "Carriage dimension", unit: "mm", parameter: "500×2294×550mm" },
@@ -210,9 +210,9 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Slewing gear type", unit: "-", parameter: "Hyd. motor driven, combined type of planetary gear and worm gear" },
     { item: "Hydraulic oil tank capacity", unit: "l", parameter: "60" },
   ],
-  /** Excel sheet for SQS68TL-5 is empty; use SQS68TL-4 specification set as nearest available reference. */
-  "SQS68TL-5": [
-    { item: "Model", unit: "-", parameter: "SQS68TL-4" },
+  /** Excel sheet for SQS68TL_5 is empty; use SQS68TL_4 specification set as nearest available reference. */
+  SQS68TL_5: [
+    { item: "Model", unit: "-", parameter: "SQS68TL_4" },
     { item: "Chassis", unit: "-", parameter: "ZZ1148E4515C1R (right hand drive)" },
     { item: "Overall dimension", unit: "mm", parameter: "8000×2300×3510mm" },
     { item: "Carriage dimension", unit: "mm", parameter: "500×2294×550mm" },
@@ -225,8 +225,8 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Slewing gear type", unit: "-", parameter: "Hyd. motor driven, combined type of planetary gear and worm gear" },
     { item: "Hydraulic oil tank capacity", unit: "l", parameter: "60" },
   ],
-  "SQS125TL-4": [
-    { item: "Model", unit: "-", parameter: "SQS125TL-4" },
+  SQS125TL_4: [
+    { item: "Model", unit: "-", parameter: "SQS125TL_4" },
     { item: "Overall dimension", unit: "mm", parameter: "" },
     { item: "Carriage dimension", unit: "mm", parameter: "" },
     { item: "Model of engine", unit: "-", parameter: "" },
@@ -254,20 +254,6 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Hydraulic oil tank capacity", unit: "l", parameter: "90" },
   ],
   "XCT25_Y1": [
-    { item: "Max. load capacity", unit: "t", parameter: "25" },
-    { item: "Telescopic boom", unit: "m", parameter: "33.5" },
-    { item: "Number of axles", unit: "-", parameter: "3" },
-    { item: "Max. hoist height", unit: "m", parameter: "41.6" },
-    { item: "Max.load moment", unit: "kN.m", parameter: "941" },
-    { item: "Drive engine model", unit: "-", parameter: "SC7H260Q3" },
-    { item: "Drive engine power", unit: "kw", parameter: "192" },
-    { item: "Drive/Steering", unit: "-", parameter: "4x2" },
-    { item: "Driving speed", unit: "km/h", parameter: "85" },
-    { item: "Dead Weight in Travel State", unit: "kg", parameter: "24510" },
-    { item: "Dimensions", unit: "mm", parameter: "12207×2500×3450" },
-    { item: "Emission standard", unit: "-", parameter: "CHINA III" },
-  ],
-  "XCT25-Y1": [
     { item: "Max. load capacity", unit: "t", parameter: "25" },
     { item: "Telescopic boom", unit: "m", parameter: "33.5" },
     { item: "Number of axles", unit: "-", parameter: "3" },
@@ -310,21 +296,7 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Dimensions", unit: "mm", parameter: "14375×2650×3520" },
     { item: "Emission standard", unit: "-", parameter: "India V" },
   ],
-  "XCT50-Y1": [
-    { item: "Max. load capacity", unit: "t", parameter: "50" },
-    { item: "Telescopic boom", unit: "m", parameter: "44.9" },
-    { item: "Number of axles", unit: "-", parameter: "4" },
-    { item: "Max. hoist height", unit: "m", parameter: "60.1" },
-    { item: "Max.load moment", unit: "kN.m", parameter: "1600" },
-    { item: "Drive engine model", unit: "-", parameter: "WP8G350E670" },
-    { item: "Drive engine power", unit: "kw", parameter: "257" },
-    { item: "Drive/Steering", unit: "-", parameter: "8x4x4" },
-    { item: "Driving speed", unit: "km/h", parameter: "48" },
-    { item: "Dead Weight in Travel State", unit: "kg", parameter: "39000" },
-    { item: "Dimensions", unit: "mm", parameter: "14375×2650×3520" },
-    { item: "Emission standard", unit: "-", parameter: "India V" },
-  ],
-  "XCT80_Y1": [
+  XCT80_Y1: [
     { item: "Max. load capacity", unit: "t", parameter: "80" },
     { item: "Telescopic boom", unit: "m", parameter: "50.5" },
     { item: "Number of axles", unit: "-", parameter: "4" },
@@ -338,21 +310,7 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Dimensions", unit: "mm", parameter: "14985×2800×3790" },
     { item: "Emission standard", unit: "-", parameter: "BS-V" },
   ],
-  "XCT80-Y1": [
-    { item: "Max. load capacity", unit: "t", parameter: "80" },
-    { item: "Telescopic boom", unit: "m", parameter: "50.5" },
-    { item: "Number of axles", unit: "-", parameter: "4" },
-    { item: "Max. hoist height", unit: "m", parameter: "65" },
-    { item: "Max.load moment", unit: "kN.m", parameter: "2965" },
-    { item: "Drive engine model", unit: "-", parameter: "WP10HG350E670" },
-    { item: "Drive engine power", unit: "kw", parameter: "257" },
-    { item: "Drive/Steering", unit: "-", parameter: "8x4x4" },
-    { item: "Driving speed", unit: "km/h", parameter: "48" },
-    { item: "Dead Weight in Travel State", unit: "kg", parameter: "46900" },
-    { item: "Dimensions", unit: "mm", parameter: "14985×2800×3790" },
-    { item: "Emission standard", unit: "-", parameter: "BS-V" },
-  ],
-  "XCT110_Y2": [
+  XCT110_Y2: [
     { item: "Max. load capacity", unit: "t", parameter: "110" },
     { item: "Telescopic boom", unit: "m", parameter: "60.5" },
     { item: "Number of axles", unit: "-", parameter: "4" },
@@ -366,7 +324,7 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Dimensions", unit: "mm", parameter: "15000×2800×3825" },
     { item: "Emission standard", unit: "-", parameter: "BS-V emission standard" },
   ],
-  "XCT110_Y": [
+  XCT110_Y: [
     { item: "Max. load capacity", unit: "t", parameter: "110" },
     { item: "Telescopic boom", unit: "m", parameter: "60.5" },
     { item: "Number of axles", unit: "-", parameter: "4" },
@@ -380,8 +338,8 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Dimensions", unit: "mm", parameter: "15000*2800*3927" },
     { item: "Emission standard", unit: "-", parameter: "Euro V" },
   ],
-  /** Site catalog lists XCT110-Y1; Excel provides XCT110_Y and XCT110_Y2—use XCT110_Y as closest available spec set. */
-  "XCT110-Y1": [
+  /** Catalog lists XCT110_Y1; Excel provides XCT110_Y and XCT110_Y2—use XCT110_Y as closest available spec set. */
+  XCT110_Y1: [
     { item: "Max. load capacity", unit: "t", parameter: "110" },
     { item: "Telescopic boom", unit: "m", parameter: "60.5" },
     { item: "Number of axles", unit: "-", parameter: "4" },
@@ -394,6 +352,21 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Dead Weight in Travel State", unit: "kg", parameter: "49800" },
     { item: "Dimensions", unit: "mm", parameter: "15000*2800*3927" },
     { item: "Emission standard", unit: "-", parameter: "Euro V" },
+  ],
+  XR138E: [
+    { item: "Max. drilling diameter", unit: "mm", parameter: "1500" },
+    { item: "Max. drilling depth", unit: "m", parameter: "45" },
+    { item: "Engine Brand", unit: "-", parameter: "Cummins" },
+    { item: "Engine Model", unit: "-", parameter: "B5.9" },
+    { item: "Engine Ratedpower", unit: "kW", parameter: "133" },
+    { item: "Rotary drive Rated output torque", unit: "kNm", parameter: "138" },
+    { item: "Rotary drive Working speed", unit: "r/min", parameter: "6-45" },
+    { item: "Main winch Max.lifting force", unit: "kN", parameter: "60" },
+    { item: "Main winch wire rope diameter", unit: "mm", parameter: "16" },
+    { item: "Main winch Max.speed", unit: "m/min", parameter: "75" },
+    { item: "Chassis Track width", unit: "mm", parameter: "600" },
+    { item: "Chassis Track widening", unit: "mm", parameter: "2250-3650" },
+    { item: "Chassis Max traveling speed", unit: "km/h", parameter: "1.5" },
   ],
   "XR130E": [
     { item: "Max. drilling diameter", unit: "mm", parameter: "1500/1300" },
@@ -584,9 +557,9 @@ export const roadEarthDescriptionsByModel: Record<string, string> = {
   "XC936": "",
   "XC938": "The XC938 is a next-generation specialized lifting product introduced by XCMG Construction Machinery Co., Ltd..\n\nIt is an advanced wheel loader designed and developed through in-depth market analysis and technical research. Compared to earlier models, it delivers strong performance and a sleek design, along with significantly enhanced reliability, safety, comfort, and ease of maintenance.",
   "XC958": "The XC958 represents a newly released generation of equipment from XCMG Construction Machinery Co., Ltd..\n\nThis wheel loader has been engineered using detailed technical studies and thorough market insights. It combines strong operational efficiency with a modern, streamlined look, while also providing notable advancements in durability, safety, operator comfort, and maintenance convenience over previous models.",
-  "XE140I-K": "The XE140I-K  Excavator is a high-performance machine built for demanding tasks such as crusher operations, wagon unloading, and irrigation projects. Powered by a 75/2200, this excavator combines robust power with fuel efficiency, ensuring consistent performance across a range of industrial and construction applications. With an operating weight of 13600 kg and a bucket capacity of  0.65 cubic meters, the XE140I-K  excels in material handling, offering excellent lifting capacity and control. This makes it ideal for efficiently unloading heavy materials from wagons, feeding crushers, and managing large-scale irrigation infrastructure projects.",
-  "XE215I-K":
-    "The XE215I-K  Excavator is a heavy-duty machine built for tough environments like stone quarries and sand mining sites. Powered by a 174.7 hp Isuzu engine, it delivers strong digging performance and good fuel efficiency for demanding tasks.\n\nWith an operating weight of 22,900 kg and a bucket capacity of 0.9–1.2 cubic meters, it is designed for efficient material extraction and handling. Its powerful engine and hydraulic system enable it to handle hard materials like stone and sand with ease. Durable and reliable, the XE215I-K improves productivity while minimizing downtime in high-demand operations.",
+  XE140I_K: "The XE140I_K Excavator is a high-performance machine built for demanding tasks such as crusher operations, wagon unloading, and irrigation projects. Powered by a 75/2200, this excavator combines robust power with fuel efficiency, ensuring consistent performance across a range of industrial and construction applications. With an operating weight of 13600 kg and a bucket capacity of  0.65 cubic meters, the XE140I_K excels in material handling, offering excellent lifting capacity and control. This makes it ideal for efficiently unloading heavy materials from wagons, feeding crushers, and managing large-scale irrigation infrastructure projects.",
+  XE215I_K:
+    "The XE215I_K Excavator is a heavy-duty machine built for tough environments like stone quarries and sand mining sites. Powered by a 174.7 hp Isuzu engine, it delivers strong digging performance and good fuel efficiency for demanding tasks.\n\nWith an operating weight of 22,900 kg and a bucket capacity of 0.9–1.2 cubic meters, it is designed for efficient material extraction and handling. Its powerful engine and hydraulic system enable it to handle hard materials like stone and sand with ease. Durable and reliable, the XE215I_K improves productivity while minimizing downtime in high-demand operations.",
   "XE230CLC": "The XE230C LC Excavator is a heavy-duty machine built for tough environments like stone quarries and sand mining sites. Powered by a 174.7 hp Isuzu engine, it delivers strong digging performance and good fuel efficiency for demanding tasks.\n\nWith an operating weight of 22,900 kg and a bucket capacity of 0.9–1.2 cubic meters, it is designed for efficient material extraction and handling. Its powerful engine and hydraulic system enable it to handle hard materials like stone and sand with ease.Durable and reliable, the XE230C LC improves productivity while minimizing downtime in high-demand operations.",
   "XE380C": "",
   "XP163": "The XP163 pneumatic tire roller is essential equipment for constructing high-grade highways, large-scale foundations, and various types of filling and compaction work. Its distinctive kneading and compaction capability make it difficult to replace with other machines.\n\nThe XP163 is a self-propelled static roller designed to deliver efficient and reliable compaction performance. It is suitable for compacting asphalt pavements, as well as base and sub-base layers and different types of fill materials. Due to its versatility and effectiveness, it is commonly used in major infrastructure projects such as roads, airports, ports, and dams, with particular importance in high-grade highway construction.",
@@ -628,24 +601,22 @@ The machine can also be equipped with an additional working platform, which faci
   "XUD295": `The XTD295 two-boom drill jumbo is primarily designed for tunneling construction, underground mining, and other subsurface engineering projects. It is suitable for drilling blasting holes, anchor bolt holes, and slot holes, making it highly versatile for underground operations.
 
 The machine can also be equipped with an additional working platform, which facilitates the installation of explosives, anchor bolts, and other related equipment. With a maximum working coverage area of up to 90 m² or 104 m², it provides efficient and extensive drilling capability for large-scale underground projects.`,
-  "SQS68TL-4": `The XCMG SQS68TL-4 truck-mounted crane is designed for efficient lifting operations with reliable performance and a durable boom structure. It offers strong lifting capability, smooth slewing, and stable operation, making it suitable for a wide range of construction and logistics lifting tasks.`,
-  /** Excel workbook provides SQS68TL-4 copy; SQS68TL-5 sheet is empty. */
-  "SQS68TL-5": `The XCMG SQS68TL-4 truck-mounted crane is designed for efficient lifting operations with reliable performance and a durable boom structure. It offers strong lifting capability, smooth slewing, and stable operation, making it suitable for a wide range of construction and logistics lifting tasks.`,
-  "SQS125TL-4": `The XCMG SQS125TL-4 truck-mounted crane features a high-strength polygonal boom structure that provides strong lifting performance, fast lifting speed, and stable operation. It is designed for construction, logistics, and general lifting applications where reliability and efficiency are required.`,
+  SQS68TL_4: `The XCMG SQS68TL_4 truck-mounted crane is designed for efficient lifting operations with reliable performance and a durable boom structure. It offers strong lifting capability, smooth slewing, and stable operation, making it suitable for a wide range of construction and logistics lifting tasks.`,
+  /** Excel workbook provides SQS68TL_4 copy; SQS68TL_5 sheet is empty. */
+  SQS68TL_5: `The XCMG SQS68TL_4 truck-mounted crane is designed for efficient lifting operations with reliable performance and a durable boom structure. It offers strong lifting capability, smooth slewing, and stable operation, making it suitable for a wide range of construction and logistics lifting tasks.`,
+  SQS125TL_4: `The XCMG SQS125TL_4 truck-mounted crane features a high-strength polygonal boom structure that provides strong lifting performance, fast lifting speed, and stable operation. It is designed for construction, logistics, and general lifting applications where reliability and efficiency are required.`,
   "SQS157ETL-4": `The XCMG SQS157ETL-4 truck-mounted crane is designed with a high-strength polygonal boom structure, providing strong lifting capacity, fast lifting speed, and stable performance. It is suitable for a range of lifting applications requiring reliable operation and durable construction.`,
-  "XCT25_Y1": `The XCT25_Y1 is a three-axle, 25-ton truck crane designed with an extended boom and enhanced lifting capability. It features a four-section boom structure and optimized chassis layout for stable operation, efficient performance, and convenient transport—well-suited for general lifting tasks on construction and infrastructure projects.`,
-  "XCT25-Y1": `The XCT25_Y1 is a three-axle, 25-ton truck crane designed with an extended boom and enhanced lifting capability. It features a four-section boom structure and optimized chassis layout for stable operation, efficient performance, and convenient transport—well-suited for general lifting tasks on construction and infrastructure projects.`,
+  XCT25_Y1: `The XCT25_Y1 is a three-axle, 25-ton truck crane designed with an extended boom and enhanced lifting capability. It features a four-section boom structure and optimized chassis layout for stable operation, efficient performance, and convenient transport—well-suited for general lifting tasks on construction and infrastructure projects.`,
   XCT25L4_Y: `The XCT25L4_Y truck crane is widely used in logistics, warehousing, construction sites, and various other industrial applications. Its reliable performance and versatile design make it suitable for efficient lifting and material handling operations in different working environments. In Nepal, UHEEM supports this model as part of the authorized XCMG range with sales, genuine parts, and after-sales service.`,
-  "XCT50_Y1": `The XCT50_Y1 truck crane is widely used for lifting operations in a variety of general engineering projects. It is well-suited for construction sites, bridges, urban infrastructure, and industrial lifting tasks, offering reliable performance and strong adaptability to different work conditions.`,
-  "XCT50-Y1": `The XCT50_Y1 truck crane is widely used for lifting operations in a variety of general engineering projects. It is well-suited for construction sites, bridges, urban infrastructure, and industrial lifting tasks, offering reliable performance and strong adaptability to different work conditions.`,
-  "XCT60_Y1": `The XCT60_Y1 truck crane is widely used for lifting operations in a variety of general engineering projects. It is well-suited for construction sites, bridges, urban infrastructure, and industrial lifting tasks, offering reliable performance and strong adaptability to different work conditions.`,
-  "XCT60-Y1": `The XCT60_Y1 truck crane is widely used for lifting operations in a variety of general engineering projects. It is well-suited for construction sites, bridges, urban infrastructure, and industrial lifting tasks, offering reliable performance and strong adaptability to different work conditions.`,
-  "XCT80_Y1": `The XCT80_Y1 truck crane is extensively used for lifting operations in a wide range of general engineering projects. It is suitable for a variety of construction and infrastructure applications, delivering stable performance, strong lifting capability, and dependable operation.`,
-  "XCT80-Y1": `The XCT80_Y1 truck crane is extensively used for lifting operations in a wide range of general engineering projects. It is suitable for a variety of construction and infrastructure applications, delivering stable performance, strong lifting capability, and dependable operation.`,
-  "XCT110_Y2": `The 4-axle 110-ton truck crane is designed to deliver powerful lifting performance along with precise and responsive control. Its robust chassis, optimized boom system, and stable lifting configuration make it suitable for heavy-duty lifting tasks across infrastructure, industrial, and general engineering projects.`,
-  "XCT110_Y": `The XCT110_Y truck crane is a four-axle, 110-ton lifting machine designed to deliver strong performance along with precise and responsive control. It is built for heavy-duty lifting operations across infrastructure and general engineering projects, balancing lifting capability with transport convenience.`,
-  "XCT110-Y1": `The XCT110_Y truck crane is a four-axle, 110-ton lifting machine designed to deliver strong performance along with precise and responsive control. It is built for heavy-duty lifting operations across infrastructure and general engineering projects, balancing lifting capability with transport convenience.`,
-  "XR138E": `The XR138E is a compact rotary drilling rig designed for efficient and stable foundation construction. It features a fuel-efficient engine, reliable hydraulic system, and adaptable drilling capabilities, making it suitable for urban construction, bridge works, and medium-depth drilling projects.`,
+  XCT50_Y1: `The XCT50_Y1 truck crane is widely used for lifting operations in a variety of general engineering projects. It is well-suited for construction sites, bridges, urban infrastructure, and industrial lifting tasks, offering reliable performance and strong adaptability to different work conditions.`,
+  XCT60_Y1: `The XCT60_Y1 truck crane is widely used for lifting operations in a variety of general engineering projects. It is well-suited for construction sites, bridges, urban infrastructure, and industrial lifting tasks, offering reliable performance and strong adaptability to different work conditions.`,
+  XCT80_Y1: `The XCT80_Y1 truck crane is extensively used for lifting operations in a wide range of general engineering projects. It is suitable for a variety of construction and infrastructure applications, delivering stable performance, strong lifting capability, and dependable operation.`,
+  XCT110_Y2: `The 4-axle 110-ton truck crane is designed to deliver powerful lifting performance along with precise and responsive control. Its robust chassis, optimized boom system, and stable lifting configuration make it suitable for heavy-duty lifting tasks across infrastructure, industrial, and general engineering projects.`,
+  XCT110_Y: `The XCT110_Y truck crane is a four-axle, 110-ton lifting machine designed to deliver strong performance along with precise and responsive control. It is built for heavy-duty lifting operations across infrastructure and general engineering projects, balancing lifting capability with transport convenience.`,
+  XCT110_Y1: `The XCT110_Y truck crane is a four-axle, 110-ton lifting machine designed to deliver strong performance along with precise and responsive control. It is built for heavy-duty lifting operations across infrastructure and general engineering projects, balancing lifting capability with transport convenience.`,
+  "XR138E": `The XR138E is a compact rotary drilling rig designed for efficient and stable foundation construction. It features a fuel-efficient engine, advanced hydraulic system, and reliable drilling performance for a variety of working conditions.
+
+With its intelligent control technology, durable structure, and easy operation, the machine delivers improved efficiency, smooth performance, and dependable results for different construction projects.`,
   "XR130E": `The XR130E is a compact rotary drilling rig designed for efficient and stable foundation construction. It features a fuel-efficient engine, reliable hydraulic system, and adaptable drilling capabilities, making it suitable for urban construction, bridge works, and medium-depth drilling projects.`,
   "XR158E": `The XR158E is a compact and efficient rotary drilling rig designed for foundation construction projects. It is equipped with a fuel-efficient engine, reliable hydraulic system, and stable drilling performance, allowing it to handle diverse construction conditions with high productivity.`,
   "XR178E": `The XR178E is a versatile rotary drilling rig designed to efficiently handle different construction requirements. Its adaptable design allows it to perform a wide range of pile foundation operations, making it suitable for infrastructure, urban development, and general foundation engineering projects.`,
@@ -657,7 +628,7 @@ The machine can also be equipped with an additional working platform, which faci
 
 /** Normalize model codes for lookup (matches EV helper behaviour). */
 export function roadEarthSpecModelKey(model: string): string {
-  return model.replace(/\s+/g, "").toUpperCase();
+  return model.replace(/\s+/g, "").replace(/-/g, "_").toUpperCase();
 }
 
 export function roadEarthSpecificationsForModel(model: string): SpecRow[] {

@@ -13,3 +13,15 @@ export function productSpecificationsForModel(model: string): SpecRow[] {
   if (concrete.length > 0) return concrete;
   return roadEarthSpecificationsForModel(model);
 }
+
+function isBlankSpecValue(value: string): boolean {
+  const trimmed = value.trim();
+  return trimmed === "" || trimmed === "/" || trimmed === "\\";
+}
+
+/** Rows shown in the Parameters table — drops blank or placeholder values. */
+export function displayProductSpecifications(model: string): SpecRow[] {
+  return productSpecificationsForModel(model).filter(
+    (row) => row.item.trim() !== "" && !isBlankSpecValue(row.parameter),
+  );
+}

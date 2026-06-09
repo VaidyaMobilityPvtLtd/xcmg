@@ -29,7 +29,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
       {
         name: "Excavator",
         slug: "excavator",
-        models: ["XE140I-K", "XE215I-K", "XE230CLC", "XE380C"],
+        models: ["XE140I_K", "XE215I_K", "XE230CLC", "XE380C"],
       },
     ],
   },
@@ -86,12 +86,12 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
       {
         name: "Truck mounted crane",
         slug: "truck-mounted-crane",
-        models: ["SQS125TL-4", "SQS68TL-5"],
+        models: ["SQS125TL_4", "SQS68TL_5"],
       },
       {
         name: "Truck crane",
         slug: "truck-crane",
-        models: ["XCT25L4_Y", "XCT25-Y1", "XCT50-Y1", "XCT80-Y1", "XCT110-Y1"],
+        models: ["XCT25L4_Y", "XCT25_Y1", "XCT50_Y1", "XCT80_Y1", "XCT110_Y1"],
       },
     ],
   },
@@ -117,10 +117,10 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
     key: "piling",
     tab: "Drilling",
     label: "Drilling Machinery",
-    blurb: "Drilling rigs for foundations and geotechnical applications.",
+    blurb: "Rotary drilling rigs for foundation, bridge, and geotechnical applications.",
     subtypes: [
       {
-        name: "Drilling rig",
+        name: "Rotary drilling rig",
         slug: "drilling-rig",
         models: ["XR138E", "XR158E", "XR178E", "XR210C", "XR240E"],
       },
@@ -156,7 +156,7 @@ export function productsSubtypeHref(segmentKey: string, subtypeSlug: string) {
 }
 
 function modelKey(model: string) {
-  return model.replace(/\s+/g, "").toUpperCase();
+  return model.replace(/\s+/g, "").replace(/-/g, "_").toUpperCase();
 }
 
 const wheelLoaderImages: Record<string, string> = {
@@ -173,8 +173,8 @@ const wheelLoaderImages: Record<string, string> = {
 };
 
 const excavatorImages: Record<string, string> = {
-  "XE140I-K": "/equipment/excavators/XE140I-K.png",
-  "XE215I-K": "/equipment/excavators/XE215I-K.png",
+  XE140I_K: "/equipment/excavators/XE140I-K.png",
+  XE215I_K: "/equipment/excavators/XE215I-K.png",
   XE215EV: "/equipment/electric-vehicles/EV-PIC/XE215-EV.png",
   XE230CLC: "/equipment/excavators/XE230CLC.png",
   XE380C: "/equipment/excavators/XE380C.png",
@@ -219,16 +219,16 @@ const roadHeaderImages: Record<string, string> = {
 
 const truckCraneImages: Record<string, string> = {
   XCT25L4_Y: "/equipment/truck-cranes/XCT25L4.png",
-  "XCT25-Y1": "/equipment/truck-cranes/XCT25-Y1.png",
-  "XCT50-Y1": "/equipment/truck-cranes/XCT50-Y1.png",
-  "XCT80-Y1": "/equipment/truck-cranes/XCT80-Y1.png",
-  "XCT110-Y1": "/equipment/truck-cranes/XCT110-Y1.png",
+  XCT25_Y1: "/equipment/truck-cranes/XCT25-Y1.png",
+  XCT50_Y1: "/equipment/truck-cranes/XCT50-Y1.png",
+  XCT80_Y1: "/equipment/truck-cranes/XCT80-Y1.png",
+  XCT110_Y1: "/equipment/truck-cranes/XCT110-Y1.png",
 };
 
 const truckMountedCraneImages: Record<string, string> = {
-  "SQS125TL-4": "/equipment/truck-mounted-cranes/SQS125TL-4.png",
-  /** Listed model SQS68TL-5; on-disk asset remains TL-4 until a TL-5 render is added. */
-  "SQS68TL-5": "/equipment/truck-mounted-cranes/SQS68TL-4.png",
+  SQS125TL_4: "/equipment/truck-mounted-cranes/SQS125TL-4.png",
+  /** Listed model SQS68TL_5; on-disk asset remains TL-4 until a TL-5 render is added. */
+  SQS68TL_5: "/equipment/truck-mounted-cranes/SQS68TL-4.png",
 };
 
 const paverImages: Record<string, string> = {

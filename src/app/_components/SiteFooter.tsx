@@ -28,7 +28,7 @@ export default function SiteFooter() {
   return (
     <footer
       id="contact"
-      className="scroll-mt-[clamp(3.75rem,11vw,5.75rem)] font-sans border-t border-[var(--border-subtle)] bg-gradient-to-b from-[#f0f3f8] to-[#e8ecf2] shadow-[inset_0_2px_0_0_var(--brand-yellow)]"
+      className="justify-copy scroll-mt-[clamp(3.75rem,11vw,5.75rem)] font-sans border-t border-[var(--border-subtle)] bg-gradient-to-b from-[#f0f3f8] to-[#e8ecf2] shadow-[inset_0_2px_0_0_var(--brand-yellow)]"
     >
       <div className={`${siteShellClass} py-10 md:py-12 2xl:py-14`}>
         <div className="grid min-w-0 grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-10 xl:gap-x-10">

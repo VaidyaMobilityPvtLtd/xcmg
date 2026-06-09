@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-transparent text-[#0f172a]">
+      <main className="justify-copy min-h-screen bg-transparent text-[#0f172a]">
         <HeroSlider />
 
         <section
@@ -116,7 +116,7 @@ export default function Home() {
                     <p>
                       <span className="font-semibold text-[var(--brand-blue)]">XCMG</span>{" "}
                       is a leading global construction machinery manufacturer, consistently ranked among the
-                      world&apos;s top manufacturers. XCMG has retained its No. 1 position in China&apos;s construction
+                      world&apos;s top manufacturer. XCMG has retained its No. 1 position in China&apos;s construction
                       machinery industry and is ranked No. 3 in the global construction machinery industry. With decades
                       of innovation and engineering excellence, it delivers high-performance equipment for
                       infrastructure and industrial development. In Nepal, XCMG combines proven global technology with
@@ -352,7 +352,7 @@ export default function Home() {
                   <Link href="/products" className="font-medium text-[var(--brand-blue)] hover:text-[#0a3376] hover:underline">
                     products
                   </Link>{" "}
-                  page—open a category for models and specifications.
+                  page—open a category for products and specifications.
                 </p>
               </div>
               <Link

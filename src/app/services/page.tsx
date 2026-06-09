@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
+      <main className="justify-copy min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
         <PageHero
           variant="brand"
           imageSrc={pageHeroSrc.services}
@@ -59,7 +59,7 @@ export default function ServicesPage() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Equipment</p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">Need a specific model?</h2>
               <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
-                Browse the Nepal catalogue for models, specifications, and distributor contact paths.
+                Browse the Nepal catalogue for products, specifications, and distributor contact paths.
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">

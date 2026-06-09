@@ -19,15 +19,16 @@ import {
   productsSubtypeHref,
 } from "../_data/displayEquipment";
 import {
+  equipmentCatalogGridVisual,
   equipmentModelCardVisual,
   equipmentModelDetailImageClass,
   formatEquipmentTypeLabel,
   portfolioImageForCategory,
 } from "../_lib/productsListing";
 import { evProductDescriptionsByModel } from "../_data/evSpecifications";
-import { concreteDescriptionForModel, concreteSpecificationsForModel } from "../_data/concreteSpecifications";
-import { productSpecificationsForModel } from "../_data/productSpecifications";
-import { roadEarthDescriptionForModel, roadEarthSpecificationsForModel } from "../_data/roadEarthSpecifications";
+import { concreteDescriptionForModel } from "../_data/concreteSpecifications";
+import { displayProductSpecifications } from "../_data/productSpecifications";
+import { roadEarthDescriptionForModel } from "../_data/roadEarthSpecifications";
 import { siteContacts } from "../_data/siteContacts";
 import { pageHeroSrcForProductsSegment } from "../_data/pageHeroBanners";
 
@@ -50,7 +51,7 @@ function isEvWheelLoaderModel(model: string): boolean {
 
 /** Listing image strip: plain white, fixed height, same contain rules as detail. */
 const catalogListingThumbShell =
-  "relative block w-full min-w-0 overflow-hidden bg-white [color-scheme:light] p-2 sm:p-3 h-[200px] sm:h-[260px] md:h-[300px]";
+  "relative block w-full min-w-0 overflow-hidden bg-white [color-scheme:light] h-[200px] sm:h-[260px] md:h-[300px]";
 
 type Props = {
   searchParams: Promise<{ segment?: string; type?: string; subtype?: string; model?: string }>;
@@ -72,38 +73,36 @@ type ProductDetailMeta = {
   description: string;
 };
 
-function resolveProductDetailMeta(entry: ModelMatchEntry, equipmentImage: string | null): ProductDetailMeta | null {
+function resolveProductDriveLabel(entry: ModelMatchEntry): string {
+  if (entry.segmentKey === "electric-vehicle") {
+    const hybridModels = new Set(["RP905HEV", "XCR40_EV", "XS265HEV"]);
+    return hybridModels.has(normalizeModelCode(entry.model)) ? "Hybrid Electric" : "Battery Electric";
+  }
+  return "Diesel";
+}
+
+function resolveProductDetailMeta(entry: ModelMatchEntry, equipmentImage: string | null): ProductDetailMeta {
   const ev = evModelDisplayMeta[entry.model];
   if (ev) return ev;
 
-  const concreteSpecs = concreteSpecificationsForModel(entry.model);
   const concreteDesc = concreteDescriptionForModel(entry.model);
-  if (concreteSpecs.length > 0 || concreteDesc) {
-    const caseImage = equipmentImage ?? portfolioImageForCategory(entry.segmentKey);
-    return {
-      family: entry.subtypeName,
-      drive: "Diesel",
-      caseTitle: `${entry.model} — technical specifications`,
-      caseImage,
-      description:
-        concreteDesc ??
-        `${entry.model} — concrete machinery from the Nepal catalogue with local support from UHEEM.`,
-    };
-  }
-
-  const roadSpecs = roadEarthSpecificationsForModel(entry.model);
   const roadDesc = roadEarthDescriptionForModel(entry.model);
-  if (roadSpecs.length === 0 && !roadDesc) return null;
   const caseImage = equipmentImage ?? portfolioImageForCategory(entry.segmentKey);
+
   return {
     family: entry.subtypeName,
-    drive: "Diesel",
+    drive: resolveProductDriveLabel(entry),
     caseTitle: `${entry.model} — technical specifications`,
     caseImage,
     description:
+      concreteDesc ??
       roadDesc ??
-      `${entry.model} — diesel earth-moving and road-building equipment from the Nepal catalogue with local support from UHEEM.`,
+      `${entry.model} — catalogue equipment configured for Nepal sites with local support from UHEEM.`,
   };
+}
+
+function normalizeModelCode(model: string): string {
+  return model.replace(/\s+/g, "").replace(/-/g, "_").toUpperCase();
 }
 
 function resolveSelectedModelEntry(
@@ -112,7 +111,8 @@ function resolveSelectedModelEntry(
   segment: string,
   subtypeRaw: string,
 ): ModelMatchEntry | null {
-  const exact = matches.filter((e) => e.model.replace(/\s+/g, "").toUpperCase() === modelQuery);
+  const normalizedQuery = normalizeModelCode(modelQuery);
+  const exact = matches.filter((e) => normalizeModelCode(e.model) === normalizedQuery);
   if (exact.length === 0) return null;
   if (segment) {
     const bySegment = exact.find((e) => e.segmentKey === segment);
@@ -200,12 +200,12 @@ export default async function ProductsPage({ searchParams }: Props) {
   if (subtypeLabel || typeLabel) selectionParts.push(subtypeLabel || typeLabel);
   if (modelRaw) selectionParts.push(modelRaw);
   const hasSelection = selectionParts.length > 0;
-  const modelQuery = modelRaw.trim().toUpperCase();
+  const modelQuery = normalizeModelCode(modelRaw);
   const modelMatches: ModelMatchEntry[] = modelQuery
     ? displayEquipmentCatalog.flatMap((category) =>
         category.subtypes.flatMap((subtype) =>
           subtype.models
-            .filter((m) => m.toUpperCase().includes(modelQuery))
+            .filter((m) => normalizeModelCode(m).includes(modelQuery))
             .map((model) => ({
               model,
               subtypeName: subtype.name,
@@ -220,7 +220,7 @@ export default async function ProductsPage({ searchParams }: Props) {
   const selectedModelImage = selectedModel
     ? equipmentImageForModel(selectedModel.model, selectedModel.subtypeSlug)
     : null;
-  const selectedModelSpecs = selectedModel ? productSpecificationsForModel(selectedModel.model) : [];
+  const selectedModelSpecs = selectedModel ? displayProductSpecifications(selectedModel.model) : [];
   const selectedModelHighlights = selectedModelSpecs.slice(0, 3);
   const selectedMeta = selectedModel ? resolveProductDetailMeta(selectedModel, selectedModelImage) : null;
   const heroImageSrc =
@@ -295,7 +295,7 @@ export default async function ProductsPage({ searchParams }: Props) {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-white text-[#0f172a] [color-scheme:light]">
+      <main className="justify-copy min-h-screen bg-white text-[#0f172a] [color-scheme:light]">
         {selectedModel ? (
           <div className="border-b border-[#e6edf5] bg-white">
             <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-4 md:px-6">
@@ -328,7 +328,7 @@ export default async function ProductsPage({ searchParams }: Props) {
             </h1>
             <p className={pageHeroLeadBrandClass}>
               {categoryForSegment
-                ? "Filter by product type and open a model for specs — Nepal catalogue only."
+                ? "Filter by product type and open a product for specs — Nepal catalogue only."
                 : "Browse equipment categories available for Nepal projects, with local support and service readiness."}
             </p>
           </PageHero>
@@ -357,7 +357,7 @@ export default async function ProductsPage({ searchParams }: Props) {
           </div>
         ) : null}
 
-        {selectedModel && selectedModelSpecs.length > 0 ? (
+        {selectedModel ? (
           <section className="border-b border-[var(--border-subtle)] bg-white">
             <div className="relative mx-auto w-[92vw] max-w-[1600px] px-4 pb-10 pt-8 text-left sm:pb-12 sm:pt-10 md:px-6 md:pb-14 md:pt-12">
               <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-0 xl:gap-x-12">
@@ -464,33 +464,50 @@ export default async function ProductsPage({ searchParams }: Props) {
                 </p>
                 <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-[#0b2f6b] sm:text-3xl md:text-4xl">Parameters</h3>
                 <div className="mt-8 border-t border-[#e8ecf2] pt-6">
-                  <div className="w-full overflow-hidden rounded-lg border border-[#e6edf5] shadow-sm">
-                    <div className="overflow-x-auto">
-                      <table className="min-w-[520px] w-full text-left text-xs sm:min-w-full sm:text-sm md:text-base">
-                        <thead>
-                          <tr className="bg-[#f4bd22] text-[#0f172a]">
-                            <th className="px-4 py-3.5 font-semibold md:px-6">Item</th>
-                            <th className="whitespace-nowrap px-4 py-3.5 font-semibold md:px-6">Unit</th>
-                            <th className="px-4 py-3.5 font-semibold md:px-6">Parameter</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {selectedModelSpecs.map((row, idx) => (
-                            <tr
-                              key={`${selectedModel.model}-${row.item}`}
-                              className={`border-b border-[#edf2f7] ${idx % 2 === 0 ? "bg-[#f8fafc]" : "bg-white"} last:border-b-0`}
-                            >
-                              <td className="align-top px-4 py-3 text-[#0f172a] md:px-6 md:py-3.5">{row.item}</td>
-                              <td className="align-top whitespace-nowrap px-4 py-3 text-[#475569] md:px-6 md:py-3.5">{row.unit}</td>
-                              <td className="align-top px-4 py-3 font-semibold tabular-nums text-[#0f172a] md:px-6 md:py-3.5">
-                                {row.parameter}
-                              </td>
+                  {selectedModelSpecs.length > 0 ? (
+                    <div className="w-full overflow-hidden rounded-lg border border-[#e6edf5] shadow-sm">
+                      <div className="overflow-x-auto">
+                        <table className="product-parameters-table min-w-[520px] w-full table-fixed text-xs sm:min-w-full sm:text-sm md:text-base">
+                          <colgroup>
+                            <col />
+                            <col />
+                            <col />
+                          </colgroup>
+                          <thead>
+                            <tr className="bg-[#f4bd22] text-[#0f172a]">
+                              <th className="px-4 py-3.5 text-left font-semibold md:px-6">Item</th>
+                              <th className="whitespace-nowrap px-4 py-3.5 text-center font-semibold md:px-6">Unit</th>
+                              <th className="px-4 py-3.5 text-right font-semibold md:px-6">Parameter</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody>
+                            {selectedModelSpecs.map((row, idx) => (
+                              <tr
+                                key={`${selectedModel.model}-${row.item}`}
+                                className={`border-b border-[#edf2f7] ${idx % 2 === 0 ? "bg-[#f8fafc]" : "bg-white"} last:border-b-0`}
+                              >
+                                <td className="align-top px-4 py-3 text-left text-[#0f172a] md:px-6 md:py-3.5">{row.item}</td>
+                                <td className="align-top whitespace-nowrap px-4 py-3 text-center text-[#475569] md:px-6 md:py-3.5">
+                                  {row.unit}
+                                </td>
+                                <td className="align-top px-4 py-3 text-right font-semibold tabular-nums text-[#0f172a] md:px-6 md:py-3.5">
+                                  {row.parameter}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="rounded-lg border border-[#e6edf5] bg-[#f8fafc] px-5 py-8 text-sm leading-relaxed text-[#64748b]">
+                      Full technical parameters for this product are being updated.{" "}
+                      <a href={`mailto:${salesDeptEmail}`} className="font-semibold text-[var(--brand-blue)] hover:underline">
+                        Contact UHEEM sales
+                      </a>{" "}
+                      for the complete specification sheet.
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -558,44 +575,54 @@ export default async function ProductsPage({ searchParams }: Props) {
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">
-                        Models
+                        Products
                       </p>
                       <p className="mt-1 text-sm text-[#64748b]">
-                        {listingModels.length} item{listingModels.length === 1 ? "" : "s"}
+                        {listingModels.length} product{listingModels.length === 1 ? "" : "s"}
                         {subtypeFilter ? ` · ${subtypeFilter.name}` : ""}
                       </p>
                     </div>
                   </div>
                   <div
                     key={`${categoryForSegment!.key}-${subtypeRaw || "all"}`}
-                    className="catalog-grid-enter mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3"
+                    className="catalog-grid-enter mt-6 grid grid-cols-2 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
                   >
                     {listingModels.map(({ model, subtypeName, subtypeSlug }) => {
                       const img = equipmentImageForModel(model, subtypeSlug);
                       const bypassOpt = img ? equipmentImageShouldBypassOptimization(img) : false;
+                      const gridVisual = equipmentCatalogGridVisual(subtypeSlug, model);
                       return (
                         <Link
                           key={`${categoryForSegment!.key}-${subtypeSlug}-${model}`}
                           href={productHref(categoryForSegment!.key, subtypeSlug, model)}
-                          className="catalog-model-card group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#e2e8f0] bg-white shadow-sm"
+                          className="catalog-model-card group flex w-full max-w-[280px] flex-col items-center overflow-hidden rounded-lg border border-[#e2e8f0] bg-white text-center shadow-sm"
                         >
                           <div className={`catalog-model-media ${catalogListingThumbShell}`}>
+                            <div
+                              className={`relative flex h-full w-full items-center justify-center ${gridVisual.framePaddingClass}`}
+                            >
                             {img ? (
                               <Image
                                 src={img}
                                 alt={model}
                                 fill
-                                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                                sizes="(max-width: 640px) 45vw, 280px"
                                 unoptimized={bypassOpt}
-                                className="catalog-model-img object-contain object-center"
+                                className={[
+                                  "catalog-model-img object-contain object-center",
+                                  gridVisual.imageScaleClass,
+                                ]
+                                  .filter(Boolean)
+                                  .join(" ")}
                               />
                             ) : (
-                              <span className="text-center font-mono text-sm font-bold tracking-tight text-[#cbd5e1] sm:text-base">
+                              <span className="flex h-full w-full items-center justify-center font-mono text-sm font-bold tracking-tight text-[#cbd5e1] sm:text-base">
                                 {model}
                               </span>
                             )}
+                            </div>
                           </div>
-                          <div className="border-t border-[#e2e8f0] bg-white px-4 py-3.5">
+                          <div className="w-full border-t border-[#e2e8f0] bg-white px-4 py-3.5">
                             <p className="catalog-model-title font-mono text-[14px] font-semibold text-[var(--brand-blue)]">
                               {model}
                             </p>
@@ -611,7 +638,7 @@ export default async function ProductsPage({ searchParams }: Props) {
             </div>
           ) : null}
 
-          {modelQuery ? (
+          {modelQuery && !selectedModel ? (
             <div className="mb-8 rounded-xl border border-[#e2e8f0] bg-white p-5 shadow-sm">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">
                 Search results
@@ -638,7 +665,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                 </>
               ) : (
                 <p className="mt-2 text-sm text-[#64748b]">
-                  No models found for <span className="font-mono font-semibold">{modelRaw}</span>.
+                  No products found for <span className="font-mono font-semibold">{modelRaw}</span>.
                 </p>
               )}
             </div>
@@ -651,7 +678,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                   Browse by category
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[#64748b]">
-                  Open a segment to see model lines, specs, and Nepal-ready configurations supported by UHEEM.
+                  Open a segment to see product lines, specs, and Nepal-ready configurations supported by UHEEM.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -678,7 +705,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                         />
                         <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-2 p-3 sm:p-4">
                           <span className="inline-flex rounded-full bg-white/95 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--brand-blue)] shadow-sm ring-1 ring-black/[0.04]">
-                            {n} model{n === 1 ? "" : "s"}
+                            {n} product{n === 1 ? "" : "s"}
                           </span>
                           <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-white/95 drop-shadow-sm">
                             {cat.subtypes.length} type{cat.subtypes.length === 1 ? "" : "s"}

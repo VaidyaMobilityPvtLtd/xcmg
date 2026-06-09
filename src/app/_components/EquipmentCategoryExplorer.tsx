@@ -7,13 +7,9 @@ import {
   displayEquipmentCatalog,
   equipmentImageForModel,
   equipmentImageShouldBypassOptimization,
-  excavatorShouldUseReducedZoom,
-  excavatorUsesUnifiedFraming,
   productHref,
-  wheelLoaderShouldModerateZoom,
-  wheelLoaderShouldUseLightZoom,
-  wheelLoaderShouldZoomImage,
 } from "../_data/displayEquipment";
+import { equipmentCatalogGridVisual } from "../_lib/productsListing";
 import { warmImageSrcs } from "../_lib/warmImages";
 
 const EQUIP_PREWARM_MAX = 48;
@@ -51,61 +47,6 @@ function collectEquipmentImageUrls(categoryKey: string, subtype: "all" | string)
 }
 
 type GridItem = { model: string; subtypeName: string; subtypeSlug: string };
-
-type ThumbLayout = { imagePad: string; imageScale: string; objectAlign: string };
-
-const WHEEL_LOADER_EV_KEYS = new Set(["XC918EV", "XC938EV", "XC968EV", "XC975EV"]);
-
-function modelKey(model: string): string {
-  return model.replace(/\s+/g, "").toUpperCase();
-}
-
-function isWheelLoaderEv(model: string): boolean {
-  return WHEEL_LOADER_EV_KEYS.has(modelKey(model));
-}
-
-/** Homepage explorer — diesel wheel loaders get extra zoom; excavators except XE380C get a modest zoom; EV wheel loaders unchanged. */
-function thumbLayoutForModel(subtypeSlug: string, model: string): ThumbLayout {
-  const zoomWheelLoader = subtypeSlug === "wheelloader" && wheelLoaderShouldZoomImage(model);
-  const moderateWheelLoader = subtypeSlug === "wheelloader" && wheelLoaderShouldModerateZoom(model);
-  const lightZoomWheelLoader = subtypeSlug === "wheelloader" && wheelLoaderShouldUseLightZoom(model);
-  const zoomExcavator = excavatorUsesUnifiedFraming(subtypeSlug);
-  const excavatorLoose = zoomExcavator && excavatorShouldUseReducedZoom(model);
-
-  const imagePad = zoomWheelLoader
-    ? lightZoomWheelLoader
-      ? "p-3"
-      : "p-2.5"
-    : moderateWheelLoader
-      ? "p-3"
-      : zoomExcavator
-        ? excavatorLoose
-          ? "p-4"
-          : "p-3"
-        : "p-5";
-
-  if (subtypeSlug === "wheelloader" && !isWheelLoaderEv(model)) {
-    return {
-      imagePad: "p-0",
-      imageScale: "scale-[1.44] origin-center",
-      objectAlign: "object-center",
-    };
-  }
-
-  if (zoomExcavator && modelKey(model) !== "XE380C") {
-    return {
-      imagePad: "p-1",
-      imageScale: "scale-[1.14] origin-bottom",
-      objectAlign: "object-bottom",
-    };
-  }
-
-  return {
-    imagePad,
-    imageScale: "",
-    objectAlign: zoomExcavator ? "object-bottom" : "object-center",
-  };
-}
 
 export default function EquipmentCategoryExplorer() {
   const [activeKey, setActiveKey] = useState(displayEquipmentCatalog[0]?.key ?? "");
@@ -287,37 +228,44 @@ export default function EquipmentCategoryExplorer() {
               {activeCategory.label}
             </p>
             <p className="mt-1 text-sm text-[#64748b]">
-              {gridItems.length} model{gridItems.length === 1 ? "" : "s"} shown
+              {gridItems.length} product{gridItems.length === 1 ? "" : "s"} shown
               {subtypeFilter !== "all" ? ` · ${activeCategory.subtypes.find((s) => s.slug === subtypeFilter)?.name}` : ""}
             </p>
           </div>
 
           <div className={`pb-10 pt-2 md:pb-12 ${gutterX}`}>
             {gridItems.length === 0 ? (
-              <p className="py-12 text-center text-sm text-[#64748b]">No models in this filter.</p>
+              <p className="py-12 text-center text-sm text-[#64748b]">No products in this filter.</p>
             ) : (
               <div
                 key={`${activeKey}-${subtypeFilter}`}
-                className="catalog-grid-enter grid grid-cols-1 justify-items-stretch gap-x-4 gap-y-8 sm:grid-cols-2 sm:justify-items-center sm:gap-x-6 sm:gap-y-10 xl:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 xl:gap-x-5"
+                className="catalog-grid-enter grid grid-cols-2 justify-items-center gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-5"
               >
                 {gridItems.map(({ model, subtypeName, subtypeSlug }) => {
                   const src = equipmentImageForModel(model, subtypeSlug) ?? categoryFallbackImage;
                   const shouldUnoptimize = equipmentImageShouldBypassOptimization(src);
-                  const { imagePad, imageScale, objectAlign } = thumbLayoutForModel(subtypeSlug, model);
+                  const gridVisual = equipmentCatalogGridVisual(subtypeSlug, model);
                   return (
                     <Link
                       key={`${subtypeSlug}-${model}`}
                       href={productHref(activeCategory.key, subtypeSlug, model)}
-                      className="catalog-model-card group flex w-full max-w-full flex-col rounded-sm border border-[var(--border-subtle)]/0 bg-white p-3 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-blue)]/30 sm:w-[260px] sm:max-w-[260px]"
+                      className="catalog-model-card group flex w-full max-w-[280px] flex-col items-center rounded-sm border border-[var(--border-subtle)]/0 bg-white p-3 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-blue)]/30"
                     >
-                      <div className="catalog-model-media relative h-[180px] w-full shrink-0 overflow-hidden rounded-md border border-[var(--border-subtle)] bg-white sm:h-[200px]">
-                        <div className={`relative h-full w-full ${imagePad}`}>
+                      <div className="catalog-model-media relative mx-auto h-[180px] w-full shrink-0 overflow-hidden rounded-md border border-[var(--border-subtle)] bg-white sm:h-[200px]">
+                        <div
+                          className={`relative flex h-full w-full items-center justify-center ${gridVisual.framePaddingClass}`}
+                        >
                           <Image
                             src={src}
                             alt={`XCMG ${model} ${subtypeName}`}
                             fill
-                            sizes="(max-width: 640px) 92vw, 260px"
-                            className={["catalog-model-img object-contain", objectAlign, imageScale].filter(Boolean).join(" ")}
+                            sizes="(max-width: 640px) 45vw, 280px"
+                            className={[
+                              "catalog-model-img object-contain object-center",
+                              gridVisual.imageScaleClass,
+                            ]
+                              .filter(Boolean)
+                              .join(" ")}
                             unoptimized={shouldUnoptimize}
                           />
                         </div>

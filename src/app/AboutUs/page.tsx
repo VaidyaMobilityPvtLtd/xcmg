@@ -67,7 +67,7 @@ export default function AboutPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
+      <main className="justify-copy min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
         <PageHero variant="brand" imageSrc={pageHeroSrc.aboutUs} imageAlt="XCMG construction machinery in Nepal">
           <PageHeroBreadcrumbs
             items={[
@@ -83,7 +83,7 @@ export default function AboutPage() {
           </h1>
           <p className={pageHeroLeadBrandClass}>
             <span className="font-semibold text-white">UHEEM</span>{" "}
-            is a proud member of Vaidya&apos;s Organization of Industries
+            is a proud member of VOITH&apos;s Organization of Industries
             &amp; Trading Houses and serves as the
             authorized distributor of XCMG in Nepal. UHEEM delivers a wide range of world-class construction and heavy
             equipment, genuine spare parts, and after-sales services across the country.
@@ -105,7 +105,7 @@ export default function AboutPage() {
                   introducing advanced heavy machinery and engineering solutions to the market.
                 </p>
                 <p>
-                  Backed by the legacy and trust of Vaidya&apos;s Organization of Industries &amp; Trading Houses, UHEEM has
+                  Backed by the legacy and trust of VOITH&apos;s Organization of Industries &amp; Trading Houses, UHEEM has
                   consistently expanded its footprint by
                   providing reliable equipment and technical expertise to meet the nation&apos;s development needs. From roads
                   and hydropower projects to urban construction, UHEEM continues to contribute to Nepal&apos;s
@@ -301,7 +301,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="mt-6 border-t border-stone-200/90 pt-6">
-                    <div className="space-y-4 text-left text-[14px] leading-[1.82] text-stone-600 md:text-[15px]">
+                    <div className="space-y-4 text-[14px] leading-[1.82] text-stone-600 md:text-[15px]">
                       {leader.paragraphs.map((text, i) => (
                         <p key={`${leader.name}-${i}`}>{text}</p>
                       ))}

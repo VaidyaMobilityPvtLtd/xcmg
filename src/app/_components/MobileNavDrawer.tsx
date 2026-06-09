@@ -55,7 +55,7 @@ function MobileNavDrawerInner() {
     };
   }, [open, close]);
 
-  const totalModels = displayEquipmentCatalog.reduce(
+  const totalProducts = displayEquipmentCatalog.reduce(
     (sum, c) => sum + c.subtypes.reduce((s, sub) => s + sub.models.length, 0),
     0,
   );
@@ -112,7 +112,7 @@ function MobileNavDrawerInner() {
                       className={`${subLink} font-semibold text-[var(--brand-blue)]`}
                     >
                       All products
-                      <span className="ml-auto tabular-nums text-[12px] font-normal text-[#94a3b8]">{totalModels}</span>
+                      <span className="ml-auto tabular-nums text-[12px] font-normal text-[#94a3b8]">{totalProducts}</span>
                     </Link>
                     {displayEquipmentCatalog.map((cat) => (
                       <details key={cat.key} className="group/cat mt-1 overflow-hidden rounded-lg border border-[#eef2f6] bg-white">
@@ -181,10 +181,10 @@ function MobileNavDrawerInner() {
           </nav>
 
           <div className="shrink-0 border-t border-[#e8ecf1] bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] px-4 py-3">
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">Search model</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">Search product</p>
             <form action="/products" method="get" className="mt-2 flex gap-2" onSubmit={close}>
               <label htmlFor={searchId} className="sr-only">
-                Search model
+                Search product
               </label>
               <input
                 id={searchId}

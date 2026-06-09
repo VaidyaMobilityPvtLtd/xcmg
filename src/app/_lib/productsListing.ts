@@ -100,6 +100,51 @@ export function equipmentModelCardVisual(
   };
 }
 
+export type EquipmentCatalogGridVisual = {
+  framePaddingClass: string;
+  imageScaleClass: string;
+};
+
+/**
+ * Catalog grid thumbnails — restore large product zoom while keeping every image
+ * centered in its frame (EV wheel loaders stay unscaled to avoid bucket clipping).
+ */
+export function equipmentCatalogGridVisual(
+  subtypeSlug: string,
+  model: string,
+): EquipmentCatalogGridVisual {
+  const k = normalizeModelKey(model);
+  const isEvWheelLoader =
+    subtypeSlug === "wheelloader" &&
+    (k === "XC918EV" || k === "XC938EV" || k === "XC968EV" || k === "XC975EV");
+
+  if (isEvWheelLoader) {
+    return { framePaddingClass: "p-4 sm:p-5", imageScaleClass: "" };
+  }
+
+  if (subtypeSlug === "wheelloader" && wheelLoaderShouldZoomImage(model)) {
+    let imageScaleClass = "scale-[1.44] origin-center";
+    if (wheelLoaderShouldShiftDown(model)) imageScaleClass = "scale-[1.44] origin-center translate-y-1";
+    else if (wheelLoaderShouldSlightShiftDown(model)) {
+      imageScaleClass = "scale-[1.44] origin-center translate-y-1.5";
+    }
+    return { framePaddingClass: "p-1 sm:p-1.5", imageScaleClass };
+  }
+
+  if (subtypeSlug === "wheelloader" && wheelLoaderShouldModerateZoom(model)) {
+    return { framePaddingClass: "p-2", imageScaleClass: "scale-[1.18] origin-center" };
+  }
+
+  if (excavatorUsesUnifiedFraming(subtypeSlug)) {
+    if (excavatorShouldUseReducedZoom(model)) {
+      return { framePaddingClass: "p-3", imageScaleClass: "scale-[1.06] origin-center" };
+    }
+    return { framePaddingClass: "p-2", imageScaleClass: "scale-[1.14] origin-center translate-y-0.5" };
+  }
+
+  return { framePaddingClass: "p-4", imageScaleClass: "scale-[1.03] origin-center" };
+}
+
 function normalizeModelKey(model: string): string {
   return model.replace(/\s+/g, "").toUpperCase();
 }

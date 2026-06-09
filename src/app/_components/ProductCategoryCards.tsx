@@ -48,7 +48,7 @@ export function ProductCategoryCards({ catalog }: Props) {
               href={productsSegmentHref(card.key)}
               className="mt-4 inline-flex text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0b3c91] decoration-[var(--brand-yellow)] decoration-2 underline-offset-4 transition-colors duration-300 hover:text-[#0a3376] hover:underline"
             >
-              View models →
+              View products →
             </Link>
           </div>
         </article>

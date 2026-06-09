@@ -295,15 +295,34 @@ details > summary {
   transition: opacity 0.35s ease;
 }
 
-/* Homepage / About body copy — flush left, even lines (no balance/pretty zigzag wraps). */
+/* Site-wide body copy — justified paragraphs with straight left and right edges. */
+.justify-copy p:not(.no-justify) {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* UI labels, captions, and short metadata stay naturally aligned. */
+.justify-copy p.no-justify,
+.justify-copy p[class*="uppercase"],
+.justify-copy p[class*="text-center"],
+.justify-copy p[class*="font-mono"],
+.justify-copy p.catalog-model-title,
+.justify-copy p.catalog-model-cta,
+.justify-copy p.text-xs,
+.justify-copy p.text-\[9px\],
+.justify-copy p.text-\[10px\],
+.justify-copy p.text-\[11px\] {
+  text-align: revert;
+  hyphens: manual;
+}
+
+/* Homepage / About split blocks — typography for long-form copy. */
 .split-section-copy {
   max-width: 36rem;
-  text-align: left;
   font-size: 1rem;
   line-height: 1.65;
   color: #475569;
-  text-wrap: wrap;
-  hyphens: manual;
 }
 
 .split-section-copy p {
@@ -432,4 +451,41 @@ details > summary {
     transform: none !important;
     box-shadow: none !important;
   }
+}
+
+/* Shared Parameters table on every product detail page */
+.product-parameters-table col:nth-child(1) {
+  width: 44%;
+}
+
+.product-parameters-table col:nth-child(2) {
+  width: 16%;
+}
+
+.product-parameters-table col:nth-child(3) {
+  width: 40%;
+}
+
+@media (min-width: 640px) {
+  .product-parameters-table col:nth-child(1) {
+    width: 42%;
+  }
+
+  .product-parameters-table col:nth-child(2) {
+    width: 14%;
+  }
+
+  .product-parameters-table col:nth-child(3) {
+    width: 44%;
+  }
+}
+
+.product-parameters-table th:nth-child(2),
+.product-parameters-table td:nth-child(2) {
+  text-align: center;
+}
+
+.product-parameters-table th:nth-child(3),
+.product-parameters-table td:nth-child(3) {
+  text-align: right;
 }
