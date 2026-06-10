@@ -11,11 +11,21 @@ import {
 } from "../../_components/PageHero";
 import { pageHeroSrc } from "../../_data/pageHeroBanners";
 import { serviceOutletLocations, serviceOutletSupportPillars } from "../../_data/serviceOutlets";
-import { siteContacts, officeMapsExternalHref } from "../../_data/siteContacts";
+import {
+  officeMapsEmbedSrc,
+  officeMapsExternalHref,
+  siteContacts,
+} from "../../_data/siteContacts";
 import { siteShellClass } from "../../_data/siteShell";
 
 const serviceEmail =
   siteContacts.departments.find((d) => d.title === "Services")?.email ?? siteContacts.generalEmail;
+
+const outletStats = [
+  { value: String(serviceOutletLocations.length), label: "Outlet cities", detail: "Nationwide footprint" },
+  { value: "Field", label: "Service dispatch", detail: "Jobsite-priority routing" },
+  { value: "XCMG", label: "Genuine parts", detail: "Aligned with field service" },
+] as const;
 
 function MapPinIcon({ className }: { className?: string }) {
   return (
@@ -74,11 +84,14 @@ function PartsIcon({ className }: { className?: string }) {
 
 const pillarIcons = [TruckIcon, WrenchIcon, PartsIcon] as const;
 
+const headOffice = serviceOutletLocations[0];
+const regionalOutlets = serviceOutletLocations.slice(1);
+
 export default function ServiceOutletsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="justify-copy min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
+      <main className="justify-copy min-h-screen bg-white text-[#0f172a] [color-scheme:light]">
         <PageHero variant="brand" imageSrc={pageHeroSrc.services} imageAlt="XCMG Nepal support network">
           <PageHeroBreadcrumbs
             items={[
@@ -96,71 +109,134 @@ export default function ServiceOutletsPage() {
             <Link href={`mailto:${serviceEmail}`} className="inner-cta-primary">
               Email service team
             </Link>
-            <Link href="/services" className="inner-cta-ghost">
-              All services
+            <Link href="#outlet-locations" className="inner-cta-ghost">
+              View outlets
             </Link>
           </div>
         </PageHero>
 
-        <section className="border-b border-[var(--border-subtle)] bg-white">
+        <section className="border-b border-[var(--border-subtle)] bg-[#f8fafc]">
           <div className={`${siteShellClass} py-10 md:py-12`}>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                { value: String(serviceOutletLocations.length), label: "Outlet cities", detail: "Nationwide footprint" },
-                { value: "Field", label: "Service dispatch", detail: "Jobsite-priority routing" },
-                { value: "XCMG", label: "Genuine parts", detail: "Aligned with field service" },
-              ].map((stat) => (
-                <div
+            <ul className="grid grid-cols-1 gap-3 min-[480px]:grid-cols-3 min-[480px]:gap-4" role="list">
+              {outletStats.map((stat) => (
+                <li
                   key={stat.label}
-                  className="rounded-xl border border-[var(--border-subtle)] bg-[#f8fafc] px-5 py-5 shadow-sm"
+                  className="rounded-xl border border-[var(--border-subtle)] bg-white px-5 py-5 shadow-sm"
                 >
-                  <p className="text-3xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-4xl">{stat.value}</p>
+                  <p className="font-mono text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
+                    {stat.value}
+                  </p>
                   <p className="mt-1 text-sm font-semibold text-[#0f172a]">{stat.label}</p>
                   <p className="mt-0.5 text-sm text-[#64748b]">{stat.detail}</p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
-        <section className="border-b border-[var(--border-subtle)] bg-[#f8fafc]">
+        <section
+          id="outlet-locations"
+          className="scroll-mt-28 border-b border-[var(--border-subtle)] bg-white"
+          aria-labelledby="outlet-locations-heading"
+        >
           <div className={`${siteShellClass} py-12 md:py-16`}>
-            <div className="max-w-2xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">
-                Network
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">Outlet locations</h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#475569] md:text-[15px] md:leading-relaxed">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
+              Network
+            </p>
+            <div className="mt-3 border-l-[3px] border-[var(--brand-yellow)] pl-5 sm:pl-6">
+              <h2 id="outlet-locations-heading" className="text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
+                Outlet locations
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#64748b] md:text-base">
                 Service outlets across Nepal — contact the nearest channel or reach central dispatch through Kathmandu.
               </p>
             </div>
 
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {serviceOutletLocations.map((loc) => (
+            {headOffice ? (
+              <article className="interactive-card relative mt-10 overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-[#fffdf5] via-white to-[#f8fafc] p-6 shadow-sm ring-1 ring-black/[0.02] md:p-8">
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-[var(--brand-yellow)]"
+                  aria-hidden
+                />
+                <div className="flex flex-col gap-5 min-[480px]:flex-row min-[480px]:items-start min-[480px]:justify-between">
+                  <div className="min-w-0 pl-2">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#94a3b8]">01 · Head office</p>
+                    <h3 className="mt-2 text-xl font-bold text-[var(--brand-blue)] md:text-2xl">{headOffice.name}</h3>
+                    <p className="mt-1 text-sm font-semibold text-[#64748b]">{headOffice.region}</p>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#475569] md:text-[15px]">{headOffice.role}</p>
+                    <p className="mt-4 text-sm text-[#334155]">
+                      <span className="font-semibold">{siteContacts.legalName}</span>
+                      <br />
+                      {siteContacts.localityLine}
+                      <br />
+                      {siteContacts.postalCountryLine}
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 flex-col gap-2 pl-2 min-[480px]:items-end">
+                    <a
+                      href={`tel:${siteContacts.phones.sparePartsService.tel}`}
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-[var(--brand-blue)] bg-[var(--brand-blue)] px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#0a3376]"
+                    >
+                      Call service line
+                    </a>
+                    <a
+                      href={officeMapsExternalHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-white px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--brand-blue)] transition-colors hover:bg-[#f8fafc]"
+                    >
+                      Open in Maps
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ) : null}
+
+            <ul className="mt-5 grid list-none grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-4" role="list">
+              {regionalOutlets.map((loc) => (
                 <li key={loc.order}>
-                  <article className="interactive-card group flex h-full flex-col rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-white to-[#f4f7fb] p-6 shadow-sm ring-1 ring-black/[0.03] hover:border-[var(--brand-blue)]/30">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0b3c91]/10 text-[#0b3c91]">
+                  <article className="interactive-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-white p-5 shadow-sm ring-1 ring-black/[0.02] md:p-6">
+                    <div
+                      className="pointer-events-none absolute inset-y-5 left-0 w-[3px] rounded-full bg-[var(--brand-yellow)] opacity-80"
+                      aria-hidden
+                    />
+                    <div className="flex items-start justify-between gap-3 pl-3">
+                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f1f5f9] text-[var(--brand-blue)] ring-1 ring-[var(--border-subtle)] transition-colors group-hover:bg-[var(--brand-yellow)]/15">
                         <MapPinIcon className="h-5 w-5" />
                       </span>
-                      <span className="text-[10px] font-bold tabular-nums uppercase tracking-[0.2em] text-[#94a3b8]">
+                      <span className="text-[10px] font-bold tabular-nums tracking-[0.18em] text-[#cbd5e1]">
                         {String(loc.order).padStart(2, "0")}
                       </span>
                     </div>
-                    <h3 className="mt-4 text-lg font-semibold text-[var(--brand-blue)]">{loc.name}</h3>
-                    <p className="mt-1 text-sm font-medium text-[#64748b]">{loc.region}</p>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-[#475569] md:text-[15px] md:leading-relaxed">
-                      {loc.role}
-                    </p>
+                    <h3 className="mt-4 pl-3 text-lg font-bold text-[#0f172a]">{loc.name}</h3>
+                    <p className="mt-1 pl-3 text-sm font-medium text-[#64748b]">{loc.region}</p>
+                    <p className="mt-3 flex-1 pl-3 text-sm leading-relaxed text-[#475569]">{loc.role}</p>
                   </article>
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
 
-            <p className="mt-8 text-center text-sm leading-relaxed text-[#64748b] md:text-[15px]">
-              Head office:{" "}
-              <span className="font-semibold text-[#0f172a]">{siteContacts.localityLine}</span>
-              {" · "}
+        <section className="border-b border-[var(--border-subtle)] bg-[#f8fafc]" aria-labelledby="outlet-map-heading">
+          <div className={`${siteShellClass} py-12 md:py-16`}>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
+              Visit us
+            </p>
+            <h2 id="outlet-map-heading" className="mt-3 text-xl font-bold tracking-tight text-[var(--brand-blue)] md:text-2xl">
+              UHEEM head office — Kathmandu
+            </h2>
+            <div className="relative mt-6 h-[220px] w-full overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[#e8edf3] shadow-sm sm:h-[280px] md:h-[320px]">
+              <iframe
+                title={`Map: ${siteContacts.localityLine}, Kathmandu`}
+                src={officeMapsEmbedSrc}
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <p className="mt-3 text-sm text-[#64748b]">
               <a
                 href={officeMapsExternalHref}
                 target="_blank"
@@ -173,33 +249,34 @@ export default function ServiceOutletsPage() {
           </div>
         </section>
 
-        <section className="border-b border-[var(--border-subtle)] bg-white">
+        <section className="border-b border-[var(--border-subtle)] bg-white" aria-labelledby="support-pillars-heading">
           <div className={`${siteShellClass} py-12 md:py-16`}>
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">
-                How we support you
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
+              How we support you
+            </p>
+            <div className="mt-3 border-l-[3px] border-[var(--brand-yellow)] pl-5 sm:pl-6">
+              <h2 id="support-pillars-heading" className="text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
                 Coverage, dispatch &amp; uptime
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#475569] md:text-[15px] md:leading-relaxed">
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#64748b] md:text-base">
                 Field service is planned around your equipment criticality and project timeline — not a one-size response.
               </p>
             </div>
 
-            <ul className="mt-10 grid gap-6 md:grid-cols-3">
+            <ul className="mt-10 grid list-none grid-cols-1 gap-5 md:grid-cols-3 md:gap-6" role="list">
               {serviceOutletSupportPillars.map((pillar, index) => {
                 const Icon = pillarIcons[index] ?? TruckIcon;
                 return (
                   <li key={pillar.title}>
-                    <article className="interactive-card h-full rounded-xl border border-[var(--border-subtle)] bg-[#f8fafc] p-5 shadow-sm md:p-6 lg:p-7">
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#0b3c91] text-white shadow-sm">
+                    <article className="interactive-card flex h-full flex-col rounded-2xl border border-[var(--border-subtle)] bg-white p-5 shadow-sm ring-1 ring-black/[0.02] md:p-6">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-yellow)] text-[11px] font-bold text-[#0f172a]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="mt-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#f1f5f9] text-[var(--brand-blue)] ring-1 ring-[var(--border-subtle)]">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <h3 className="mt-5 text-lg font-semibold tracking-tight text-[var(--brand-blue)]">{pillar.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-[#475569] md:text-[15px] md:leading-relaxed">
-                        {pillar.body}
-                      </p>
+                      <h3 className="mt-4 text-lg font-bold tracking-tight text-[#0f172a]">{pillar.title}</h3>
+                      <p className="mt-3 flex-1 text-sm leading-relaxed text-[#475569] md:text-[15px]">{pillar.body}</p>
                     </article>
                   </li>
                 );
@@ -208,55 +285,58 @@ export default function ServiceOutletsPage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[var(--brand-blue)] py-14 text-white md:py-16">
-          <div
-            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[var(--brand-yellow)]/10 blur-3xl"
-            aria-hidden
-          />
-          <div
-            className={`relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between md:gap-12 ${siteShellClass} py-0`}
-          >
-            <div className="max-w-xl">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Get in touch</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">Need service or spare parts?</h2>
-              <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
-                Reach the service desk for dispatch, technical support, or parts availability. Include your model, location,
-                and jobsite context for faster routing.
-              </p>
-              <div className="mt-4">
-                <p className="text-sm font-medium text-white">Phone</p>
-                <ul className="mt-2 space-y-2 text-sm text-white/85">
+        <section className="border-b border-[var(--border-subtle)] bg-[#f8fafc] py-12 md:py-16">
+          <div className={siteShellClass}>
+            <div className="rounded-2xl border border-[var(--border-subtle)] bg-white p-6 shadow-sm md:flex md:items-center md:justify-between md:gap-10 md:p-8 lg:p-10">
+              <div className="min-w-0 max-w-xl">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
+                  Get in touch
+                </p>
+                <h2 className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
+                  Need service or spare parts?
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[#64748b] md:text-[15px]">
+                  Reach the service desk for dispatch, technical support, or parts availability. Include your model,
+                  location, and jobsite context for faster routing.
+                </p>
+                <ul className="mt-5 space-y-3 text-sm text-[#334155]">
                   {siteContacts.phones.lines.map((line) => (
                     <li key={line.tel}>
                       {line.label ? (
-                        <span className="block text-[10px] font-semibold uppercase tracking-[0.1em] text-white/55">
+                        <span className="block text-[10px] font-semibold uppercase tracking-[0.1em] text-[#94a3b8]">
                           {line.label}
                         </span>
                       ) : null}
-                      <a href={`tel:${line.tel}`} className="underline-offset-2 hover:text-white hover:underline">
+                      <a
+                        href={`tel:${line.tel}`}
+                        className="font-semibold text-[var(--brand-blue)] underline decoration-[var(--brand-yellow)] decoration-1 underline-offset-2 hover:text-[#0a3376]"
+                      >
                         {line.display}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
-            <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <a href={`mailto:${serviceEmail}`} className="inner-cta-primary shadow-lg shadow-black/20 hover:shadow-xl">
-                Email service team
-              </a>
-              <Link
-                href="/contact#contact-form"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-white/35 bg-white/10 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-[transform,background-color] duration-200 hover:bg-white/20 active:translate-y-px"
-              >
-                Contact form
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-white/35 bg-transparent px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-white/10"
-              >
-                All services
-              </Link>
+              <div className="mt-6 flex flex-shrink-0 flex-col gap-2.5 sm:flex-row sm:flex-wrap md:mt-0 md:flex-col lg:flex-row">
+                <a
+                  href={`mailto:${serviceEmail}`}
+                  className="inner-cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-2.5 text-center"
+                >
+                  Email service team
+                </a>
+                <Link
+                  href="/contact#contact-form"
+                  className="inner-cta-outline inline-flex min-h-[44px] items-center justify-center px-6 py-2.5 text-center"
+                >
+                  Contact form
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[#f8fafc] px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--brand-blue)] transition-colors hover:bg-white"
+                >
+                  All services
+                </Link>
+              </div>
             </div>
           </div>
         </section>

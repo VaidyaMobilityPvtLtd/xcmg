@@ -49,7 +49,7 @@ export default function SiteHeader() {
         <Link
           href="/"
           aria-label="XCMG Nepal home"
-          className="inline-flex h-9 shrink-0 items-center bg-white [color-scheme:light] md:h-10 lg:h-11"
+          className="inline-flex h-9 min-w-0 shrink items-center bg-white [color-scheme:light] md:h-10 lg:h-11"
         >
           <img
             src="/xcmg-logo.png"
@@ -58,7 +58,7 @@ export default function SiteHeader() {
             height={224}
             decoding="async"
             fetchPriority="high"
-            className="block max-h-full w-auto max-w-[min(180px,50vw)] bg-white"
+            className="block max-h-full w-auto max-w-[min(140px,38vw)] bg-white sm:max-w-[min(180px,50vw)]"
             style={{ backgroundColor: "#ffffff" }}
           />
         </Link>
@@ -180,7 +180,7 @@ export default function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1 md:gap-1.5 lg:gap-2">
-          <details name="site-header-mega" className="relative">
+          <details name="site-header-mega" className="relative hidden lg:block">
             <summary
               aria-label="Search products"
               className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-none border border-[#e5e7eb] bg-white text-[#0b3c91] transition-colors hover:text-[var(--brand-yellow)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b3c91]/30"
@@ -206,7 +206,7 @@ export default function SiteHeader() {
                 />
               </svg>
             </summary>
-            <div className="absolute right-0 top-full z-50 mt-3 w-[320px] rounded-lg border border-[#e5e7eb] bg-white p-4 shadow-lg">
+            <div className="absolute right-0 top-full z-50 mt-3 w-[min(320px,calc(100vw-2rem))] rounded-lg border border-[#e5e7eb] bg-white p-4 shadow-lg">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--brand-blue-muted)]">
                 Quick Search
               </p>
@@ -234,7 +234,7 @@ export default function SiteHeader() {
             </div>
           </details>
 
-          <span className="hidden min-[400px]:inline-flex h-9 shrink-0 items-center justify-end bg-white [color-scheme:light] sm:h-9 md:h-10 lg:h-11">
+          <span className="hidden min-[520px]:inline-flex h-9 shrink-0 items-center justify-end bg-white [color-scheme:light] sm:h-9 md:h-10 lg:h-11">
             <img
               src="/top-logo.png"
               alt="United Heavy Equipment & Earth Movers"

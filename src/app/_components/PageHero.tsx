@@ -157,10 +157,14 @@ export function PageHero({
 }
 
 export const pageHeroTitleClass =
-  "line-clamp-3 text-3xl font-semibold tracking-tight text-[#0f172a] sm:text-4xl md:text-[2.5rem] md:leading-tight lg:text-5xl xl:text-[3.25rem]";
+  "line-clamp-3 text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl md:text-[2.5rem] md:leading-tight lg:text-5xl xl:text-[3.25rem]";
 
 export const pageHeroTitleBrandClass =
-  "line-clamp-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.5rem] md:leading-tight lg:text-5xl xl:text-[3.25rem]";
+  "line-clamp-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-[2.5rem] md:leading-tight lg:text-5xl xl:text-[3.25rem]";
+
+/** Long legal or brand titles — allow full wrap without clamping on small screens. */
+export const pageHeroTitleBrandLongClass =
+  "text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-[2.25rem] md:leading-tight lg:text-[2.75rem] xl:text-5xl";
 
 export const pageHeroEyebrowClass =
   "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#475569]";
@@ -172,7 +176,7 @@ export const pageHeroLeadClass =
   "mt-3 max-w-2xl text-sm leading-relaxed text-[#475569] sm:mt-4 md:text-base";
 
 export const pageHeroLeadBrandClass =
-  "mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-white/90 sm:mt-4 md:mt-5 md:text-base text-white/85";
+  "mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-white/88 sm:mt-4 md:mt-5 md:text-base";
 
 /** Wider lead for long marketing paragraphs on brand heroes. */
 export const pageHeroLeadBrandWideClass =

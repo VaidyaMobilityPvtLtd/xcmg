@@ -2,8 +2,15 @@ import Link from "next/link";
 import SiteHeader from "../_components/SiteHeader";
 import SiteFooter from "../_components/SiteFooter";
 import { ServicesActionHub } from "../_components/ServicesActionHub";
+import { ServicesGallery } from "../_components/ServicesGallery";
 import { ServicesMarketingFromDoc } from "../_components/ServicesMarketingFromDoc";
-import { PageHero, PageHeroBreadcrumbs, pageHeroActionsClass, pageHeroEyebrowBrandClass } from "../_components/PageHero";
+import {
+  PageHero,
+  PageHeroBreadcrumbs,
+  pageHeroActionsClass,
+  pageHeroEyebrowBrandClass,
+  pageHeroTitleBrandClass,
+} from "../_components/PageHero";
 import { pageHeroSrc } from "../_data/pageHeroBanners";
 import { serviceMarketingTagline, serviceMarketingTitle } from "../_data/servicesContent";
 import { siteShellClass } from "../_data/siteShell";
@@ -27,10 +34,10 @@ export default function ServicesPage() {
             ]}
           />
           <p className={`mt-4 ${pageHeroEyebrowBrandClass}`}>Services</p>
-          <h1 className="mt-2 max-w-[56rem] text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-[2.4rem] lg:text-[2.65rem]">
+          <h1 className={`mt-2 max-w-[56rem] text-balance ${pageHeroTitleBrandClass}`}>
             {serviceMarketingTitle}
           </h1>
-          <p className="mt-4 max-w-[56rem] text-pretty text-lg font-medium leading-snug text-white/95 sm:text-xl md:text-2xl">
+          <p className="mt-4 max-w-[56rem] text-pretty text-base font-medium leading-snug text-white/95 sm:text-lg md:text-xl lg:text-2xl">
             {serviceMarketingTagline}
           </p>
           <div className={pageHeroActionsClass}>
@@ -47,6 +54,7 @@ export default function ServicesPage() {
         </PageHero>
 
         <ServicesMarketingFromDoc />
+        <ServicesGallery />
         <ServicesActionHub />
 
         <section className="relative overflow-hidden border-b border-[var(--border-subtle)] bg-[var(--brand-blue)] py-14 text-white md:py-16">

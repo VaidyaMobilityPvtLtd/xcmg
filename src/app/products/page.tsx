@@ -559,7 +559,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                                 : "border-[#e2e8f0] bg-white text-[#334155] hover:border-[#cbd5e1] lg:border-0 lg:bg-transparent lg:hover:bg-[#f8fafc]"
                             }`}
                           >
-                            <span className="min-w-0 truncate max-lg:max-w-[9rem] lg:max-w-none">{sub.name}</span>
+                            <span className="min-w-0 lg:truncate">{sub.name}</span>
                             <span
                               className={`tabular-nums text-[11px] ${active ? "text-white/90 lg:text-[var(--brand-blue)]/70" : "text-[#94a3b8]"}`}
                             >
@@ -585,7 +585,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                   </div>
                   <div
                     key={`${categoryForSegment!.key}-${subtypeRaw || "all"}`}
-                    className="catalog-grid-enter mt-6 grid grid-cols-2 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
+                    className="catalog-grid-enter mt-6 grid grid-cols-1 justify-items-center gap-4 min-[400px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
                   >
                     {listingModels.map(({ model, subtypeName, subtypeSlug }) => {
                       const img = equipmentImageForModel(model, subtypeSlug);

@@ -107,7 +107,7 @@ export default function Home() {
                     id="about-xcmg-intro"
                     className="split-section-heading max-w-none font-bold tracking-[-0.025em]"
                   >
-                    <span className="block whitespace-nowrap bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-base leading-snug text-transparent sm:text-lg sm:leading-snug md:text-xl md:leading-tight lg:text-[1.35rem]">
+                    <span className="block text-balance bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-base leading-snug text-transparent sm:text-lg sm:leading-snug md:text-xl md:leading-tight lg:text-[1.35rem]">
                       XCMG equipment for infrastructure and industry
                     </span>
                   </h2>
@@ -211,7 +211,7 @@ export default function Home() {
                     <span className="mt-1 block text-left bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-base leading-snug text-transparent sm:text-lg sm:leading-snug md:text-xl md:leading-tight lg:text-[1.35rem]">
                       (XCMG Nepal)
                     </span>
-                    <span className="mt-3 block max-w-none whitespace-nowrap bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-sm leading-snug text-transparent sm:mt-3.5 sm:text-base sm:leading-snug md:text-lg md:leading-tight lg:text-xl">
+                    <span className="mt-3 block max-w-none text-balance bg-gradient-to-br from-[#051a3d] via-[var(--brand-blue)] to-[#1a4db3] bg-clip-text text-sm leading-snug text-transparent sm:mt-3.5 sm:text-base sm:leading-snug md:text-lg md:leading-tight lg:text-xl">
                       Powering Progress, Building the Nation.
                     </span>
                   </h2>

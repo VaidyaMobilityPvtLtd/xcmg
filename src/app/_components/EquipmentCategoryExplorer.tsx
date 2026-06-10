@@ -239,7 +239,7 @@ export default function EquipmentCategoryExplorer() {
             ) : (
               <div
                 key={`${activeKey}-${subtypeFilter}`}
-                className="catalog-grid-enter grid grid-cols-2 justify-items-center gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-5"
+                className="catalog-grid-enter grid grid-cols-1 justify-items-center gap-x-4 gap-y-8 min-[400px]:grid-cols-2 sm:gap-x-6 sm:gap-y-10 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-5"
               >
                 {gridItems.map(({ model, subtypeName, subtypeSlug }) => {
                   const src = equipmentImageForModel(model, subtypeSlug) ?? categoryFallbackImage;
@@ -251,7 +251,7 @@ export default function EquipmentCategoryExplorer() {
                       href={productHref(activeCategory.key, subtypeSlug, model)}
                       className="catalog-model-card group flex w-full max-w-[280px] flex-col items-center rounded-sm border border-[var(--border-subtle)]/0 bg-white p-3 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-blue)]/30"
                     >
-                      <div className="catalog-model-media relative mx-auto h-[180px] w-full shrink-0 overflow-hidden rounded-md border border-[var(--border-subtle)] bg-white sm:h-[200px]">
+                      <div className="catalog-model-media relative mx-auto h-[200px] w-full max-w-[320px] shrink-0 overflow-hidden rounded-md border border-[var(--border-subtle)] bg-white min-[400px]:h-[180px] sm:h-[200px]">
                         <div
                           className={`relative flex h-full w-full items-center justify-center ${gridVisual.framePaddingClass}`}
                         >

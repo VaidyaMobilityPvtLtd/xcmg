@@ -25,6 +25,7 @@
 **/.DS_Store
 *.zip
 *.pem
+/tmp/
 
 # Large media (GitHub limit 100MB per file) — serve .mp4 from public/ or host externally
 *.mov

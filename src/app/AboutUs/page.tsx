@@ -8,6 +8,7 @@ import {
   pageHeroEyebrowBrandClass,
   pageHeroEyebrowClass,
   pageHeroLeadBrandClass,
+  pageHeroTitleBrandLongClass,
 } from "../_components/PageHero";
 import { pageHeroSrc } from "../_data/pageHeroBanners";
 import { officeMapsEmbedSrc, officeMapsExternalHref, officeMapsQuery, siteContacts } from "../_data/siteContacts";
@@ -77,14 +78,14 @@ export default function AboutPage() {
           />
           <p className={`mt-4 ${pageHeroEyebrowBrandClass}`}>Meet XCMG Nepal</p>
           <h1
-            className={`mt-3 max-w-4xl text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl md:text-4xl md:leading-tight lg:text-[2.75rem] line-clamp-3`}
+            className={`mt-3 max-w-4xl ${pageHeroTitleBrandLongClass}`}
           >
             United Heavy Equipment &amp; Earth Movers Pvt. Ltd.
           </h1>
           <p className={pageHeroLeadBrandClass}>
             <span className="font-semibold text-white">UHEEM</span>{" "}
             is a proud member of VOITH&apos;s Organization of Industries
-            &amp; Trading Houses and serves as the
+            &amp; Trading Houses and serves as the sole 
             authorized distributor of XCMG in Nepal. UHEEM delivers a wide range of world-class construction and heavy
             equipment, genuine spare parts, and after-sales services across the country.
           </p>
@@ -137,7 +138,7 @@ export default function AboutPage() {
               nation. We are committed to delivering durable, efficient, and innovative heavy equipment solutions that ensure
               productivity and safety for our customers.
             </p>
-            <ul className="mt-10 grid gap-4 sm:grid-cols-3">
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 "Providing cutting-edge machinery",
                 "Ensuring reliable after-sales support",

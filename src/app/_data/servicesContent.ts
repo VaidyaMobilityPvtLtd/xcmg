@@ -62,9 +62,3 @@ export const serviceWhyChooseRows = [
     body: "We combine global innovation with Nepal's real project challenges to provide practical and efficient solutions.",
   },
 ] as const;
-
-export const serviceCommitmentBlock = {
-  heading: "XCMG Nepal Commitment",
-  en: "Strong Machines. Trusted Support. Real Value.",
-  np: "बलियो मेसिन • भरपर्दो सेवा • वास्तविक मूल्य",
-} as const;

@@ -118,8 +118,7 @@ export default function BrochuresPage() {
           <p className={`mt-4 ${pageHeroEyebrowBrandClass}`}>Product brochures</p>
           <h1 className={`mt-3 ${pageHeroTitleBrandClass}`}>Find your product brochure</h1>
           <p className={pageHeroLeadBrandClass}>
-            Only products with a brochure PDF on file are listed below—the full Nepal lineup remains on Products. Labels match the
-            catalogue; PDF filenames may differ from the product code (e.g. XP163 listed with file XP163.pdf).
+            Get detailed insights into products by downloading their brochures.
           </p>
           <div className={pageHeroActionsClass}>
             <a href="mailto:info@uheem.com.np?subject=Brochure%20request" className="inner-cta-primary">
