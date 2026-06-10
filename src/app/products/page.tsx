@@ -24,6 +24,7 @@ import {
   equipmentModelDetailImageClass,
   formatEquipmentTypeLabel,
   portfolioImageForCategory,
+  summarizeProductDescription,
 } from "../_lib/productsListing";
 import { evProductDescriptionsByModel } from "../_data/evSpecifications";
 import { concreteDescriptionForModel } from "../_data/concreteSpecifications";
@@ -49,9 +50,9 @@ function isEvWheelLoaderModel(model: string): boolean {
   return k === "XC918EV" || k === "XC938EV" || k === "XC968EV" || k === "XC975EV";
 }
 
-/** Listing image strip: plain white, fixed height, same contain rules as detail. */
+/** Listing thumbnails — fixed height on every card so grid rows stay level. */
 const catalogListingThumbShell =
-  "relative block w-full min-w-0 overflow-hidden bg-white [color-scheme:light] h-[200px] sm:h-[260px] md:h-[300px]";
+  "relative mx-auto h-[200px] w-full max-w-[320px] shrink-0 overflow-hidden rounded-md border border-[#e2e8f0] bg-white sm:h-[220px]";
 
 type Props = {
   searchParams: Promise<{ segment?: string; type?: string; subtype?: string; model?: string }>;
@@ -234,10 +235,13 @@ export default async function ProductsPage({ searchParams }: Props) {
       ? "p-5 sm:p-6 md:p-7"
       : equipmentModelCardVisual(selectedModel.subtypeSlug, selectedModel.model).framePaddingClass
     : "p-3 sm:p-4";
-  const detailDescriptionText = selectedModel
+  const detailDescriptionRaw = selectedModel
     ? selectedMeta?.description ??
       selectedMeta?.caseTitle ??
       `${selectedModel.model} — catalogue equipment configured for Nepal sites with local support from UHEEM.`
+    : "";
+  const detailDescriptionText = selectedModel
+    ? summarizeProductDescription(detailDescriptionRaw, selectedModel.model)
     : "";
   const categoryForSegment = segment
     ? displayEquipmentCatalog.find((c) => c.key === segment) ?? null
@@ -585,7 +589,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                   </div>
                   <div
                     key={`${categoryForSegment!.key}-${subtypeRaw || "all"}`}
-                    className="catalog-grid-enter mt-6 grid grid-cols-1 justify-items-center gap-4 min-[400px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
+                    className="catalog-grid-enter mt-6 grid grid-cols-1 items-start justify-items-center gap-x-4 gap-y-8 min-[400px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
                   >
                     {listingModels.map(({ model, subtypeName, subtypeSlug }) => {
                       const img = equipmentImageForModel(model, subtypeSlug);
@@ -595,40 +599,38 @@ export default async function ProductsPage({ searchParams }: Props) {
                         <Link
                           key={`${categoryForSegment!.key}-${subtypeSlug}-${model}`}
                           href={productHref(categoryForSegment!.key, subtypeSlug, model)}
-                          className="catalog-model-card group flex w-full max-w-[280px] flex-col items-center overflow-hidden rounded-lg border border-[#e2e8f0] bg-white text-center shadow-sm"
+                          className="catalog-model-card group flex w-full max-w-[280px] flex-col items-center self-start rounded-lg border border-[#e2e8f0] bg-white p-3 text-center shadow-sm"
                         >
                           <div className={`catalog-model-media ${catalogListingThumbShell}`}>
                             <div
                               className={`relative flex h-full w-full items-center justify-center ${gridVisual.framePaddingClass}`}
                             >
-                            {img ? (
-                              <Image
-                                src={img}
-                                alt={model}
-                                fill
-                                sizes="(max-width: 640px) 45vw, 280px"
-                                unoptimized={bypassOpt}
-                                className={[
-                                  "catalog-model-img object-contain object-center",
-                                  gridVisual.imageScaleClass,
-                                ]
-                                  .filter(Boolean)
-                                  .join(" ")}
-                              />
-                            ) : (
-                              <span className="flex h-full w-full items-center justify-center font-mono text-sm font-bold tracking-tight text-[#cbd5e1] sm:text-base">
-                                {model}
-                              </span>
-                            )}
+                              {img ? (
+                                <Image
+                                  src={img}
+                                  alt={model}
+                                  fill
+                                  sizes="(max-width: 640px) 45vw, 280px"
+                                  unoptimized={bypassOpt}
+                                  className={[
+                                    "catalog-model-img object-contain object-center",
+                                    gridVisual.imageScaleClass,
+                                  ]
+                                    .filter(Boolean)
+                                    .join(" ")}
+                                />
+                              ) : (
+                                <span className="flex h-full w-full items-center justify-center font-mono text-sm font-bold tracking-tight text-[#cbd5e1] sm:text-base">
+                                  {model}
+                                </span>
+                              )}
                             </div>
                           </div>
-                          <div className="w-full border-t border-[#e2e8f0] bg-white px-4 py-3.5">
-                            <p className="catalog-model-title font-mono text-[14px] font-bold text-[var(--brand-blue)]">
-                              {model}
-                            </p>
-                            <p className="mt-0.5 text-[12px] text-[#64748b]">{subtypeName}</p>
-                            <p className="catalog-model-cta mt-2 text-[11px] text-[#94a3b8]">Contact for Nepal pricing</p>
-                          </div>
+                          <p className="catalog-model-title mt-4 font-mono text-[14px] font-bold text-[var(--brand-blue)]">
+                            {model}
+                          </p>
+                          <p className="mt-0.5 text-[12px] text-[#64748b]">{subtypeName}</p>
+                          <p className="catalog-model-cta mt-2 text-[11px] text-[#94a3b8]">Contact for Nepal pricing</p>
                         </Link>
                       );
                     })}

@@ -163,3 +163,57 @@ export function equipmentModelDetailImageClass(subtypeSlug: string, model: strin
   if (card.imageScaleClass) return card.imageScaleClass;
   return "origin-center scale-[1.05]";
 }
+
+function normalizeDescriptionModelKey(model: string): string {
+  return model.replace(/\s+/g, "").replace(/-/g, "_").replace(/\//g, "").toUpperCase();
+}
+
+function splitDescriptionSentences(text: string): string[] {
+  return text.match(/[^.!?]+[.!?]+(?:\s|$)/g)?.map((s) => s.trim()) ?? [text.trim()];
+}
+
+/**
+ * Short product-detail blurb for the hero band — keeps copy above the parameters fold.
+ * Prefers model-specific paragraphs when a catalogue entry repeats series-wide intro text.
+ */
+export function summarizeProductDescription(text: string, model?: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) return trimmed;
+
+  const paragraphs = trimmed.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
+  let body = trimmed.replace(/\n\n+/g, " ");
+
+  if (model && paragraphs.length > 1) {
+    const modelKey = normalizeDescriptionModelKey(model);
+    const modelTail = paragraphs.find(
+      (p, index) => index > 0 && normalizeDescriptionModelKey(p).includes(modelKey),
+    );
+    const modelAnywhere = paragraphs.find((p) => normalizeDescriptionModelKey(p).includes(modelKey));
+    const genericSeries =
+      /^(the\s+)?xcmg\s+xtr\s+series|zero-emission electric loader|zero-emission electric loaders/i.test(
+        paragraphs[0] ?? "",
+      );
+
+    if (modelTail) {
+      body = modelTail;
+    } else if (modelAnywhere && genericSeries) {
+      body = modelAnywhere;
+    } else if (modelAnywhere && paragraphs.length === 2) {
+      body = modelAnywhere;
+    } else if (!normalizeDescriptionModelKey(paragraphs[0]).includes(modelKey)) {
+      body = paragraphs[paragraphs.length - 1] ?? body;
+    }
+  }
+
+  body = body.replace(/\s+/g, " ");
+  const sentences = splitDescriptionSentences(body);
+  const maxSentences = trimmed.length > 340 ? 2 : body.length > 300 ? 2 : 3;
+
+  if (body.length <= 260 && sentences.length <= maxSentences) return body;
+
+  let summary = sentences.slice(0, maxSentences).join(" ");
+  if (summary.length > 300 && sentences.length > 1) {
+    summary = sentences[0] ?? summary;
+  }
+  return summary.trim();
+}

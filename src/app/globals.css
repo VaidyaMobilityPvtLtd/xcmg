@@ -255,6 +255,8 @@ details > summary {
 }
 
 .catalog-model-card .catalog-model-media {
+  flex-shrink: 0;
+  overflow: hidden;
   transition: border-color 0.32s ease;
 }
 
@@ -274,13 +276,8 @@ details > summary {
 
 @media (hover: hover) and (pointer: fine) {
   .catalog-model-card:hover {
-    transform: translateY(-4px);
     box-shadow: 0 16px 40px -16px rgb(11 60 145 / 0.2);
     border-color: var(--border-subtle);
-  }
-
-  .catalog-model-card:hover .catalog-model-img {
-    transform: scale(1.06);
   }
 
   .catalog-model-card:hover .catalog-model-title {
@@ -293,7 +290,6 @@ details > summary {
 }
 
 .catalog-model-card:active {
-  transform: translateY(-1px) scale(0.992);
   transition-duration: 0.14s;
 }
 
@@ -307,7 +303,12 @@ details > summary {
 }
 
 .catalog-grid-enter {
+  align-items: start;
   animation: catalog-grid-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.catalog-grid-enter > .catalog-model-card {
+  align-self: start;
 }
 
 /* Home: image + text split blocks (Corporate overview, UHEEM, commitment banner). */
