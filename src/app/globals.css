@@ -263,6 +263,8 @@ details > summary {
 }
 
 .catalog-model-card .catalog-model-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
   transition: color 0.3s ease;
 }
 
@@ -324,7 +326,17 @@ details > summary {
 }
 
 .split-section-heading {
+  font-weight: 700;
+  letter-spacing: -0.025em;
   transition: opacity 0.35s ease;
+}
+
+/* Section headings — consistent weight and rhythm across inner pages. */
+main h1,
+main h2,
+main h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* Site-wide body copy — justified paragraphs with straight left and right edges. */

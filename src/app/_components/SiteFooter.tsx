@@ -18,7 +18,7 @@ export default function SiteFooter() {
   ];
 
   const headingClass =
-    "text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]";
+    "text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]";
   const subLabelClass = "text-[11px] font-medium uppercase tracking-[0.12em] text-[#94a3b8]";
   const bodyClass = "text-sm leading-relaxed text-[#64748b]";
   const listLinkClass =

@@ -43,14 +43,14 @@ export default function FinancialServicesPage() {
           <div className="mx-auto w-[92vw] max-w-[1000px] px-4 py-12 md:px-6 md:py-16">
             <div className="grid gap-6 md:grid-cols-2">
               <article className="rounded-lg border border-[var(--border-subtle)] p-6">
-                <h2 className="text-lg font-semibold text-[var(--brand-blue)]">Procurement planning</h2>
+                <h2 className="text-lg font-bold tracking-tight text-[var(--brand-blue)]">Procurement planning</h2>
                 <p className="mt-3 text-sm leading-relaxed text-[#475569]">
                   Support for selecting machine configurations and acquisition pathways that match project scale, deployment
                   timeline, and budget constraints.
                 </p>
               </article>
               <article className="rounded-lg border border-[var(--border-subtle)] p-6">
-                <h2 className="text-lg font-semibold text-[var(--brand-blue)]">Lifecycle value focus</h2>
+                <h2 className="text-lg font-bold tracking-tight text-[var(--brand-blue)]">Lifecycle value focus</h2>
                 <p className="mt-3 text-sm leading-relaxed text-[#475569]">
                   Financial guidance is aligned with uptime, maintenance planning, and long-term ownership value for Nepal
                   operations.

@@ -54,7 +54,7 @@ export default function ContactPage() {
             <aside className="min-w-0 lg:col-span-5">
               <h2
                 id="contact-form-heading"
-                className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]"
+                className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]"
               >
                 Direct contact
               </h2>
@@ -121,7 +121,7 @@ export default function ContactPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">
               Visit us
             </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-2xl">
+            <h2 className="mt-2 text-xl font-bold tracking-tight text-[var(--brand-blue)] md:text-2xl">
               UHEEM office — Kathmandu
             </h2>
             <div className="relative mt-6 h-[220px] w-full overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-[#e8edf3] sm:h-[280px] md:h-[320px]">

@@ -96,7 +96,7 @@ export default function AboutPage() {
           <div className="mx-auto grid w-[92vw] max-w-[1600px] gap-10 px-4 py-14 md:grid-cols-2 md:items-stretch md:gap-14 md:px-6 md:py-20">
             <div className="flex min-h-0 flex-col justify-center">
               <p className={pageHeroEyebrowClass}>Our story</p>
-              <h2 id="company-journey" className="mt-3 text-2xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
+              <h2 id="company-journey" className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
                 The company&apos;s journey
               </h2>
               <div className="mt-8 space-y-6 text-[15px] leading-[1.85] text-[#475569]">
@@ -130,7 +130,7 @@ export default function AboutPage() {
         <section className="border-b border-[var(--border-subtle)] bg-[var(--surface-muted)]" aria-labelledby="philosophy">
           <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-14 md:px-6 md:py-20">
             <p className={pageHeroEyebrowClass}>How we work</p>
-            <h2 id="philosophy" className="mt-3 text-2xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
+            <h2 id="philosophy" className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
               Philosophy
             </h2>
             <p className="mt-6 max-w-3xl text-[15px] leading-[1.85] text-[#475569]">
@@ -164,7 +164,7 @@ export default function AboutPage() {
         <section className="border-b border-[var(--border-subtle)] bg-white" aria-labelledby="vision-mission">
           <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-14 md:px-6 md:py-20">
             <p className={pageHeroEyebrowClass}>Direction</p>
-            <h2 id="vision-mission" className="mt-3 text-2xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
+            <h2 id="vision-mission" className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
               Vision &amp; mission
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
@@ -197,7 +197,7 @@ export default function AboutPage() {
           />
           <div className="relative mx-auto w-[92vw] max-w-[1600px] px-4 md:px-6">
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">What we stand for</p>
-            <h2 id="corporate-values" className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+            <h2 id="corporate-values" className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
               Corporate values
             </h2>
             <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -227,7 +227,7 @@ export default function AboutPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-500">Leadership</p>
               <h2
                 id="management-messages"
-                className="mt-3 text-2xl font-semibold tracking-tight text-stone-800 md:text-3xl md:leading-tight"
+                className="mt-3 text-2xl font-bold tracking-tight text-stone-800 md:text-3xl md:leading-tight"
               >
                 Management&apos;s message to you
               </h2>
@@ -288,7 +288,7 @@ export default function AboutPage() {
 
                     <div className="min-w-0 flex-1 pt-0.5">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">{leader.role}</p>
-                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-stone-800 md:text-2xl">{leader.name}</h3>
+                      <h3 className="mt-1.5 text-xl font-bold tracking-tight text-stone-800 md:text-2xl">{leader.name}</h3>
                       {leader.tagline ? (
                         <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#b8860b]">
                           {leader.tagline}
@@ -325,7 +325,7 @@ export default function AboutPage() {
               </p>
               <h2
                 id="office-location-heading"
-                className="mt-2 text-lg font-semibold tracking-tight text-[var(--brand-blue)] md:text-xl"
+                className="mt-2 text-lg font-bold tracking-tight text-[var(--brand-blue)] md:text-xl"
               >
                 UHEEM office
               </h2>

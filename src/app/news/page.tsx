@@ -195,7 +195,7 @@ export default function NewsPage() {
                       <span className="inline-flex w-fit items-center rounded-full border border-[var(--brand-blue)]/10 bg-[var(--brand-blue)]/[0.06] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">
                         Featured · Nepal
                       </span>
-                      <h3 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-[var(--brand-blue)] sm:text-[1.65rem] sm:leading-snug md:text-3xl md:leading-[1.15]">
+                      <h3 className="mt-4 text-balance text-2xl font-bold tracking-tight text-[var(--brand-blue)] sm:text-[1.65rem] sm:leading-snug md:text-3xl md:leading-[1.15]">
                         XCMG Nepal: Pride Projects, Proud Customers
                       </h3>
                       <p className="mt-4 max-w-2xl text-[15px] leading-[1.65] text-[#5c6b7f]">
@@ -231,7 +231,7 @@ export default function NewsPage() {
                 </p>
                 <h3
                   id="news-testimonial-heading"
-                  className="mt-2 text-lg font-semibold tracking-tight text-[var(--brand-blue)] md:text-xl"
+                  className="mt-2 text-lg font-bold tracking-tight text-[var(--brand-blue)] md:text-xl"
                 >
                   Customer video
                 </h3>
@@ -267,7 +267,7 @@ export default function NewsPage() {
                       {n.meta}
                     </span>
                   </div>
-                  <h3 className="mt-5 text-lg font-semibold leading-snug tracking-tight text-[#0f172a] transition-colors group-hover:text-[var(--brand-blue)]">
+                  <h3 className="mt-5 text-lg font-bold leading-snug tracking-tight text-[#0f172a] transition-colors group-hover:text-[var(--brand-blue)]">
                     {n.title}
                   </h3>
                   <p className="mt-4 text-sm leading-relaxed text-[#475569]">{highlightNepal(n.intro)}</p>
@@ -344,7 +344,7 @@ export default function NewsPage() {
                       <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--brand-blue-muted)]">
                         XCMG {article.region}
                       </p>
-                      <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-[#0f172a] md:text-xl">
+                      <h3 className="mt-3 text-lg font-bold leading-snug tracking-tight text-[#0f172a] md:text-xl">
                         {article.headline}
                       </h3>
                       <div className="mt-6 space-y-5 border-t border-[var(--border-subtle)] pt-6">

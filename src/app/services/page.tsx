@@ -65,7 +65,7 @@ export default function ServicesPage() {
           <div className={`relative flex flex-col gap-10 md:flex-row md:items-center md:justify-between md:gap-12 ${siteShellClass} py-0`}>
             <div className="max-w-xl">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Equipment</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">Need a specific model?</h2>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">Need a specific model?</h2>
               <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
                 Browse the Nepal catalogue for products, specifications, and distributor contact paths.
               </p>

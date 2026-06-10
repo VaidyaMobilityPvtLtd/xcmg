@@ -45,7 +45,7 @@ export default function SatisfactionSurveyPage() {
         <section className="border-b border-[var(--border-subtle)] bg-white">
           <div className="mx-auto w-[92vw] max-w-[900px] px-4 py-12 md:px-6 md:py-16">
             <div className="rounded-lg border border-[var(--border-subtle)] p-6 md:p-8">
-              <h2 className="text-xl font-semibold text-[var(--brand-blue)]">Why your survey matters</h2>
+              <h2 className="text-xl font-bold tracking-tight text-[var(--brand-blue)]">Why your survey matters</h2>
               <p className="mt-4 text-sm leading-relaxed text-[#475569]">
                 We kindly invite you to participate in the UHEEM Customer Satisfaction Survey. Your input helps us improve
                 equipment support quality, service response standards, and long-term customer value.

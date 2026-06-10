@@ -36,7 +36,7 @@ function FeaturedPanel({
       />
       <figcaption className="absolute inset-x-0 bottom-0 z-[1] p-6 sm:p-8 lg:p-10">
         <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">01 · People</p>
-        <h3 className="mt-3 max-w-lg text-2xl font-semibold tracking-tight text-white sm:text-[1.65rem] lg:text-3xl">
+        <h3 className="mt-3 max-w-lg text-2xl font-bold tracking-tight text-white sm:text-[1.65rem] lg:text-3xl">
           {item.title}
         </h3>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">{item.caption}</p>
@@ -71,7 +71,7 @@ function SupportingPanel({
       </div>
       <figcaption className="border-t border-[var(--border-subtle)] bg-gradient-to-br from-white to-[#f8fafc] p-5 sm:p-6">
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">{label}</p>
-        <h3 className="mt-2 text-lg font-semibold tracking-tight text-[var(--brand-blue)]">{item.title}</h3>
+        <h3 className="mt-2 text-lg font-bold tracking-tight text-[var(--brand-blue)]">{item.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-[#475569]">{item.caption}</p>
       </figcaption>
     </figure>
@@ -104,7 +104,7 @@ export function ServicesGallery() {
             <div className="mt-3 border-l-[3px] border-[var(--brand-yellow)] pl-5 sm:pl-6">
               <h2
                 id="services-gallery-heading"
-                className="text-2xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight lg:text-[2rem]"
+                className="text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight lg:text-[2rem]"
               >
                 Service in action across Nepal
               </h2>

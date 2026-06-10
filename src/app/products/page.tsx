@@ -623,7 +623,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                             </div>
                           </div>
                           <div className="w-full border-t border-[#e2e8f0] bg-white px-4 py-3.5">
-                            <p className="catalog-model-title font-mono text-[14px] font-semibold text-[var(--brand-blue)]">
+                            <p className="catalog-model-title font-mono text-[14px] font-bold text-[var(--brand-blue)]">
                               {model}
                             </p>
                             <p className="mt-0.5 text-[12px] text-[#64748b]">{subtypeName}</p>
@@ -717,7 +717,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                           className="h-0.5 w-10 rounded-full bg-gradient-to-r from-[var(--brand-yellow)] to-[#f0d24a] transition-all duration-300 group-hover:w-14"
                           aria-hidden
                         />
-                        <h2 className="mt-3 text-base font-semibold leading-snug tracking-tight text-[var(--brand-blue)] transition-colors group-hover:text-[#0a3376]">
+                        <h2 className="mt-3 text-base font-bold leading-snug tracking-tight text-[var(--brand-blue)] transition-colors group-hover:text-[#0a3376]">
                           {cat.label}
                         </h2>
                         <p className="mt-2 line-clamp-2 flex-1 text-[13px] leading-relaxed text-[#64748b]">{cat.blurb}</p>

@@ -47,7 +47,7 @@ export function ServicesActionHub() {
       aria-labelledby="service-options-heading"
     >
       <div className={siteShellClass}>
-        <h2 id="service-options-heading" className="text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+        <h2 id="service-options-heading" className="text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
           Service pages
         </h2>
 
@@ -66,7 +66,7 @@ export function ServicesActionHub() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <span className="mt-5 text-lg font-semibold text-[var(--brand-blue)] transition-colors duration-300 group-hover:text-[#0a3376]">
+                <span className="mt-5 text-lg font-bold tracking-tight text-[var(--brand-blue)] transition-colors duration-300 group-hover:text-[#0a3376]">
                   {card.title}
                 </span>
                 <span className="mt-2 flex-1 text-sm leading-relaxed text-[#475569]">{card.description}</span>

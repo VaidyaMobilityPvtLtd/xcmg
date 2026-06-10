@@ -75,7 +75,7 @@ export default function ContactForm() {
 
   return (
     <section className="min-w-0" aria-labelledby="contact-form-title">
-      <h2 id="contact-form-title" className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">
+      <h2 id="contact-form-title" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">
         Send a message
       </h2>
       <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#64748b]">

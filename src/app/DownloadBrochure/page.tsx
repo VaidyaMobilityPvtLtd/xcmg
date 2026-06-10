@@ -171,7 +171,7 @@ export default function BrochuresPage() {
                     className="overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-white shadow-[0_2px_16px_-12px_rgb(15_23_42_/_0.18)]"
                   >
                     <div className="flex items-center justify-between border-b border-[var(--border-subtle)] bg-[#f9fbff] px-5 py-4 md:px-6">
-                      <h3 className="text-base font-semibold tracking-tight text-[var(--brand-blue)] md:text-lg">{category.title}</h3>
+                      <h3 className="text-base font-bold tracking-tight text-[var(--brand-blue)] md:text-lg">{category.title}</h3>
                       <span className="rounded border border-[var(--border-subtle)] bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#64748b]">
                         {category.files.length} items
                       </span>
@@ -210,7 +210,7 @@ export default function BrochuresPage() {
           <div className="relative mx-auto flex w-[92vw] max-w-[1600px] flex-col gap-10 px-4 md:flex-row md:items-center md:justify-between md:gap-12 md:px-6">
             <div className="max-w-xl">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Next step</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">Need a printed pack or a model list?</h2>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">Need a printed pack or a model list?</h2>
               <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
                 Call or email UHEEM—we can align brochures with your project and the products stocked for Nepal.
               </p>

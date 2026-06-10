@@ -69,7 +69,7 @@ export default function Home() {
               </p>
               <h2
                 id="tagline-foundations"
-                className="mt-4 text-lg font-semibold leading-snug tracking-tight text-[var(--brand-blue)] sm:text-xl md:text-2xl"
+                className="mt-4 text-lg font-bold leading-snug tracking-tight text-[var(--brand-blue)] sm:text-xl md:text-2xl"
               >
                 Building Foundations for a Better Tomorrow
               </h2>
@@ -257,7 +257,7 @@ export default function Home() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
                 Equipment
               </p>
-              <h2 className="mt-2 border-l-4 border-[var(--brand-yellow)] pl-3 text-xl font-semibold tracking-tight text-[var(--brand-blue)] md:text-2xl">
+              <h2 className="mt-2 border-l-4 border-[var(--brand-yellow)] pl-3 text-xl font-bold tracking-tight text-[var(--brand-blue)] md:text-2xl">
                 Find your equipment
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#64748b]">
@@ -304,7 +304,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">Updates</p>
-                <h2 className="mt-2 border-l-4 border-[var(--brand-yellow)] pl-3 text-lg font-semibold text-[var(--brand-blue)] md:text-xl">
+                <h2 className="mt-2 border-l-4 border-[var(--brand-yellow)] pl-3 text-lg font-bold tracking-tight text-[var(--brand-blue)] md:text-xl">
                   News Update
                 </h2>
               </div>
@@ -323,7 +323,7 @@ export default function Home() {
                   className="interactive-card flex flex-col border border-[var(--border-subtle)] bg-white/95 p-6 shadow-sm"
                 >
                   <p className="text-[11px] font-semibold text-[#94a3b8]">{n.date}</p>
-                  <h3 className="mt-3 line-clamp-2 text-sm font-semibold leading-6 text-[var(--brand-blue)]">{n.title}</h3>
+                  <h3 className="mt-3 line-clamp-2 text-sm font-bold leading-6 tracking-tight text-[var(--brand-blue)]">{n.title}</h3>
                   <p className="mt-3 line-clamp-3 text-xs leading-5 text-[#64748b]">{n.excerpt}</p>
                   <a
                     href="/news"
@@ -344,7 +344,7 @@ export default function Home() {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
                   Product categories
                 </p>
-                <h2 className="mt-2 text-lg font-semibold tracking-tight text-[var(--brand-blue)] md:text-xl">
+                <h2 className="mt-2 text-lg font-bold tracking-tight text-[var(--brand-blue)] md:text-xl">
                   Nepal catalogue preview
                 </h2>
                 <p className="mt-2 max-w-xl text-sm text-[#64748b]">
