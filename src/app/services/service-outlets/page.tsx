@@ -121,13 +121,13 @@ export default function ServiceOutletsPage() {
               {outletStats.map((stat) => (
                 <li
                   key={stat.label}
-                  className="rounded-xl border border-[var(--border-subtle)] bg-white px-5 py-5 shadow-sm"
+                  className="stat-card rounded-xl border border-[var(--border-subtle)] bg-white px-5 py-5 shadow-sm"
                 >
-                  <p className="font-mono text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
+                  <p className="text-xl font-bold tracking-tight text-[var(--brand-blue)] sm:text-2xl md:text-[1.75rem]">
                     {stat.value}
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-[#0f172a]">{stat.label}</p>
-                  <p className="mt-0.5 text-sm text-[#64748b]">{stat.detail}</p>
+                  <p className="mt-1.5 text-sm font-semibold leading-snug text-[#0f172a]">{stat.label}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#64748b]">{stat.detail}</p>
                 </li>
               ))}
             </ul>

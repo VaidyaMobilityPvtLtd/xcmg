@@ -470,26 +470,6 @@ export const roadEarthSpecificationsByModel: Record<string, SpecRow[]> = {
     { item: "Auxiliary winch Wire rope diameter", unit: "mm", parameter: "20" },
     { item: "Mast inclination Lateral/Forward/ Backward", unit: "°", parameter: "±3/5/15" },
   ],
-  /** Catalog uses XR210C while workbook provides XR210I; mirrored values for compatibility. */
-  "XR210C": [
-    { item: "Max. drilling diameter", unit: "mm", parameter: "1800" },
-    { item: "Max. drilling depth", unit: "m", parameter: "65" },
-    { item: "Engine Brand", unit: "-", parameter: "CUMMINS" },
-    { item: "Engine Model", unit: "-", parameter: "QSB6.7" },
-    { item: "Engine Ratedpower", unit: "kW", parameter: "194" },
-    { item: "Rotary drive Rated output torque", unit: "kNm", parameter: "210" },
-    { item: "Rotary drive Working speed", unit: "rpm", parameter: "5-30" },
-    { item: "Crowd cylinder Max crowd force", unit: "kN", parameter: "180" },
-    { item: "Crowd cylinder Max lifting force", unit: "kN", parameter: "190" },
-    { item: "Crowd cylinder Max.stroke", unit: "m", parameter: "5" },
-    { item: "Main winch Max.lifting force", unit: "kN", parameter: "216" },
-    { item: "Main winch Max.line speed", unit: "m/min", parameter: "60" },
-    { item: "Main winch Wire ropediameter", unit: "mm", parameter: "28" },
-    { item: "Auxiliary winch Max.lifting force", unit: "kN", parameter: "80" },
-    { item: "Auxiliary winch Max.line speed", unit: "m/min", parameter: "57" },
-    { item: "Auxiliary winch Wire rope diameter", unit: "mm", parameter: "20" },
-    { item: "Mast inclination Lateral/Forward/ Backward", unit: "°", parameter: "±3/5/15" },
-  ],
   "XR218E": [
     { item: "Max. drilling diameter", unit: "mm", parameter: "1800" },
     { item: "Max. drilling depth", unit: "m", parameter: "65/50" },
@@ -621,14 +601,18 @@ With its intelligent control technology, durable structure, and easy operation, 
   "XR158E": `The XR158E is a compact and efficient rotary drilling rig designed for foundation construction projects. It is equipped with a fuel-efficient engine, reliable hydraulic system, and stable drilling performance, allowing it to handle diverse construction conditions with high productivity.`,
   "XR178E": `The XR178E is a versatile rotary drilling rig designed to efficiently handle different construction requirements. Its adaptable design allows it to perform a wide range of pile foundation operations, making it suitable for infrastructure, urban development, and general foundation engineering projects.`,
   "XR210I": `The XR210I is a high-performance rotary drilling rig designed for efficient and stable foundation construction. It features a powerful and fuel-efficient engine, advanced hydraulic control, and reliable drilling capability for a wide range of pile foundation projects.`,
-  "XR210C": `The XR210I is a high-performance rotary drilling rig designed for efficient and stable foundation construction. It features a powerful and fuel-efficient engine, advanced hydraulic control, and reliable drilling capability for a wide range of pile foundation projects.`,
   "XR218E": `The XR218E is a versatile rotary drilling rig designed for efficient and reliable foundation construction. It features a turbocharged engine, strong rotary torque, and stable chassis performance, making it suitable for complex drilling applications in infrastructure and civil engineering works.`,
   "XR240E": `The XR240E is a multifunctional rotary drilling rig designed for flexible and efficient construction operations. It features quick switching between drilling methods, high torque output, and stable operation, making it suitable for large foundation projects and demanding site conditions.`,
 };
 
 /** Normalize model codes for lookup (matches EV helper behaviour). */
+const roadEarthModelAliases: Record<string, string> = {
+  XR210C: "XR210I",
+};
+
 export function roadEarthSpecModelKey(model: string): string {
-  return model.replace(/\s+/g, "").replace(/-/g, "_").toUpperCase();
+  const normalized = model.replace(/\s+/g, "").replace(/-/g, "_").toUpperCase();
+  return roadEarthModelAliases[normalized] ?? normalized;
 }
 
 export function roadEarthSpecificationsForModel(model: string): SpecRow[] {

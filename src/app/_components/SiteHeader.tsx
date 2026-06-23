@@ -94,16 +94,16 @@ export default function SiteHeader() {
                 className="max-h-[min(58vh,480px)] overflow-y-auto overscroll-contain px-4 py-4 sm:px-5 sm:py-4"
                 data-lenis-prevent
               >
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
+                <div className="grid grid-cols-1 items-stretch gap-3 sm:grid-cols-2 sm:gap-3.5">
                   {displayEquipmentCatalog.map((category) => {
                     const categoryProductCount = category.subtypes.reduce((n, s) => n + s.models.length, 0);
-                    const previewModels = category.subtypes.flatMap((s) =>
-                      s.models.slice(0, 2).map((model) => ({ model, subtypeSlug: s.slug })),
-                    ).slice(0, 4);
+                    const quickOpenModels = category.subtypes.flatMap((sub) =>
+                      sub.models.map((model) => ({ model, subtypeSlug: sub.slug })),
+                    );
                     return (
                       <div
                         key={category.key}
-                        className="group/card relative overflow-hidden rounded-lg border border-[#e2e8f0] bg-[#fafbfc] p-3.5 transition-shadow hover:border-[#cbd5e1] hover:shadow-sm"
+                        className="group/card relative flex h-full flex-col overflow-hidden rounded-lg border border-[#e2e8f0] bg-[#fafbfc] p-3.5 transition-shadow hover:border-[#cbd5e1] hover:shadow-sm"
                       >
                         <div
                           className="absolute left-0 top-0 h-full w-0.5 bg-[var(--brand-yellow)] opacity-0 transition-opacity group-hover/card:opacity-100"
@@ -134,12 +134,12 @@ export default function SiteHeader() {
                             </li>
                           ))}
                         </ul>
-                        {previewModels.length > 0 ? (
-                          <div className="mt-2.5 flex flex-wrap gap-1.5 border-t border-[#e2e8f0] pt-2.5">
+                        {quickOpenModels.length > 0 ? (
+                          <div className="mt-auto flex flex-wrap gap-1.5 border-t border-[#e2e8f0] pt-2.5">
                             <span className="w-full text-[9px] font-semibold uppercase tracking-[0.08em] text-[#94a3b8]">
                               Quick open
                             </span>
-                            {previewModels.map(({ model, subtypeSlug }) => (
+                            {quickOpenModels.map(({ model, subtypeSlug }) => (
                               <Link
                                 key={`${category.key}-${subtypeSlug}-${model}`}
                                 href={productHref(category.key, subtypeSlug, model)}

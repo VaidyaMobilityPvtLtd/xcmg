@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AboutCorporateVideo from "../_components/AboutCorporateVideo";
 import SiteHeader from "../_components/SiteHeader";
 import SiteFooter from "../_components/SiteFooter";
 import {
@@ -127,6 +128,8 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <AboutCorporateVideo />
+
         <section className="border-b border-[var(--border-subtle)] bg-[var(--surface-muted)]" aria-labelledby="philosophy">
           <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-14 md:px-6 md:py-20">
             <p className={pageHeroEyebrowClass}>How we work</p>
@@ -165,7 +168,7 @@ export default function AboutPage() {
           <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-14 md:px-6 md:py-20">
             <p className={pageHeroEyebrowClass}>Direction</p>
             <h2 id="vision-mission" className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl md:leading-tight">
-              Vision &amp; mission
+              Vision &amp; Mission
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
               <div className="relative overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-white via-white to-[#f4f7fb] p-8 shadow-[0_4px_24px_-12px_rgb(11_60_145_/_0.12)] ring-1 ring-black/[0.03] md:p-9">
@@ -227,11 +230,11 @@ export default function AboutPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-500">Leadership</p>
               <h2
                 id="management-messages"
-                className="mt-3 text-2xl font-bold tracking-tight text-stone-800 md:text-3xl md:leading-tight"
+                className="mt-3 text-balance text-2xl font-bold tracking-tight text-stone-800 md:text-3xl md:leading-tight"
               >
                 Management&apos;s message to you
               </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-stone-600">
+              <p className="mt-4 text-pretty text-[15px] leading-relaxed text-stone-600">
                 A note from the team guiding UHEEM and XCMG Nepal forward.
               </p>
             </div>

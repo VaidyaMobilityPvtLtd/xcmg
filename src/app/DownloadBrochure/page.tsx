@@ -86,7 +86,7 @@ const brochureCategories: BrochureCategory[] = [
     title: "Drilling machinery · Drilling rig",
     files: [
       {
-        label: "XR138E · XR158E · XR178E · XR210C · XR240E (South Asia catalogue)",
+        label: "XR138E · XR158E · XR178E · XR210I · XR240E (South Asia catalogue)",
         href: "/brochures/catalog/Xcmg%20pdf/piling%20machinery/South%20Asia%20piling%20rig%20catalog.pdf",
       },
     ],
@@ -132,47 +132,61 @@ export default function BrochuresPage() {
 
         <section className="border-b border-[var(--border-subtle)] bg-[#f6f8fb]">
           <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-12 md:px-6 md:py-16">
-            <div className="rounded-xl border border-[var(--border-subtle)] bg-white px-5 py-4 shadow-[0_2px_18px_-12px_rgb(15_23_42_/_0.2)] md:px-6">
-              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">Brochure center</p>
-                  <p className="mt-1 text-sm text-[#64748b]">Choose a category, then download the brochure PDF.</p>
-                </div>
-                <div className="inline-flex w-fit items-center rounded-md border border-[var(--border-subtle)] bg-[#f8fafc] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#475569]">
-                  {brochureCount} brochures
-                </div>
-              </div>
+            <div className="max-w-2xl">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue-muted)]">
+                Download
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">
+                Brochure center
+              </h2>
+              <p className="mt-3 text-[15px] leading-relaxed text-[#64748b]">
+                Choose a category, then download the brochure PDF for your equipment.
+              </p>
             </div>
 
-            <div className="mt-8 grid gap-6 lg:grid-cols-[240px_minmax(0,1fr)]">
-              <aside className="lg:sticky lg:top-24 lg:self-start">
-                <div className="rounded-xl border border-[var(--border-subtle)] bg-white p-4 shadow-sm">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">Categories</p>
-                  <nav className="mt-3 space-y-1.5" aria-label="Brochure categories">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#475569] shadow-sm">
+                {brochureCount} brochures
+              </span>
+              <span className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#475569] shadow-sm">
+                {brochureCategories.length} categories
+              </span>
+            </div>
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-10">
+              <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
+                <div className="rounded-xl border border-[var(--border-subtle)] bg-white p-4 shadow-sm md:p-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue-muted)]">
+                    Jump to category
+                  </p>
+                  <nav
+                    className="mobile-scroll-rail mt-3 lg:max-h-[min(70vh,520px)] lg:space-y-1 lg:overflow-y-auto lg:pr-1"
+                    aria-label="Brochure categories"
+                  >
                     {brochureCategories.map((category) => (
                       <a
                         key={category.title}
                         href={`#${toCategoryId(category.title)}`}
-                        className="flex items-center justify-between rounded-md border border-transparent px-3 py-2 text-sm font-medium text-[#334155] transition-colors hover:border-[var(--border-subtle)] hover:bg-[#f8fafc] hover:text-[var(--brand-blue)]"
+                        className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[#f8fafc] px-3.5 py-2 text-[13px] font-medium text-[#334155] transition-colors hover:border-[var(--brand-blue)]/25 hover:bg-white hover:text-[var(--brand-blue)] lg:flex lg:w-full lg:shrink lg:items-start lg:justify-between lg:gap-3 lg:rounded-md lg:border-transparent lg:bg-transparent lg:px-3 lg:py-2.5 lg:text-sm lg:leading-snug lg:hover:border-[var(--border-subtle)] lg:hover:bg-[#f8fafc]"
                       >
-                        <span>{category.title}</span>
-                        <span className="text-xs text-[#94a3b8]">{category.files.length}</span>
+                        <span className="max-w-[14rem] whitespace-nowrap lg:max-w-none lg:whitespace-normal">{category.title}</span>
+                        <span className="shrink-0 tabular-nums text-xs text-[#94a3b8]">{category.files.length}</span>
                       </a>
                     ))}
                   </nav>
                 </div>
               </aside>
 
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {brochureCategories.map((category) => (
                   <section
                     key={category.title}
                     id={toCategoryId(category.title)}
-                    className="overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-white shadow-[0_2px_16px_-12px_rgb(15_23_42_/_0.18)]"
+                    className="scroll-mt-28 overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-white shadow-[0_2px_16px_-12px_rgb(15_23_42_/_0.18)]"
                   >
-                    <div className="flex items-center justify-between border-b border-[var(--border-subtle)] bg-[#f9fbff] px-5 py-4 md:px-6">
-                      <h3 className="text-base font-bold tracking-tight text-[var(--brand-blue)] md:text-lg">{category.title}</h3>
-                      <span className="rounded border border-[var(--border-subtle)] bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#64748b]">
+                    <div className="flex flex-col gap-2 border-b border-[var(--border-subtle)] bg-[#f9fbff] px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5 md:px-6">
+                      <h3 className="min-w-0 text-base font-bold tracking-tight text-[var(--brand-blue)] md:text-lg">{category.title}</h3>
+                      <span className="inline-flex w-fit shrink-0 rounded border border-[var(--border-subtle)] bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#64748b]">
                         {category.files.length} items
                       </span>
                     </div>
@@ -182,9 +196,9 @@ export default function BrochuresPage() {
                           <a
                             href={file.href}
                             download
-                            className="group flex items-center justify-between gap-4 px-5 py-3.5 text-sm text-[#334155] transition-colors hover:bg-[#f8fbff] hover:text-[var(--brand-blue)] md:px-6"
+                            className="group flex flex-col gap-2 px-4 py-3.5 text-sm text-[#334155] transition-colors hover:bg-[#f8fbff] hover:text-[var(--brand-blue)] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5 md:px-6"
                           >
-                            <span className="truncate font-medium">{file.label}</span>
+                            <span className="min-w-0 font-medium break-words">{file.label}</span>
                             <span className="inline-flex shrink-0 items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--brand-blue)]">
                               Download
                               <span className="transition-transform group-hover:translate-x-0.5" aria-hidden>
@@ -207,24 +221,30 @@ export default function BrochuresPage() {
             className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[var(--brand-yellow)]/10 blur-3xl"
             aria-hidden
           />
-          <div className="relative mx-auto flex w-[92vw] max-w-[1600px] flex-col gap-10 px-4 md:flex-row md:items-center md:justify-between md:gap-12 md:px-6">
-            <div className="max-w-xl">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Next step</p>
-              <h2 className="mt-3 text-2xl font-bold tracking-tight text-[var(--brand-blue)] md:text-3xl">Need a printed pack or a model list?</h2>
-              <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-[15px]">
-                Call or email UHEEM—we can align brochures with your project and the products stocked for Nepal.
-              </p>
-            </div>
-            <div className="flex flex-shrink-0 flex-wrap gap-3">
+          <div className="relative mx-auto w-[92vw] max-w-[1600px] px-4 md:px-6">
+            <div className="flex flex-col gap-8 rounded-2xl border border-white/12 bg-white/[0.06] p-7 backdrop-blur-sm md:flex-row md:items-center md:justify-between md:gap-10 md:p-9 lg:p-10">
+              <div className="max-w-xl space-y-3">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
+                  Next step
+                </p>
+                <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  Need a printed pack or a model list?
+                </h2>
+                <p className="text-sm leading-relaxed text-white/82 md:text-[15px] md:leading-[1.75]">
+                  Call or email UHEEM—we can align brochures with your project and the products stocked for Nepal.
+                </p>
+              </div>
+            <div className="cta-action-row shrink-0">
               <Link href="/products" className="inner-cta-primary shadow-lg shadow-black/20 hover:shadow-xl">
                 Explore products
               </Link>
               <a
-                href="mailto:info@uheem.com.np"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-white/35 bg-white/10 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-[transform,background-color] duration-200 hover:bg-white/20 active:translate-y-px"
+                href="mailto:info@uheem.com.np?subject=Brochure%20request"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-white/35 bg-white/10 px-6 py-2.5 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-[transform,background-color] duration-200 hover:bg-white/20 active:translate-y-px"
               >
-                Contact us
-              </a>
+                  Contact us
+                </a>
+              </div>
             </div>
           </div>
         </section>

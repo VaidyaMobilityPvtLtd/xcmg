@@ -9,6 +9,7 @@ import {
   PageHeroBreadcrumbs,
   pageHeroActionsClass,
   pageHeroEyebrowBrandClass,
+  pageHeroLeadBrandClass,
   pageHeroTitleBrandClass,
 } from "../_components/PageHero";
 import { pageHeroSrc } from "../_data/pageHeroBanners";
@@ -20,13 +21,7 @@ export default function ServicesPage() {
     <>
       <SiteHeader />
       <main className="justify-copy min-h-screen bg-[#f4f6f9] text-[#0f172a] [color-scheme:light]">
-        <PageHero
-          variant="brand"
-          imageSrc={pageHeroSrc.services}
-          imageAlt="XCMG Nepal services"
-          contentAlign="center"
-          contentMaxWidthClass="max-w-none"
-        >
+        <PageHero variant="brand" imageSrc={pageHeroSrc.services} imageAlt="XCMG Nepal services">
           <PageHeroBreadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -34,12 +29,8 @@ export default function ServicesPage() {
             ]}
           />
           <p className={`mt-4 ${pageHeroEyebrowBrandClass}`}>Services</p>
-          <h1 className={`mt-2 max-w-[56rem] text-balance ${pageHeroTitleBrandClass}`}>
-            {serviceMarketingTitle}
-          </h1>
-          <p className="mt-4 max-w-[56rem] text-pretty text-base font-medium leading-snug text-white/95 sm:text-lg md:text-xl lg:text-2xl">
-            {serviceMarketingTagline}
-          </p>
+          <h1 className={`mt-2 ${pageHeroTitleBrandClass}`}>{serviceMarketingTitle}</h1>
+          <p className={`${pageHeroLeadBrandClass} font-medium text-white/95`}>{serviceMarketingTagline}</p>
           <div className={pageHeroActionsClass}>
             <Link href="#services-overview" className="inner-cta-primary">
               Read overview
@@ -70,7 +61,7 @@ export default function ServicesPage() {
                 Browse the Nepal catalogue for products, specifications, and distributor contact paths.
               </p>
             </div>
-            <div className="flex flex-shrink-0 flex-wrap gap-3">
+            <div className="cta-action-row shrink-0">
               <Link href="/products" className="inner-cta-primary shadow-lg shadow-black/20 hover:shadow-xl">
                 Explore products
               </Link>

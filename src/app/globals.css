@@ -47,6 +47,101 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  min-width: 0;
+}
+
+main :is(section, article) {
+  min-width: 0;
+}
+
+/* Hero CTA rows — full-width tap targets on narrow screens. */
+.page-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 36rem;
+}
+
+@media (min-width: 480px) {
+  .page-hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: none;
+  }
+}
+
+.page-hero-actions :is(a, button) {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .page-hero-actions :is(a, button) {
+    width: auto;
+  }
+}
+
+/* Stacked CTAs on narrow screens (blue banner sections, etc.). */
+.cta-action-row {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cta-action-row :is(a, button) {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .cta-action-row {
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .cta-action-row :is(a, button) {
+    width: auto;
+  }
+}
+
+/* Service / survey stat cards — short copy stays left-aligned, not justified. */
+.stat-card :is(p, h3) {
+  text-align: left;
+  text-justify: auto;
+  hyphens: manual;
+}
+
+/* Horizontal category / filter rails on small screens. */
+.mobile-scroll-rail {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.25rem;
+  margin-inline: -0.25rem;
+  padding-inline: 0.25rem;
+  scrollbar-width: none;
+}
+
+.mobile-scroll-rail::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .mobile-scroll-rail {
+    display: block;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-bottom: 0;
+  }
+}
+
 .section-vision {
   background:
     radial-gradient(ellipse 100% 120% at 50% -20%, rgb(232 195 26 / 0.1), transparent 52%),
@@ -360,6 +455,21 @@ main h3 {
 .justify-copy p.text-\[11px\] {
   text-align: revert;
   hyphens: manual;
+}
+
+/* Centered section intros — subtitle paragraphs must stay centered, not justified. */
+.justify-copy .text-center:not([class*="md:text-left"]):not([class*="lg:text-left"]) p {
+  text-align: center;
+  text-justify: auto;
+  hyphens: manual;
+}
+
+.justify-copy .text-center:not([class*="md:text-left"]):not([class*="lg:text-left"]) p[class*="uppercase"][class*="tracking-"] {
+  text-indent: 0.15em;
+}
+
+.justify-copy .text-center:not([class*="md:text-left"]):not([class*="lg:text-left"]) :is(h1, h2, h3, h4) {
+  text-wrap: balance;
 }
 
 /* Homepage / About split blocks — typography for long-form copy. */

@@ -31,18 +31,17 @@ type PageHeroProps = {
 
 
 const paddingClass = {
-  default: "py-8 sm:py-9 md:py-10",
-  compact: "py-8 sm:py-9 md:py-10",
+  default: "py-7 sm:py-8 md:py-10",
+  compact: "py-7 sm:py-8 md:py-10",
 } as const;
 
 
 /** Light (non-brand) heroes — shorter shell when a light variant is used. */
 const heroShellMinHeightClassLight = "min-h-[clamp(320px,35dvh,420px)]";
 
-/**
- * Brand heroes (inner pages, not landing): matches Services — ~clamp(360px,44dvh,520px) viewport band.
- */
-const heroShellMinHeightClassBrand = "min-h-[clamp(300px,40dvh,520px)] sm:min-h-[clamp(360px,44dvh,520px)]";
+/** Brand heroes: consistent desktop height; mobile can grow slightly so CTAs are not clipped. */
+const heroHeightClassBrand =
+  "min-h-[clamp(360px,52dvh,580px)] md:h-[clamp(380px,44dvh,520px)]";
 
 /** Same treatment as Services hero: full-bleed photo, no extra wash, anchor slightly above center. */
 const brandImageClass = "object-cover object-[center_38%]";
@@ -119,7 +118,7 @@ export function PageHero({
   const resolvedOverlay = overlay !== undefined ? overlay : isBrand ? <BrandHeroOverlaySoft /> : null;
 
   const resolvedShellMinHeight =
-    shellMinHeightClass ?? (isBrand ? heroShellMinHeightClassBrand : heroShellMinHeightClassLight);
+    shellMinHeightClass ?? (isBrand ? undefined : heroShellMinHeightClassLight);
   const contentJustify = contentAlign === "center" ? "justify-center" : "justify-end";
 
   return (
@@ -127,6 +126,7 @@ export function PageHero({
       className={[
         "relative isolate overflow-hidden border-b border-[var(--border-subtle)]",
         resolvedSurface,
+        isBrand ? heroHeightClassBrand : "",
       ].join(" ")}
     >
       <div className={["pointer-events-none absolute inset-0 z-0", resolvedBackdrop].join(" ")}>
@@ -148,7 +148,14 @@ export function PageHero({
         ) : null}
       </div>
       <div
-        className={`relative z-10 mx-auto box-border flex w-[92vw] max-w-[1600px] flex-col px-4 md:px-6 ${resolvedShellMinHeight} ${paddingClass[padding]} ${contentJustify}`}
+        className={[
+          "relative z-10 mx-auto box-border flex w-[92vw] max-w-[1600px] flex-col px-4 md:px-6",
+          isBrand ? "h-full" : resolvedShellMinHeight,
+          paddingClass[padding],
+          contentJustify,
+        ]
+          .filter(Boolean)
+          .join(" ")}
       >
         <div className={`w-full ${contentMaxWidthClass}`}>{children}</div>
       </div>
@@ -164,7 +171,7 @@ export const pageHeroTitleBrandClass =
 
 /** Long legal or brand titles — allow full wrap without clamping on small screens. */
 export const pageHeroTitleBrandLongClass =
-  "text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-[2.25rem] md:leading-tight lg:text-[2.75rem] xl:text-5xl";
+  "line-clamp-3 text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-[2.25rem] md:leading-tight lg:text-[2.75rem] xl:text-5xl";
 
 export const pageHeroEyebrowClass =
   "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#475569]";
@@ -176,10 +183,10 @@ export const pageHeroLeadClass =
   "mt-3 max-w-2xl text-sm leading-relaxed text-[#475569] sm:mt-4 md:text-base";
 
 export const pageHeroLeadBrandClass =
-  "mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-white/88 sm:mt-4 md:mt-5 md:text-base";
+  "mt-4 max-w-2xl line-clamp-4 text-pretty text-sm leading-relaxed text-white/88 sm:mt-4 md:mt-5 md:text-base";
 
 /** Wider lead for long marketing paragraphs on brand heroes. */
 export const pageHeroLeadBrandWideClass =
   "mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-white/88 sm:mt-5 md:mt-6 md:text-[15px] md:leading-relaxed";
 
-export const pageHeroActionsClass = "mt-6 flex flex-wrap gap-3";
+export const pageHeroActionsClass = "page-hero-actions mt-5 sm:mt-6";

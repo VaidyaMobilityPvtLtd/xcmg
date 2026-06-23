@@ -122,7 +122,7 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
       {
         name: "Rotary drilling rig",
         slug: "drilling-rig",
-        models: ["XR138E", "XR158E", "XR178E", "XR210C", "XR240E"],
+        models: ["XR138E", "XR158E", "XR178E", "XR210I", "XR240E"],
       },
     ],
   },
@@ -207,7 +207,8 @@ const drillingRigImages: Record<string, string> = {
   XR138E: "/equipment/drilling-rigs/XR138E.png",
   XR158E: "/equipment/drilling-rigs/XR158E.png",
   XR178E: "/equipment/drilling-rigs/XR178E.png",
-  XR210C: "/equipment/drilling-rigs/XR210C.png",
+  XR210I: "/equipment/drilling-rigs/XR210I.png",
+  XR210C: "/equipment/drilling-rigs/XR210I.png",
   XR240E: "/equipment/drilling-rigs/XR240E.png",
 };
 
