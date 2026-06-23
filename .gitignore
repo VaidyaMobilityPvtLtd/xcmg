@@ -36,6 +36,9 @@ public/testimonial-video.mov
 /*.mov
 /XCMG*.mp4
 
+# Hero carousel must use the original layered SVG sources in git — auto-converted WebP breaks the artwork.
+public/hero/slide-*.webp
+
 # debug
 npm-debug.log*
 yarn-debug.log*

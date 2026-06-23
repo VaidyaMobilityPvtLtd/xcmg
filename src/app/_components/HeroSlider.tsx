@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { heroSlides } from "../_data/heroSlides";
-import { warmImageSrc, warmImageSrcs } from "../_lib/warmImages";
+import { warmImageSrc } from "../_lib/warmImages";
 
 const heroMinHeightClass =
   "min-h-[clamp(240px,42dvh,480px)] sm:min-h-[clamp(300px,48dvh,560px)] md:min-h-[clamp(380px,52dvh,640px)]";
@@ -36,7 +36,7 @@ export default function HeroSlider() {
   );
 
   useEffect(() => {
-    warmImageSrcs(heroSlides.map((slide) => slide.src));
+    warmImageSrc(heroSlides[1]?.src ?? "");
   }, []);
 
   useEffect(() => {

@@ -44,12 +44,9 @@ const aboutImageRightColumnClassName =
   "order-2 flex min-h-[220px] flex-col border-t border-[var(--border-subtle)] bg-[#eef2f6] sm:min-h-[260px] md:h-full md:min-h-0 md:border-l md:border-t-0 md:border-[var(--border-subtle)]";
 
 export default function Home() {
-  for (let i = 0; i < heroSlides.length; i++) {
-    const slide = heroSlides[i];
-    preload(slide.src, {
-      as: "image",
-      fetchPriority: i === 0 ? "high" : i <= 2 ? "auto" : "low",
-    });
+  const firstSlide = heroSlides[0];
+  if (firstSlide) {
+    preload(firstSlide.src, { as: "image", fetchPriority: "high" });
   }
 
   return (
