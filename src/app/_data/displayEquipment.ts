@@ -136,6 +136,35 @@ export const displayEquipmentCatalog: DisplayCategory[] = [
       { name: "Shotcrete", slug: "shotcrete", models: ["XS3017S"] },
     ],
   },
+  {
+    key: "other-machinery",
+    tab: "Other",
+    label: "Other Machinery",
+    blurb:
+      "Dozers, soil compactors, horizontal directional drilling rigs, and backhoe loaders for specialised earthworks and utility installation.",
+    subtypes: [
+      {
+        name: "Dozer",
+        slug: "dozer",
+        models: ["D170", "D170LGP", "D5AT", "D260(EU StageⅠ)", "D360(EU StageⅠ)"],
+      },
+      {
+        name: "Soil compactor",
+        slug: "soil-compactor",
+        models: ["XH235L", "XH285L", "XH365L(Stage Ⅴ)", "XH365L(Stage Ⅲ)"],
+      },
+      {
+        name: "Horizontal directional drilling rig",
+        slug: "horizontal-directional-drilling-rig",
+        models: ["XZ450E-R", "XZ6000F", "XZ3000F", "XZ1000E", "XZ230E", "XZ6600", "XZ5000F"],
+      },
+      {
+        name: "Backhoe loader",
+        slug: "backhoe-loader",
+        models: ["XC8-S3580", "XC8-S3570", "XC8-C2570", "XC8-S2570", "XC8-S0750", "WZ30-25"],
+      },
+    ],
+  },
 ];
 
 export function productHref(segment: string, subtype: string, model: string) {
@@ -244,6 +273,40 @@ const roughTerrainCraneImages: Record<string, string> = {
   XCR40_EV: "/equipment/electric-vehicles/EV-PIC/XCR40_EV.png",
 };
 
+const dozerImages: Record<string, string> = {
+  D170: "/equipment/dozers/D170.png",
+  D170LGP: "/equipment/dozers/D170LGP.png",
+  D5AT: "/equipment/dozers/D5AT.png",
+  "D260(EUSTAGEⅠ)": "/equipment/dozers/D260.png",
+  "D360(EUSTAGEⅠ)": "/equipment/dozers/D360.jpg",
+};
+
+const soilCompactorImages: Record<string, string> = {
+  XH235L: "/equipment/soil-compactors/XH235L.jpg",
+  XH285L: "/equipment/soil-compactors/XH285L-render.png",
+  "XH365L(STAGEⅤ)": "/equipment/soil-compactors/XH365L-Stage-V-render.png",
+  "XH365L(STAGEⅢ)": "/equipment/soil-compactors/XH365L-Stage-III-render.png",
+};
+
+const horizontalDirectionalDrillingRigImages: Record<string, string> = {
+  XZ450E_R: "/equipment/horizontal-directional-drilling-rigs/XZ450E-R.png",
+  XZ6000F: "/equipment/horizontal-directional-drilling-rigs/XZ6000F.png",
+  XZ3000F: "/equipment/horizontal-directional-drilling-rigs/XZ3000F.png",
+  XZ1000E: "/equipment/horizontal-directional-drilling-rigs/XZ1000E.png",
+  XZ230E: "/equipment/horizontal-directional-drilling-rigs/XZ230E.png",
+  XZ6600: "/equipment/horizontal-directional-drilling-rigs/XZ6600.png",
+  XZ5000F: "/equipment/horizontal-directional-drilling-rigs/XZ5000F.png",
+};
+
+const backhoeLoaderImages: Record<string, string> = {
+  XC8_S3580: "/equipment/backhoe-loaders/XC8-S3580.png",
+  XC8_S3570: "/equipment/backhoe-loaders/XC8-S3570.png",
+  XC8_C2570: "/equipment/backhoe-loaders/XC8-C2570.png",
+  XC8_S2570: "/equipment/backhoe-loaders/XC8-S2570.png",
+  XC8_S0750: "/equipment/backhoe-loaders/XC8-S0750.png",
+  WZ30_25: "/equipment/backhoe-loaders/WZ30-25.png",
+};
+
 export function equipmentImageForModel(model: string, subtypeSlug: string): string | null {
   const k = modelKey(model);
   if (subtypeSlug === "wheelloader") {
@@ -287,6 +350,18 @@ export function equipmentImageForModel(model: string, subtypeSlug: string): stri
   }
   if (subtypeSlug === "rough-terrain-crane") {
     return roughTerrainCraneImages[k] ?? null;
+  }
+  if (subtypeSlug === "dozer") {
+    return dozerImages[k] ?? null;
+  }
+  if (subtypeSlug === "soil-compactor") {
+    return soilCompactorImages[k] ?? null;
+  }
+  if (subtypeSlug === "horizontal-directional-drilling-rig") {
+    return horizontalDirectionalDrillingRigImages[k] ?? null;
+  }
+  if (subtypeSlug === "backhoe-loader") {
+    return backhoeLoaderImages[k] ?? null;
   }
   return null;
 }

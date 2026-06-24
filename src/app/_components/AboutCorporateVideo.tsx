@@ -82,11 +82,6 @@ export default function AboutCorporateVideo() {
                 </a>
               </video>
 
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--brand-blue)]/10 via-transparent to-[var(--brand-blue)]/50 md:to-[var(--brand-blue)]/85"
-                aria-hidden
-              />
-
               {!isPlaying ? (
                 <button
                   type="button"

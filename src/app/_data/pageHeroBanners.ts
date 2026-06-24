@@ -20,6 +20,7 @@ const productsSegmentHero: Record<string, string> = {
   piling: "/page-heroes/drilling-machinery.png",
   concrete: "/page-heroes/concrete-machinery.png",
   "electric-vehicle": "/page-heroes/electric-vehicle-alt.png",
+  "other-machinery": "/page-heroes/earth-moving.png",
 };
 
 export function pageHeroSrcForProductsSegment(segmentKey: string | undefined): string {

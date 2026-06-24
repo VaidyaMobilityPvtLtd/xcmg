@@ -14,6 +14,7 @@ const homeCategoryImageByKey: Record<string, string> = {
   piling: "/land-page/piling.png",
   concrete: "/land-page/concrete.png",
   "electric-vehicle": "/land-page/electric-vehicle.png",
+  "other-machinery": "/land-page/other-machinery-card.png",
 };
 
 type Props = {

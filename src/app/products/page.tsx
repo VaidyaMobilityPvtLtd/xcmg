@@ -28,6 +28,7 @@ import {
 } from "../_lib/productsListing";
 import { evProductDescriptionsByModel } from "../_data/evSpecifications";
 import { concreteDescriptionForModel } from "../_data/concreteSpecifications";
+import { otherMachineryDescriptionForModel } from "../_data/otherMachinerySpecifications";
 import { displayProductSpecifications } from "../_data/productSpecifications";
 import { roadEarthDescriptionForModel } from "../_data/roadEarthSpecifications";
 import { siteContacts } from "../_data/siteContacts";
@@ -87,6 +88,7 @@ function resolveProductDetailMeta(entry: ModelMatchEntry, equipmentImage: string
   if (ev) return ev;
 
   const concreteDesc = concreteDescriptionForModel(entry.model);
+  const otherDesc = otherMachineryDescriptionForModel(entry.model);
   const roadDesc = roadEarthDescriptionForModel(entry.model);
   const caseImage = equipmentImage ?? portfolioImageForCategory(entry.segmentKey);
 
@@ -97,6 +99,7 @@ function resolveProductDetailMeta(entry: ModelMatchEntry, equipmentImage: string
     caseImage,
     description:
       concreteDesc ??
+      otherDesc ??
       roadDesc ??
       `${entry.model} — catalogue equipment configured for Nepal sites with local support from UHEEM.`,
   };

@@ -22,6 +22,7 @@ const previewImageByCategory: Record<string, string> = {
   "underground-mining": "/portfolio-categories/underground-mining.png",
   concrete: "/portfolio-categories/concrete.png",
   "electric-vehicle": "/portfolio-categories/electric-vehicle.png",
+  "other-machinery": "/portfolio-categories/other-machinery-card.png",
 };
 
 function collectEquipmentImageUrls(categoryKey: string, subtype: "all" | string): string[] {
