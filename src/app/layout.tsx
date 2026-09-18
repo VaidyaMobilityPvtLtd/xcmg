@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import ScrollSmoothShell from "./_components/ScrollSmoothShell";
 import SmoothPage from "./_components/SmoothPage";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
           <SmoothPage>{children}</SmoothPage>
         </ScrollSmoothShell>
       </body>
+         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-XFR8ND9V1J" } />
     </html>
   );
 }
