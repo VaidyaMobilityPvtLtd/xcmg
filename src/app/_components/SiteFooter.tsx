@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "./SiteLink";
 import SocialLinks from "./SocialLinks";
 import { displayEquipmentCatalog } from "../_data/displayEquipment";
 import { siteContacts } from "../_data/siteContacts";

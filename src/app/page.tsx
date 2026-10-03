@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "./_components/SiteLink";
 import { preload } from "react-dom";
 import SiteHeader from "./_components/SiteHeader";
 import SiteFooter from "./_components/SiteFooter";

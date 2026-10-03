@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "../_components/SiteLink";
 import AboutCorporateVideo from "../_components/AboutCorporateVideo";
 import SiteHeader from "../_components/SiteHeader";
 import SiteFooter from "../_components/SiteFooter";
@@ -261,7 +261,7 @@ export default function AboutPage() {
                             alt={leader.photoAlt ?? leader.name}
                             fill
                             sizes="(max-width: 768px) 88px, 112px"
-                            quality={95}
+                            quality={75}
                             className={[
                               "object-cover",
                               leader.photoPositionClass ?? "object-center",

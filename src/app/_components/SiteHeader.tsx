@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Image from "next/image";
+import Link from "./SiteLink";
 import { Suspense } from "react";
 import { HeaderLinkClickClose, HeaderRouteSyncClose } from "./HeaderMegaClose";
 import MobileNavDrawer from "./MobileNavDrawer";
@@ -51,13 +52,13 @@ export default function SiteHeader() {
           aria-label="XCMG Nepal home"
           className="inline-flex h-9 min-w-0 shrink items-center bg-white [color-scheme:light] md:h-10 lg:h-11"
         >
-          <img
+          <Image
             src="/xcmg-logo.png"
             alt="XCMG"
-            width={1024}
-            height={224}
+            width={240}
+            height={53}
             decoding="async"
-            fetchPriority="high"
+            priority
             className="block max-h-full w-auto max-w-[min(140px,38vw)] bg-white sm:max-w-[min(180px,50vw)]"
             style={{ backgroundColor: "#ffffff" }}
           />
@@ -235,11 +236,11 @@ export default function SiteHeader() {
           </details>
 
           <span className="hidden min-[520px]:inline-flex h-9 shrink-0 items-center justify-end bg-white [color-scheme:light] sm:h-9 md:h-10 lg:h-11">
-            <img
+            <Image
               src="/top-logo.png"
               alt="United Heavy Equipment & Earth Movers"
-              width={1024}
-              height={224}
+              width={240}
+              height={53}
               decoding="async"
               className="block max-h-full w-auto max-w-[min(120px,28vw)] bg-white object-contain object-right min-[480px]:max-w-[min(180px,36vw)] sm:max-w-[min(240px,42vw)] md:max-w-[min(460px,58vw)] lg:max-w-[min(540px,52vw)] xl:max-w-[min(600px,48vw)]"
               style={{ backgroundColor: "#ffffff" }}

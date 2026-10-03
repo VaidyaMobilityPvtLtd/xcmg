@@ -366,8 +366,9 @@ export function equipmentImageForModel(model: string, subtypeSlug: string): stri
   return null;
 }
 
+/** Transparency is supported by Next's optimizer; only SVGs bypass it. */
 export function equipmentImageShouldBypassOptimization(src: string): boolean {
-  return src.includes("_white") || src.includes("_transparent");
+  return src.toLowerCase().endsWith(".svg");
 }
 
 export function excavatorUsesUnifiedFraming(subtypeSlug: string): boolean {

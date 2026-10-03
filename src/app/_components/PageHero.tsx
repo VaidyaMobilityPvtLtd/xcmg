@@ -109,7 +109,7 @@ export function PageHero({
 }: PageHeroProps) {
   const isBrand = variant === "brand";
 
-  const resolvedImageQuality = imageQuality ?? (isBrand ? 100 : 75);
+  const resolvedImageQuality = imageQuality ?? 75;
 
   const resolvedImageClass =
     imageClassName ?? (isBrand ? brandImageClass : "object-cover object-center opacity-25");

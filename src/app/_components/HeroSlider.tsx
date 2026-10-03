@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { heroSlides } from "../_data/heroSlides";
-import { warmImageSrc } from "../_lib/warmImages";
+import Image from "next/image";
 
 const heroMinHeightClass =
   "min-h-[clamp(240px,42dvh,480px)] sm:min-h-[clamp(300px,48dvh,560px)] md:min-h-[clamp(380px,52dvh,640px)]";
@@ -36,19 +36,6 @@ export default function HeroSlider() {
   );
 
   useEffect(() => {
-    warmImageSrc(heroSlides[1]?.src ?? "");
-  }, []);
-
-  useEffect(() => {
-    if (slideCount <= 1) return;
-
-    const nextIndex = (activeIndex + 1) % slideCount;
-    const prevIndex = (activeIndex - 1 + slideCount) % slideCount;
-    warmImageSrc(heroSlides[nextIndex]?.src ?? "");
-    warmImageSrc(heroSlides[prevIndex]?.src ?? "");
-  }, [activeIndex, slideCount]);
-
-  useEffect(() => {
     if (slideCount <= 1) return;
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -68,6 +55,8 @@ export default function HeroSlider() {
             {heroSlides.map((slide, index) => {
               const isActive = index === activeIndex;
 
+              if (!isActive && index !== 0 && index !== (activeIndex + 1) % slideCount) return null;
+
               return (
                 <div
                   key={slide.src}
@@ -77,11 +66,14 @@ export default function HeroSlider() {
                   ].join(" ")}
                   aria-hidden={!isActive}
                 >
-                  <img
+                  <Image
                     src={slide.src}
                     alt={isActive ? slide.alt : ""}
-                    loading={index <= 1 ? "eager" : "lazy"}
-                    decoding={index === 0 ? "sync" : "async"}
+                    fill
+                    sizes="100vw"
+                    priority={index === 0}
+                    loading={index === 0 || isActive ? "eager" : "lazy"}
+                    decoding="async"
                     fetchPriority={index === 0 ? "high" : index === 1 ? "auto" : "low"}
                     className={[
                       "pointer-events-none absolute inset-0 box-border h-full w-full object-cover",

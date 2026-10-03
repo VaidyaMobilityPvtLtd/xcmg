@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "../_components/SiteLink";
 import SiteHeader from "../_components/SiteHeader";
 import SiteFooter from "../_components/SiteFooter";
 import {
@@ -26,6 +26,7 @@ import {
   portfolioImageForCategory,
   summarizeProductDescription,
 } from "../_lib/productsListing";
+import { productEditorialForModel } from "../_data/productEditorial";
 import { evProductDescriptionsByModel } from "../_data/evSpecifications";
 import { concreteDescriptionForModel } from "../_data/concreteSpecifications";
 import { otherMachineryDescriptionForModel } from "../_data/otherMachinerySpecifications";
@@ -77,7 +78,8 @@ type ProductDetailMeta = {
 
 function resolveProductDriveLabel(entry: ModelMatchEntry): string {
   if (entry.segmentKey === "electric-vehicle") {
-    const hybridModels = new Set(["RP905HEV", "XCR40_EV", "XS265HEV"]);
+    if (normalizeModelCode(entry.model) === "XCR40_EV") return "New Energy";
+    const hybridModels = new Set(["RP905HEV", "XS265HEV"]);
     return hybridModels.has(normalizeModelCode(entry.model)) ? "Hybrid Electric" : "Battery Electric";
   }
   return "Diesel";
@@ -177,7 +179,7 @@ const evModelDisplayMeta: Record<
   },
   XCR40_EV: {
     family: "Rough Terrain Crane",
-    drive: "Hybrid Electric",
+    drive: "New Energy",
     caseTitle: "XCR40_EV supporting lifting operations across uneven terrain",
     caseImage: "/equipment/electric-vehicles/EV-PIC/XCR40_EV.png",
     description: evProductDescriptionsByModel.XCR40_EV,
@@ -196,9 +198,9 @@ export default async function ProductsPage({ searchParams }: Props) {
   const segment = typeof sp.segment === "string" ? sp.segment : "";
   const typeRaw = typeof sp.type === "string" ? sp.type : "";
   const subtypeRaw = typeof sp.subtype === "string" ? sp.subtype : "";
-  const modelRaw = typeof sp.model === "string" ? decodeURIComponent(sp.model) : "";
-  const typeLabel = typeRaw ? formatEquipmentTypeLabel(decodeURIComponent(typeRaw)) : "";
-  const subtypeLabel = subtypeRaw ? formatEquipmentTypeLabel(decodeURIComponent(subtypeRaw)) : "";
+  const modelRaw = typeof sp.model === "string" ? sp.model : "";
+  const typeLabel = typeRaw ? formatEquipmentTypeLabel(typeRaw) : "";
+  const subtypeLabel = subtypeRaw ? formatEquipmentTypeLabel(subtypeRaw) : "";
   const selectionParts: string[] = [];
   if (segment) selectionParts.push(segment.replace(/-/g, " "));
   if (subtypeLabel || typeLabel) selectionParts.push(subtypeLabel || typeLabel);
@@ -227,6 +229,7 @@ export default async function ProductsPage({ searchParams }: Props) {
   const selectedModelSpecs = selectedModel ? displayProductSpecifications(selectedModel.model) : [];
   const selectedModelHighlights = selectedModelSpecs.slice(0, 3);
   const selectedMeta = selectedModel ? resolveProductDetailMeta(selectedModel, selectedModelImage) : null;
+  const selectedEditorial = selectedModel ? productEditorialForModel(selectedModel.model) : null;
   const heroImageSrc =
     selectedMeta?.caseImage ?? selectedModelImage ?? (selectedModel ? portfolioImageForCategory(selectedModel.segmentKey) : null);
   const heroImageBypassOpt = heroImageSrc ? equipmentImageShouldBypassOptimization(heroImageSrc) : false;
@@ -244,7 +247,7 @@ export default async function ProductsPage({ searchParams }: Props) {
       `${selectedModel.model} — catalogue equipment configured for Nepal sites with local support from UHEEM.`
     : "";
   const detailDescriptionText = selectedModel
-    ? summarizeProductDescription(detailDescriptionRaw, selectedModel.model)
+    ? selectedEditorial?.summary ?? summarizeProductDescription(detailDescriptionRaw, selectedModel.model)
     : "";
   const categoryForSegment = segment
     ? displayEquipmentCatalog.find((c) => c.key === segment) ?? null
@@ -432,6 +435,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                   <p className="mt-4 whitespace-pre-line border-t border-[#e8ecf2] pt-4 text-sm leading-relaxed text-[#475569] sm:mt-8 sm:pt-6 md:text-base">
                     {detailDescriptionText}
                   </p>
+                  {selectedEditorial && <a href="#model-overview" className="mt-4 inline-block text-sm font-semibold text-[#0b3c91] underline underline-offset-4">Explore this machine</a>}
                 </div>
               </div>
             </div>
@@ -463,6 +467,30 @@ export default async function ProductsPage({ searchParams }: Props) {
                 </div>
               </div>
             </div>
+
+            {selectedEditorial && (
+              <section id="model-overview" aria-labelledby="model-overview-title" className="scroll-mt-28 border-b border-[#e8ecf2] bg-[#f7f9fc]">
+                <div className="mx-auto grid w-[92vw] max-w-[1600px] gap-8 px-4 py-10 md:px-6 md:py-14 lg:grid-cols-12 lg:gap-14">
+                  <div className="lg:col-span-7">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue-muted)]">Built for the job</p>
+                    <h2 id="model-overview-title" className="mt-2 text-2xl font-extrabold tracking-tight text-[#0b2f6b] sm:text-3xl">Discover the {selectedModel.model}</h2>
+                    <div className="mt-6 space-y-5 text-base leading-8 text-[#475569]">
+                      {selectedEditorial.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
+                  </div>
+                  <div className="rounded-lg border border-[#e6edf5] bg-white p-6 lg:col-span-5 md:p-8">
+                    <h3 className="text-lg font-bold text-[#0b2f6b]">Key benefits</h3>
+                    <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-6 text-[#475569] marker:text-[#0b3c91]">
+                      {selectedEditorial.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
+                    </ul>
+                    <h3 className="mt-7 border-t border-[#e8ecf2] pt-6 text-lg font-bold text-[#0b2f6b]">Applications</h3>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {selectedEditorial.applications.map((application) => <li key={application} className="rounded bg-[#eef3fa] px-3 py-2 text-sm text-[#0b3c91]">{application}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            )}
 
             <div id="model-parameters" className="scroll-mt-28 bg-white">
               <div className="mx-auto w-[92vw] max-w-[1600px] px-4 py-10 text-left md:px-6 md:py-14">

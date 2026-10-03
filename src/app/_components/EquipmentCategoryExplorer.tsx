@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import Link from "./SiteLink";
+import { useCallback, useMemo, useState } from "react";
 import {
   displayEquipmentCatalog,
   equipmentImageForModel,
@@ -10,9 +10,7 @@ import {
   productHref,
 } from "../_data/displayEquipment";
 import { equipmentCatalogGridVisual } from "../_lib/productsListing";
-import { warmImageSrcs } from "../_lib/warmImages";
 
-const EQUIP_PREWARM_MAX = 48;
 
 const previewImageByCategory: Record<string, string> = {
   "earth-moving": "/portfolio-categories/earth-moving.png",
@@ -24,28 +22,6 @@ const previewImageByCategory: Record<string, string> = {
   "electric-vehicle": "/portfolio-categories/electric-vehicle.png",
   "other-machinery": "/portfolio-categories/other-machinery-card.jpg",
 };
-
-function collectEquipmentImageUrls(categoryKey: string, subtype: "all" | string): string[] {
-  const cat = displayEquipmentCatalog.find((c) => c.key === categoryKey);
-  if (!cat) return [];
-  const seen = new Set<string>();
-  const list: string[] = [];
-  const push = (u: string) => {
-    if (!seen.has(u)) {
-      seen.add(u);
-      list.push(u);
-    }
-  };
-  const fallback = previewImageByCategory[categoryKey] ?? "/hero2.png";
-  push(fallback);
-  const subs = subtype === "all" ? cat.subtypes : cat.subtypes.filter((s) => s.slug === subtype);
-  for (const sub of subs) {
-    for (const model of sub.models) {
-      push(equipmentImageForModel(model, sub.slug) ?? fallback);
-    }
-  }
-  return list;
-}
 
 type GridItem = { model: string; subtypeName: string; subtypeSlug: string };
 
@@ -82,31 +58,14 @@ export default function EquipmentCategoryExplorer() {
     ? previewImageByCategory[activeCategory.key] ?? "/hero2.png"
     : "/hero2.png";
 
-  const warmEquipmentGrid = useCallback((categoryKey: string, subtype: "all" | string) => {
-    warmImageSrcs(collectEquipmentImageUrls(categoryKey, subtype).slice(0, EQUIP_PREWARM_MAX));
+  const setCategory = useCallback((key: string) => {
+    setActiveKey(key);
+    setSubtypeFilter("all");
   }, []);
 
-  const setCategory = useCallback(
-    (key: string) => {
-      warmEquipmentGrid(key, "all");
-      setActiveKey(key);
-      setSubtypeFilter("all");
-    },
-    [warmEquipmentGrid],
-  );
-
-  const applySubtype = useCallback(
-    (slug: "all" | string) => {
-      warmEquipmentGrid(activeKey, slug);
-      setSubtypeFilter(slug);
-    },
-    [activeKey, warmEquipmentGrid],
-  );
-
-  useEffect(() => {
-    const first = displayEquipmentCatalog[0]?.key;
-    if (first) warmEquipmentGrid(first, "all");
-  }, [warmEquipmentGrid]);
+  const applySubtype = useCallback((slug: "all" | string) => {
+    setSubtypeFilter(slug);
+  }, []);
 
   if (!activeCategory) return null;
 
@@ -148,7 +107,6 @@ export default function EquipmentCategoryExplorer() {
                 type="button"
                 role="tab"
                 aria-selected={selected}
-                onPointerDown={() => warmEquipmentGrid(key, "all")}
                 onClick={() => setCategory(key)}
                 className={[
                   "catalog-tab relative shrink-0 border-b-[3px] px-3 py-3.5 text-[10px] font-bold uppercase tracking-[0.1em] md:px-5 md:py-4 md:text-[11px]",
@@ -177,7 +135,6 @@ export default function EquipmentCategoryExplorer() {
               <button
                 key={sub.slug}
                 type="button"
-                onPointerDown={() => warmEquipmentGrid(activeCategory.key, sub.slug)}
                 onClick={() => applySubtype(sub.slug)}
                 className={filterBtn(subtypeFilter === sub.slug)}
               >
@@ -210,7 +167,6 @@ export default function EquipmentCategoryExplorer() {
                   <li key={sub.slug}>
                     <button
                       type="button"
-                      onPointerDown={() => warmEquipmentGrid(activeCategory.key, sub.slug)}
                       onClick={() => applySubtype(sub.slug)}
                       className={filterBtnDesktop(subtypeFilter === sub.slug)}
                     >
