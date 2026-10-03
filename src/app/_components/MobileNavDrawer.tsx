@@ -94,9 +94,8 @@ function MobileNavDrawerInner() {
           </div>
 
           <nav
-            className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-2 scroll-smooth"
+            className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-2"
             aria-label="Primary"
-            data-lenis-prevent
           >
             <ul className="space-y-1">
               <li>

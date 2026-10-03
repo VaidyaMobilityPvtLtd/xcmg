@@ -93,7 +93,6 @@ export default function SiteHeader() {
               </div>
               <div
                 className="max-h-[min(58vh,480px)] overflow-y-auto overscroll-contain px-4 py-4 sm:px-5 sm:py-4"
-                data-lenis-prevent
               >
                 <div className="grid grid-cols-1 items-stretch gap-3 sm:grid-cols-2 sm:gap-3.5">
                   {displayEquipmentCatalog.map((category) => {

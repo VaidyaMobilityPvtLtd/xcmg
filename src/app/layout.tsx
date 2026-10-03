@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
-import ScrollSmoothShell from "./_components/ScrollSmoothShell";
 import SmoothPage from "./_components/SmoothPage";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -44,9 +43,7 @@ export default function RootLayout({
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans text-[#0f172a]">
-        <ScrollSmoothShell>
-          <SmoothPage>{children}</SmoothPage>
-        </ScrollSmoothShell>
+        <SmoothPage>{children}</SmoothPage>
       </body>
          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-XFR8ND9V1J" } />
     </html>
