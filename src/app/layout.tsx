@@ -45,7 +45,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col font-sans text-[#0f172a]">
         <SmoothPage>{children}</SmoothPage>
       </body>
-         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-XFR8ND9V1J" } />
+         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-66QE6G75TF" } />
     </html>
   );
 }
