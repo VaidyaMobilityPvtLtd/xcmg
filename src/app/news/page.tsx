@@ -178,7 +178,7 @@ export default function NewsPage() {
                 </h2>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#64748b]">
                   The updates, feature story, project list, and testimonial in this part of the page are about{" "}
-                  <span className="font-semibold text-[var(--brand-blue)]">Nepal</span>—XCMG with UHEEM as the
+                  <span className="font-semibold text-[var(--brand-blue)]">Nepal</span>,XCMG with UHEEM as the
                   authorized distributor. International stories are in the section below titled{" "}
                   <span className="font-semibold text-[var(--brand-blue)]">International news</span>.
                 </p>
