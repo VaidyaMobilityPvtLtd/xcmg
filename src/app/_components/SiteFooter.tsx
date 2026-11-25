@@ -170,8 +170,16 @@ export default function SiteFooter() {
           </section>
         </div>
 
-        <div className="mt-10 border-t border-[var(--border-subtle)] pt-5 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-[#64748b]">
-          © {new Date().getFullYear()} XCMG Nepal. All Rights Reserved.
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-[var(--border-subtle)] pt-5 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-[#64748b] sm:flex-row sm:text-left">
+          <p>© {new Date().getFullYear()} XCMG Nepal. All Rights Reserved.</p>
+          <nav aria-label="Legal documents" className="flex flex-wrap justify-center gap-x-5 gap-y-2 sm:justify-end">
+            <Link href="/privacy-policy" className="transition-colors hover:text-[var(--brand-blue)]">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-and-conditions" className="transition-colors hover:text-[var(--brand-blue)]">
+              Terms &amp; Conditions
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
